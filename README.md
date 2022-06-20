@@ -5,7 +5,7 @@
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 [![license](https://img.shields.io/npm/l/react-native-deepar.svg)](https://github.com/ridvanaltun/react-native-deepar/blob/master/LICENSE)
 
-> DeepAR wrapper for React-Native
+> [DeepAR](https://www.deepar.ai/) wrapper for React-Native
 
 # Table of Contents <!-- omit in toc -->
 
@@ -75,7 +75,8 @@ const App = () => {
       apiKey="your-api-key"
       style={{ flex: 1 }}
       onInitialized={() => {
-        // Called when the DeepAR is initialized. DeepAR methods should not be called before the initialization is completed.
+        // Called when the DeepAR is initialized.
+        // DeepAR methods should not be called before the initialization is completed.
       }}
       onEffectSwitched={(slot: String) => {
         // Called when an effect has been switched.
@@ -87,7 +88,8 @@ const App = () => {
         // Called when the video recording is prepared.
       }}
       onVideoRecordingStarted={() => {
-        // The start of the video recording process is not synchronous, so this method will be called when the video recording is started.
+        // The start of the video recording process is not synchronous,
+        // so this method will be called when the video recording is started.
       }}
       onVideoRecordingFinished={(path: String) => {
         // Called when the video recording is finished.
@@ -102,7 +104,8 @@ const App = () => {
         // Called when a natural image is being tracked and the visibility has changed.
       }}
       onError={(errorText: String) => {
-        // Called when an error occur - like the model path not found or the effect file failed to load.
+        // Called when an error occur
+        // like the model path not found or the effect file failed to load.
       }}
     />
   );
