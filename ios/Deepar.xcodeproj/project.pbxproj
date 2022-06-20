@@ -6,12 +6,6 @@
 	objectVersion = 46;
 	objects = {
 
-/* Begin PBXBuildFile section */
-
-		5E555C0D2413F4C50049A1A2 /* Deepar.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E7B5891CC2AC0600A0062D /* Deepar.m */; };
-
-/* End PBXBuildFile section */
-
 /* Begin PBXCopyFilesBuildPhase section */
 		58B511D91A9E6C8500147676 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -26,10 +20,10 @@
 
 /* Begin PBXFileReference section */
 		134814201AA4EA6300B7C361 /* libDeepar.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libDeepar.a; sourceTree = BUILT_PRODUCTS_DIR; };
-
-		B3E7B5881CC2AC0600A0062D /* Deepar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Deepar.h; sourceTree = "<group>"; };
-		B3E7B5891CC2AC0600A0062D /* Deepar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Deepar.m; sourceTree = "<group>"; };
-
+		E3B60F132854B1AD00DC30AA /* RNTDeepARViewManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNTDeepARViewManager.m; sourceTree = "<group>"; };
+		E3B60F162854B3CD00DC30AA /* RNTDeepARViewManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNTDeepARViewManager.h; sourceTree = "<group>"; };
+		E3B60F172854B63C00DC30AA /* RNTDeepAR.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNTDeepAR.h; sourceTree = "<group>"; };
+		E3B60F182854B65200DC30AA /* RNTDeepAR.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNTDeepAR.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,10 +48,10 @@
 		58B511D21A9E6C8500147676 = {
 			isa = PBXGroup;
 			children = (
-
-				B3E7B5881CC2AC0600A0062D /* Deepar.h */,
-				B3E7B5891CC2AC0600A0062D /* Deepar.m */,
-
+				E3B60F182854B65200DC30AA /* RNTDeepAR.m */,
+				E3B60F172854B63C00DC30AA /* RNTDeepAR.h */,
+				E3B60F162854B3CD00DC30AA /* RNTDeepARViewManager.h */,
+				E3B60F132854B1AD00DC30AA /* RNTDeepARViewManager.m */,
 				134814211AA4EA7D00B7C361 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -65,9 +59,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		58B511DA1A9E6C8500147676 /* Deepar */ = {
+		58B511DA1A9E6C8500147676 /* DeepAR */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 58B511EF1A9E6C8500147676 /* Build configuration list for PBXNativeTarget "Deepar" */;
+			buildConfigurationList = 58B511EF1A9E6C8500147676 /* Build configuration list for PBXNativeTarget "DeepAR" */;
 			buildPhases = (
 				58B511D71A9E6C8500147676 /* Sources */,
 				58B511D81A9E6C8500147676 /* Frameworks */,
@@ -77,7 +71,7 @@
 			);
 			dependencies = (
 			);
-			name = Deepar;
+			name = DeepAR;
 			productName = RCTDataManager;
 			productReference = 134814201AA4EA6300B7C361 /* libDeepar.a */;
 			productType = "com.apple.product-type.library.static";
@@ -96,7 +90,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 58B511D61A9E6C8500147676 /* Build configuration list for PBXProject "Deepar" */;
+			buildConfigurationList = 58B511D61A9E6C8500147676 /* Build configuration list for PBXProject "DeepAR" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -109,7 +103,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				58B511DA1A9E6C8500147676 /* Deepar */,
+				58B511DA1A9E6C8500147676 /* DeepAR */,
 			);
 		};
 /* End PBXProject section */
@@ -119,9 +113,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-
-				B3E7B58A1CC2AC0600A0062D /* Deepar.m in Sources */,
-
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -172,6 +163,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -215,6 +207,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -224,6 +217,12 @@
 		58B511F01A9E6C8500147676 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(SRCROOT)/Frameworks",
+					"$(PROJECT_DIR)/Frameworks",
+				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
@@ -234,13 +233,18 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = Deepar;
 				SKIP_INSTALL = YES;
-
 			};
 			name = Debug;
 		};
 		58B511F11A9E6C8500147676 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(SRCROOT)/Frameworks",
+					"$(PROJECT_DIR)/Frameworks",
+				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
@@ -251,14 +255,13 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = Deepar;
 				SKIP_INSTALL = YES;
-
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		58B511D61A9E6C8500147676 /* Build configuration list for PBXProject "Deepar" */ = {
+		58B511D61A9E6C8500147676 /* Build configuration list for PBXProject "DeepAR" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				58B511ED1A9E6C8500147676 /* Debug */,
@@ -267,7 +270,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		58B511EF1A9E6C8500147676 /* Build configuration list for PBXNativeTarget "Deepar" */ = {
+		58B511EF1A9E6C8500147676 /* Build configuration list for PBXNativeTarget "DeepAR" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				58B511F01A9E6C8500147676 /* Debug */,

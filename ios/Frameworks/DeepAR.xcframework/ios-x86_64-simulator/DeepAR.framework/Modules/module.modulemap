@@ -1,0 +1,5 @@
+framework module DeepAR {
+  umbrella header "DeepAR.h"
+  export *
+  module * { export * }
+}

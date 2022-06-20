@@ -1,970 +1,812 @@
 // !$*UTF8*$!
 {
-  archiveVersion = 1;
-  classes = {
-  };
-  objectVersion = 46;
-  objects = {
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 54;
+	objects = {
 
 /* Begin PBXBuildFile section */
-    00E356F31AD99517003FC87E /* DeeparExampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* DeeparExampleTests.m */; };
-    09EB680D46FE12310629C227 /* libPods-DeeparExample-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B56BA239C969F702C63633C7 /* libPods-DeeparExample-tvOS.a */; };
-    13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
-    13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
-    13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-    2D02E4BC1E0B4A80006451C7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
-    2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
-    2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-    2DCD954D1E0B4F2C00145EB5 /* DeeparExampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* DeeparExampleTests.m */; };
-    3DDF5FAE064BC4BFAB015043 /* libPods-DeeparExample-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F6A20A3A2D31400635C17C3 /* libPods-DeeparExample-tvOSTests.a */; };
-    4C39C56BAD484C67AA576FFA /* libPods-DeeparExample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CA3E69C5B9553B26FBA2DF04 /* libPods-DeeparExample.a */; };
-    69AF7E46C79455F135C08478 /* libPods-DeeparExample-DeeparExampleTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7533C965B72700ED5E109803 /* libPods-DeeparExample-DeeparExampleTests.a */; };
-    81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		00CB5FFF345142BFAB073EFA /* emotions_exaggerator in Resources */ = {isa = PBXBuildFile; fileRef = 21E599B7B73441AC8CDD9DE9 /* emotions_exaggerator */; };
+		00E356F31AD99517003FC87E /* DeepARExampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* DeepARExampleTests.m */; };
+		0C800B54079A4B75BE19101B /* hair_segmentation in Resources */ = {isa = PBXBuildFile; fileRef = 4698676F8707465EBB568538 /* hair_segmentation */; };
+		0C80B921A6F3F58F76C31292 /* libPods-DeepARExample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DCACB8F33CDC322A6C60F78 /* libPods-DeepARExample.a */; };
+		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
+		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
+		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		13EB6700CA3740C188E57846 /* aviators in Resources */ = {isa = PBXBuildFile; fileRef = B09D89ABE8F949F486790E89 /* aviators */; };
+		1818FD18A21C41CA8A467D77 /* scuba in Resources */ = {isa = PBXBuildFile; fileRef = 17DCCF2F555749CBB5B344E4 /* scuba */; };
+		298685AB69E1464D94C8EA6F /* topology in Resources */ = {isa = PBXBuildFile; fileRef = D4B0CF3C226042C7ADD4387F /* topology */; };
+		319E970ED83B4209BFE41416 /* look2 in Resources */ = {isa = PBXBuildFile; fileRef = 3ED9B35DF6DB4EE8A2277B54 /* look2 */; };
+		475D079FB8A344BEA79ED17D /* fairy_lights in Resources */ = {isa = PBXBuildFile; fileRef = E549236312D347BAA5DD917F /* fairy_lights */; };
+		4CEE6FC964E54856AE4580A7 /* tape_face in Resources */ = {isa = PBXBuildFile; fileRef = 0914D8FB54A14A1388D5D360 /* tape_face */; };
+		6156868CD2904CB993B3EC3E /* background_segmentation in Resources */ = {isa = PBXBuildFile; fileRef = 9B6D4B8FF2C04AA2ABD9148C /* background_segmentation */; };
+		686B9C0FA84547E8B3EAA685 /* beard in Resources */ = {isa = PBXBuildFile; fileRef = A00A8A52A5514A3B9DD69BC3 /* beard */; };
+		6EB1AFA50D1D472FB84AFF4C /* frankenstein in Resources */ = {isa = PBXBuildFile; fileRef = FBDA78A7D19B4C8AA649D5EA /* frankenstein */; };
+		7699B88040F8A987B510C191 /* libPods-DeepARExample-DeepARExampleTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-DeepARExample-DeepARExampleTests.a */; };
+		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		922FB68A931C451DA003B26C /* plastic_ocean in Resources */ = {isa = PBXBuildFile; fileRef = 6E56DDABDDDF4A3F997C7304 /* plastic_ocean */; };
+		9E1306DBBD6A49E396B10DC9 /* flower_crown in Resources */ = {isa = PBXBuildFile; fileRef = 43AB9FB8D98F4493A642F7BC /* flower_crown */; };
+		B5A251FC4C5141D3A5FB67A1 /* ping_pong in Resources */ = {isa = PBXBuildFile; fileRef = 620A4AECB3654FC3B0BAD990 /* ping_pong */; };
+		B7347BC379774B4E95960472 /* fire_effect in Resources */ = {isa = PBXBuildFile; fileRef = BBE9CACC4E494C5688471D78 /* fire_effect */; };
+		B8F14816E81845E4888D41C0 /* viking_helmet in Resources */ = {isa = PBXBuildFile; fileRef = 6442CE00FBE943318DEC230E /* viking_helmet */; };
+		B9C6D6D63DA94F7EAAAACF99 /* stallone in Resources */ = {isa = PBXBuildFile; fileRef = 06FE57D2A9A1493683886FF2 /* stallone */; };
+		BB2BC15044164EA9B3644287 /* ball_face in Resources */ = {isa = PBXBuildFile; fileRef = 9E94A08033774ACCB0D0DDE0 /* ball_face */; };
+		BD950589DF824D9B980BAB3B /* humanoid in Resources */ = {isa = PBXBuildFile; fileRef = 94029A43571E45E681C4C2B8 /* humanoid */; };
+		BE3B4487667544768DD7F8A3 /* beauty in Resources */ = {isa = PBXBuildFile; fileRef = DAA11144EB104BCB9C6D8CF2 /* beauty */; };
+		C038C9BC5BDA4F05A2976655 /* look1 in Resources */ = {isa = PBXBuildFile; fileRef = 9911BA2EC461446CB9CCDF23 /* look1 */; };
+		C45608ADEE58499980609A68 /* tiny_sunglasses in Resources */ = {isa = PBXBuildFile; fileRef = B4B5BED83CB44C42B29FAD79 /* tiny_sunglasses */; };
+		D8C5551BAB00457E9C0A1EEC /* emotion_meter in Resources */ = {isa = PBXBuildFile; fileRef = C30C9D9E5E5242BF9533BF69 /* emotion_meter */; };
+		ED717F5F5E224CA0A79DBF82 /* manly_face in Resources */ = {isa = PBXBuildFile; fileRef = 2715548AD30B491D9782100D /* manly_face */; };
+		F44D9D0DAD654FD7A36CFFF0 /* lion in Resources */ = {isa = PBXBuildFile; fileRef = CC72BD5E482644C1A10CCDAD /* lion */; };
+		F5FA85A2958E4A07B772B855 /* pumpkin in Resources */ = {isa = PBXBuildFile; fileRef = 553826421ACE4AA1BC7F91BA /* pumpkin */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-    00E356F41AD99517003FC87E /* PBXContainerItemProxy */ = {
-      isa = PBXContainerItemProxy;
-      containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
-      proxyType = 1;
-      remoteGlobalIDString = 13B07F861A680F5B00A75B9A;
-      remoteInfo = DeeparExample;
-    };
-    2D02E4911E0B4A5D006451C7 /* PBXContainerItemProxy */ = {
-      isa = PBXContainerItemProxy;
-      containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
-      proxyType = 1;
-      remoteGlobalIDString = 2D02E47A1E0B4A5D006451C7;
-      remoteInfo = "DeeparExample-tvOS";
-    };
+		00E356F41AD99517003FC87E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 13B07F861A680F5B00A75B9A;
+			remoteInfo = DeepARExample;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-    008F07F21AC5B25A0029DE68 /* main.jsbundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = main.jsbundle; sourceTree = "<group>"; };
-    00E356EE1AD99517003FC87E /* DeeparExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DeeparExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-    00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-    00E356F21AD99517003FC87E /* DeeparExampleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DeeparExampleTests.m; sourceTree = "<group>"; };
-    1172626FD82B50406EC37522 /* Pods-DeeparExample-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DeeparExample-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-DeeparExample-tvOSTests/Pods-DeeparExample-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
-    13B07F961A680F5B00A75B9A /* DeeparExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DeeparExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
-    13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = DeeparExample/AppDelegate.h; sourceTree = "<group>"; };
-    13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = DeeparExample/AppDelegate.m; sourceTree = "<group>"; };
-    13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = DeeparExample/Images.xcassets; sourceTree = "<group>"; };
-    13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = DeeparExample/Info.plist; sourceTree = "<group>"; };
-    13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = DeeparExample/main.m; sourceTree = "<group>"; };
-    20AB94514737C20DFC4350AE /* Pods-DeeparExample-DeeparExampleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DeeparExample-DeeparExampleTests.debug.xcconfig"; path = "Target Support Files/Pods-DeeparExample-DeeparExampleTests/Pods-DeeparExample-DeeparExampleTests.debug.xcconfig"; sourceTree = "<group>"; };
-    2D02E47B1E0B4A5D006451C7 /* DeeparExample-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DeeparExample-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-    2D02E4901E0B4A5D006451C7 /* DeeparExample-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "DeeparExample-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-    47F7ED3B7971BE374F7B8635 /* Pods-DeeparExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DeeparExample.debug.xcconfig"; path = "Target Support Files/Pods-DeeparExample/Pods-DeeparExample.debug.xcconfig"; sourceTree = "<group>"; };
-    6F6A20A3A2D31400635C17C3 /* libPods-DeeparExample-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DeeparExample-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-    7533C965B72700ED5E109803 /* libPods-DeeparExample-DeeparExampleTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DeeparExample-DeeparExampleTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-    81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = DeeparExample/LaunchScreen.storyboard; sourceTree = "<group>"; };
-    AE69546072F7DC475F196F4C /* Pods-DeeparExample-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DeeparExample-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-DeeparExample-tvOS/Pods-DeeparExample-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
-    B56BA239C969F702C63633C7 /* libPods-DeeparExample-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DeeparExample-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-    CA3E69C5B9553B26FBA2DF04 /* libPods-DeeparExample.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DeeparExample.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-    E00ACF0FDA8BF921659E2F9A /* Pods-DeeparExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DeeparExample.release.xcconfig"; path = "Target Support Files/Pods-DeeparExample/Pods-DeeparExample.release.xcconfig"; sourceTree = "<group>"; };
-    E88D904CC5F3CC947B01AB46 /* Pods-DeeparExample-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DeeparExample-tvOS.release.xcconfig"; path = "Target Support Files/Pods-DeeparExample-tvOS/Pods-DeeparExample-tvOS.release.xcconfig"; sourceTree = "<group>"; };
-    EC1294380F6AD2F72CA45BA5 /* Pods-DeeparExample-DeeparExampleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DeeparExample-DeeparExampleTests.release.xcconfig"; path = "Target Support Files/Pods-DeeparExample-DeeparExampleTests/Pods-DeeparExample-DeeparExampleTests.release.xcconfig"; sourceTree = "<group>"; };
-    ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
-    ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
-    FFD6887008BEF5F1A6973F45 /* Pods-DeeparExample-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DeeparExample-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-DeeparExample-tvOSTests/Pods-DeeparExample-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
+		00E356EE1AD99517003FC87E /* DeepARExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DeepARExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		00E356F21AD99517003FC87E /* DeepARExampleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DeepARExampleTests.m; sourceTree = "<group>"; };
+		06FE57D2A9A1493683886FF2 /* stallone */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = stallone; path = ../assets/effects/stallone; sourceTree = "<group>"; };
+		0914D8FB54A14A1388D5D360 /* tape_face */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = tape_face; path = ../assets/effects/tape_face; sourceTree = "<group>"; };
+		13B07F961A680F5B00A75B9A /* DeepARExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DeepARExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = DeepARExample/AppDelegate.h; sourceTree = "<group>"; };
+		13B07FB01A68108700A75B9A /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = DeepARExample/AppDelegate.mm; sourceTree = "<group>"; };
+		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = DeepARExample/Images.xcassets; sourceTree = "<group>"; };
+		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = DeepARExample/Info.plist; sourceTree = "<group>"; };
+		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = DeepARExample/main.m; sourceTree = "<group>"; };
+		17DCCF2F555749CBB5B344E4 /* scuba */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = scuba; path = ../assets/effects/scuba; sourceTree = "<group>"; };
+		19F6CBCC0A4E27FBF8BF4A61 /* libPods-DeepARExample-DeepARExampleTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DeepARExample-DeepARExampleTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		21E599B7B73441AC8CDD9DE9 /* emotions_exaggerator */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = emotions_exaggerator; path = ../assets/effects/emotions_exaggerator; sourceTree = "<group>"; };
+		2715548AD30B491D9782100D /* manly_face */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = manly_face; path = ../assets/effects/manly_face; sourceTree = "<group>"; };
+		3B4392A12AC88292D35C810B /* Pods-DeepARExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DeepARExample.debug.xcconfig"; path = "Target Support Files/Pods-DeepARExample/Pods-DeepARExample.debug.xcconfig"; sourceTree = "<group>"; };
+		3ED9B35DF6DB4EE8A2277B54 /* look2 */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = look2; path = ../assets/effects/look2; sourceTree = "<group>"; };
+		43AB9FB8D98F4493A642F7BC /* flower_crown */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = flower_crown; path = ../assets/effects/flower_crown; sourceTree = "<group>"; };
+		4698676F8707465EBB568538 /* hair_segmentation */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = hair_segmentation; path = ../assets/effects/hair_segmentation; sourceTree = "<group>"; };
+		553826421ACE4AA1BC7F91BA /* pumpkin */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = pumpkin; path = ../assets/effects/pumpkin; sourceTree = "<group>"; };
+		5709B34CF0A7D63546082F79 /* Pods-DeepARExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DeepARExample.release.xcconfig"; path = "Target Support Files/Pods-DeepARExample/Pods-DeepARExample.release.xcconfig"; sourceTree = "<group>"; };
+		5B7EB9410499542E8C5724F5 /* Pods-DeepARExample-DeepARExampleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DeepARExample-DeepARExampleTests.debug.xcconfig"; path = "Target Support Files/Pods-DeepARExample-DeepARExampleTests/Pods-DeepARExample-DeepARExampleTests.debug.xcconfig"; sourceTree = "<group>"; };
+		5DCACB8F33CDC322A6C60F78 /* libPods-DeepARExample.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DeepARExample.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		620A4AECB3654FC3B0BAD990 /* ping_pong */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = ping_pong; path = ../assets/effects/ping_pong; sourceTree = "<group>"; };
+		6442CE00FBE943318DEC230E /* viking_helmet */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = viking_helmet; path = ../assets/effects/viking_helmet; sourceTree = "<group>"; };
+		6E56DDABDDDF4A3F997C7304 /* plastic_ocean */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = plastic_ocean; path = ../assets/effects/plastic_ocean; sourceTree = "<group>"; };
+		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = DeepARExample/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		89C6BE57DB24E9ADA2F236DE /* Pods-DeepARExample-DeepARExampleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DeepARExample-DeepARExampleTests.release.xcconfig"; path = "Target Support Files/Pods-DeepARExample-DeepARExampleTests/Pods-DeepARExample-DeepARExampleTests.release.xcconfig"; sourceTree = "<group>"; };
+		94029A43571E45E681C4C2B8 /* humanoid */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = humanoid; path = ../assets/effects/humanoid; sourceTree = "<group>"; };
+		9911BA2EC461446CB9CCDF23 /* look1 */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = look1; path = ../assets/effects/look1; sourceTree = "<group>"; };
+		9B6D4B8FF2C04AA2ABD9148C /* background_segmentation */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = background_segmentation; path = ../assets/effects/background_segmentation; sourceTree = "<group>"; };
+		9E94A08033774ACCB0D0DDE0 /* ball_face */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = ball_face; path = ../assets/effects/ball_face; sourceTree = "<group>"; };
+		A00A8A52A5514A3B9DD69BC3 /* beard */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = beard; path = ../assets/effects/beard; sourceTree = "<group>"; };
+		B09D89ABE8F949F486790E89 /* aviators */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = aviators; path = ../assets/effects/aviators; sourceTree = "<group>"; };
+		B4B5BED83CB44C42B29FAD79 /* tiny_sunglasses */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = tiny_sunglasses; path = ../assets/effects/tiny_sunglasses; sourceTree = "<group>"; };
+		BBE9CACC4E494C5688471D78 /* fire_effect */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = fire_effect; path = ../assets/effects/fire_effect; sourceTree = "<group>"; };
+		C30C9D9E5E5242BF9533BF69 /* emotion_meter */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = emotion_meter; path = ../assets/effects/emotion_meter; sourceTree = "<group>"; };
+		CC72BD5E482644C1A10CCDAD /* lion */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = lion; path = ../assets/effects/lion; sourceTree = "<group>"; };
+		D4B0CF3C226042C7ADD4387F /* topology */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = topology; path = ../assets/effects/topology; sourceTree = "<group>"; };
+		DAA11144EB104BCB9C6D8CF2 /* beauty */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = beauty; path = ../assets/effects/beauty; sourceTree = "<group>"; };
+		E549236312D347BAA5DD917F /* fairy_lights */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = fairy_lights; path = ../assets/effects/fairy_lights; sourceTree = "<group>"; };
+		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		FBDA78A7D19B4C8AA649D5EA /* frankenstein */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = frankenstein; path = ../assets/effects/frankenstein; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-    00E356EB1AD99517003FC87E /* Frameworks */ = {
-      isa = PBXFrameworksBuildPhase;
-      buildActionMask = 2147483647;
-      files = (
-        69AF7E46C79455F135C08478 /* libPods-DeeparExample-DeeparExampleTests.a in Frameworks */,
-      );
-      runOnlyForDeploymentPostprocessing = 0;
-    };
-    13B07F8C1A680F5B00A75B9A /* Frameworks */ = {
-      isa = PBXFrameworksBuildPhase;
-      buildActionMask = 2147483647;
-      files = (
-        4C39C56BAD484C67AA576FFA /* libPods-DeeparExample.a in Frameworks */,
-      );
-      runOnlyForDeploymentPostprocessing = 0;
-    };
-    2D02E4781E0B4A5D006451C7 /* Frameworks */ = {
-      isa = PBXFrameworksBuildPhase;
-      buildActionMask = 2147483647;
-      files = (
-        09EB680D46FE12310629C227 /* libPods-DeeparExample-tvOS.a in Frameworks */,
-      );
-      runOnlyForDeploymentPostprocessing = 0;
-    };
-    2D02E48D1E0B4A5D006451C7 /* Frameworks */ = {
-      isa = PBXFrameworksBuildPhase;
-      buildActionMask = 2147483647;
-      files = (
-        3DDF5FAE064BC4BFAB015043 /* libPods-DeeparExample-tvOSTests.a in Frameworks */,
-      );
-      runOnlyForDeploymentPostprocessing = 0;
-    };
+		00E356EB1AD99517003FC87E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7699B88040F8A987B510C191 /* libPods-DeepARExample-DeepARExampleTests.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		13B07F8C1A680F5B00A75B9A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0C80B921A6F3F58F76C31292 /* libPods-DeepARExample.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-    00E356EF1AD99517003FC87E /* DeeparExampleTests */ = {
-      isa = PBXGroup;
-      children = (
-        00E356F21AD99517003FC87E /* DeeparExampleTests.m */,
-        00E356F01AD99517003FC87E /* Supporting Files */,
-      );
-      path = DeeparExampleTests;
-      sourceTree = "<group>";
-    };
-    00E356F01AD99517003FC87E /* Supporting Files */ = {
-      isa = PBXGroup;
-      children = (
-        00E356F11AD99517003FC87E /* Info.plist */,
-      );
-      name = "Supporting Files";
-      sourceTree = "<group>";
-    };
-    13B07FAE1A68108700A75B9A /* DeeparExample */ = {
-      isa = PBXGroup;
-      children = (
-        008F07F21AC5B25A0029DE68 /* main.jsbundle */,
-        13B07FAF1A68108700A75B9A /* AppDelegate.h */,
-        13B07FB01A68108700A75B9A /* AppDelegate.m */,
-        13B07FB51A68108700A75B9A /* Images.xcassets */,
-        13B07FB61A68108700A75B9A /* Info.plist */,
-        81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
-        13B07FB71A68108700A75B9A /* main.m */,
-      );
-      name = DeeparExample;
-      sourceTree = "<group>";
-    };
-    2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
-      isa = PBXGroup;
-      children = (
-        ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-        ED2971642150620600B7C4FE /* JavaScriptCore.framework */,
-        CA3E69C5B9553B26FBA2DF04 /* libPods-DeeparExample.a */,
-        7533C965B72700ED5E109803 /* libPods-DeeparExample-DeeparExampleTests.a */,
-        B56BA239C969F702C63633C7 /* libPods-DeeparExample-tvOS.a */,
-        6F6A20A3A2D31400635C17C3 /* libPods-DeeparExample-tvOSTests.a */,
-      );
-      name = Frameworks;
-      sourceTree = "<group>";
-    };
-    6B9684456A2045ADE5A6E47E /* Pods */ = {
-      isa = PBXGroup;
-      children = (
-        47F7ED3B7971BE374F7B8635 /* Pods-DeeparExample.debug.xcconfig */,
-        E00ACF0FDA8BF921659E2F9A /* Pods-DeeparExample.release.xcconfig */,
-        20AB94514737C20DFC4350AE /* Pods-DeeparExample-DeeparExampleTests.debug.xcconfig */,
-        EC1294380F6AD2F72CA45BA5 /* Pods-DeeparExample-DeeparExampleTests.release.xcconfig */,
-        AE69546072F7DC475F196F4C /* Pods-DeeparExample-tvOS.debug.xcconfig */,
-        E88D904CC5F3CC947B01AB46 /* Pods-DeeparExample-tvOS.release.xcconfig */,
-        FFD6887008BEF5F1A6973F45 /* Pods-DeeparExample-tvOSTests.debug.xcconfig */,
-        1172626FD82B50406EC37522 /* Pods-DeeparExample-tvOSTests.release.xcconfig */,
-      );
-      name = Pods;
-      path = Pods;
-      sourceTree = "<group>";
-    };
-    832341AE1AAA6A7D00B99B32 /* Libraries */ = {
-      isa = PBXGroup;
-      children = (
-      );
-      name = Libraries;
-      sourceTree = "<group>";
-    };
-    83CBB9F61A601CBA00E9B192 = {
-      isa = PBXGroup;
-      children = (
-        13B07FAE1A68108700A75B9A /* DeeparExample */,
-        832341AE1AAA6A7D00B99B32 /* Libraries */,
-        00E356EF1AD99517003FC87E /* DeeparExampleTests */,
-        83CBBA001A601CBA00E9B192 /* Products */,
-        2D16E6871FA4F8E400B85C8A /* Frameworks */,
-        6B9684456A2045ADE5A6E47E /* Pods */,
-      );
-      indentWidth = 2;
-      sourceTree = "<group>";
-      tabWidth = 2;
-      usesTabs = 0;
-    };
-    83CBBA001A601CBA00E9B192 /* Products */ = {
-      isa = PBXGroup;
-      children = (
-        13B07F961A680F5B00A75B9A /* DeeparExample.app */,
-        00E356EE1AD99517003FC87E /* DeeparExampleTests.xctest */,
-        2D02E47B1E0B4A5D006451C7 /* DeeparExample-tvOS.app */,
-        2D02E4901E0B4A5D006451C7 /* DeeparExample-tvOSTests.xctest */,
-      );
-      name = Products;
-      sourceTree = "<group>";
-    };
+		00E356EF1AD99517003FC87E /* DeepARExampleTests */ = {
+			isa = PBXGroup;
+			children = (
+				00E356F21AD99517003FC87E /* DeepARExampleTests.m */,
+				00E356F01AD99517003FC87E /* Supporting Files */,
+			);
+			path = DeepARExampleTests;
+			sourceTree = "<group>";
+		};
+		00E356F01AD99517003FC87E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				00E356F11AD99517003FC87E /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		13B07FAE1A68108700A75B9A /* DeepARExample */ = {
+			isa = PBXGroup;
+			children = (
+				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
+				13B07FB01A68108700A75B9A /* AppDelegate.mm */,
+				13B07FB51A68108700A75B9A /* Images.xcassets */,
+				13B07FB61A68108700A75B9A /* Info.plist */,
+				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
+				13B07FB71A68108700A75B9A /* main.m */,
+			);
+			name = DeepARExample;
+			sourceTree = "<group>";
+		};
+		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
+				5DCACB8F33CDC322A6C60F78 /* libPods-DeepARExample.a */,
+				19F6CBCC0A4E27FBF8BF4A61 /* libPods-DeepARExample-DeepARExampleTests.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		487A1C0026FC49FFAB8234BE /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B09D89ABE8F949F486790E89 /* aviators */,
+				9B6D4B8FF2C04AA2ABD9148C /* background_segmentation */,
+				9E94A08033774ACCB0D0DDE0 /* ball_face */,
+				A00A8A52A5514A3B9DD69BC3 /* beard */,
+				DAA11144EB104BCB9C6D8CF2 /* beauty */,
+				E549236312D347BAA5DD917F /* fairy_lights */,
+				43AB9FB8D98F4493A642F7BC /* flower_crown */,
+				FBDA78A7D19B4C8AA649D5EA /* frankenstein */,
+				4698676F8707465EBB568538 /* hair_segmentation */,
+				CC72BD5E482644C1A10CCDAD /* lion */,
+				9911BA2EC461446CB9CCDF23 /* look1 */,
+				3ED9B35DF6DB4EE8A2277B54 /* look2 */,
+				2715548AD30B491D9782100D /* manly_face */,
+				6E56DDABDDDF4A3F997C7304 /* plastic_ocean */,
+				553826421ACE4AA1BC7F91BA /* pumpkin */,
+				17DCCF2F555749CBB5B344E4 /* scuba */,
+				0914D8FB54A14A1388D5D360 /* tape_face */,
+				B4B5BED83CB44C42B29FAD79 /* tiny_sunglasses */,
+				D4B0CF3C226042C7ADD4387F /* topology */,
+				6442CE00FBE943318DEC230E /* viking_helmet */,
+				C30C9D9E5E5242BF9533BF69 /* emotion_meter */,
+				21E599B7B73441AC8CDD9DE9 /* emotions_exaggerator */,
+				BBE9CACC4E494C5688471D78 /* fire_effect */,
+				94029A43571E45E681C4C2B8 /* humanoid */,
+				620A4AECB3654FC3B0BAD990 /* ping_pong */,
+				06FE57D2A9A1493683886FF2 /* stallone */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Libraries;
+			sourceTree = "<group>";
+		};
+		83CBB9F61A601CBA00E9B192 = {
+			isa = PBXGroup;
+			children = (
+				13B07FAE1A68108700A75B9A /* DeepARExample */,
+				832341AE1AAA6A7D00B99B32 /* Libraries */,
+				00E356EF1AD99517003FC87E /* DeepARExampleTests */,
+				83CBBA001A601CBA00E9B192 /* Products */,
+				2D16E6871FA4F8E400B85C8A /* Frameworks */,
+				BBD78D7AC51CEA395F1C20DB /* Pods */,
+				487A1C0026FC49FFAB8234BE /* Resources */,
+			);
+			indentWidth = 2;
+			sourceTree = "<group>";
+			tabWidth = 2;
+			usesTabs = 0;
+		};
+		83CBBA001A601CBA00E9B192 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				13B07F961A680F5B00A75B9A /* DeepARExample.app */,
+				00E356EE1AD99517003FC87E /* DeepARExampleTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BBD78D7AC51CEA395F1C20DB /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3B4392A12AC88292D35C810B /* Pods-DeepARExample.debug.xcconfig */,
+				5709B34CF0A7D63546082F79 /* Pods-DeepARExample.release.xcconfig */,
+				5B7EB9410499542E8C5724F5 /* Pods-DeepARExample-DeepARExampleTests.debug.xcconfig */,
+				89C6BE57DB24E9ADA2F236DE /* Pods-DeepARExample-DeepARExampleTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-    00E356ED1AD99517003FC87E /* DeeparExampleTests */ = {
-      isa = PBXNativeTarget;
-      buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "DeeparExampleTests" */;
-      buildPhases = (
-        3BD00D8DB48E257517D6B951 /* [CP] Check Pods Manifest.lock */,
-        00E356EA1AD99517003FC87E /* Sources */,
-        00E356EB1AD99517003FC87E /* Frameworks */,
-        00E356EC1AD99517003FC87E /* Resources */,
-        441170A4DAEF877A820C1CEA /* [CP] Copy Pods Resources */,
-      );
-      buildRules = (
-      );
-      dependencies = (
-        00E356F51AD99517003FC87E /* PBXTargetDependency */,
-      );
-      name = DeeparExampleTests;
-      productName = DeeparExampleTests;
-      productReference = 00E356EE1AD99517003FC87E /* DeeparExampleTests.xctest */;
-      productType = "com.apple.product-type.bundle.unit-test";
-    };
-    13B07F861A680F5B00A75B9A /* DeeparExample */ = {
-      isa = PBXNativeTarget;
-      buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "DeeparExample" */;
-      buildPhases = (
-        4F0A6FC082772762E3E4C96C /* [CP] Check Pods Manifest.lock */,
-        FD10A7F022414F080027D42C /* Start Packager */,
-        13B07F871A680F5B00A75B9A /* Sources */,
-        13B07F8C1A680F5B00A75B9A /* Frameworks */,
-        13B07F8E1A680F5B00A75B9A /* Resources */,
-        00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
-        C1D60D28B925C94BD88E79D7 /* [CP] Copy Pods Resources */,
-      );
-      buildRules = (
-      );
-      dependencies = (
-      );
-      name = DeeparExample;
-      productName = DeeparExample;
-      productReference = 13B07F961A680F5B00A75B9A /* DeeparExample.app */;
-      productType = "com.apple.product-type.application";
-    };
-    2D02E47A1E0B4A5D006451C7 /* DeeparExample-tvOS */ = {
-      isa = PBXNativeTarget;
-      buildConfigurationList = 2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "DeeparExample-tvOS" */;
-      buildPhases = (
-        87811D0F8FEC6FC2E70EDF88 /* [CP] Check Pods Manifest.lock */,
-        FD10A7F122414F3F0027D42C /* Start Packager */,
-        2D02E4771E0B4A5D006451C7 /* Sources */,
-        2D02E4781E0B4A5D006451C7 /* Frameworks */,
-        2D02E4791E0B4A5D006451C7 /* Resources */,
-        2D02E4CB1E0B4B27006451C7 /* Bundle React Native Code And Images */,
-      );
-      buildRules = (
-      );
-      dependencies = (
-      );
-      name = "DeeparExample-tvOS";
-      productName = "DeeparExample-tvOS";
-      productReference = 2D02E47B1E0B4A5D006451C7 /* DeeparExample-tvOS.app */;
-      productType = "com.apple.product-type.application";
-    };
-    2D02E48F1E0B4A5D006451C7 /* DeeparExample-tvOSTests */ = {
-      isa = PBXNativeTarget;
-      buildConfigurationList = 2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "DeeparExample-tvOSTests" */;
-      buildPhases = (
-        A1191D9E34FEA625352E7BA9 /* [CP] Check Pods Manifest.lock */,
-        2D02E48C1E0B4A5D006451C7 /* Sources */,
-        2D02E48D1E0B4A5D006451C7 /* Frameworks */,
-        2D02E48E1E0B4A5D006451C7 /* Resources */,
-      );
-      buildRules = (
-      );
-      dependencies = (
-        2D02E4921E0B4A5D006451C7 /* PBXTargetDependency */,
-      );
-      name = "DeeparExample-tvOSTests";
-      productName = "DeeparExample-tvOSTests";
-      productReference = 2D02E4901E0B4A5D006451C7 /* DeeparExample-tvOSTests.xctest */;
-      productType = "com.apple.product-type.bundle.unit-test";
-    };
+		00E356ED1AD99517003FC87E /* DeepARExampleTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "DeepARExampleTests" */;
+			buildPhases = (
+				A55EABD7B0C7F3A422A6CC61 /* [CP] Check Pods Manifest.lock */,
+				00E356EA1AD99517003FC87E /* Sources */,
+				00E356EB1AD99517003FC87E /* Frameworks */,
+				00E356EC1AD99517003FC87E /* Resources */,
+				C59DA0FBD6956966B86A3779 /* [CP] Embed Pods Frameworks */,
+				F6A41C54EA430FDDC6A6ED99 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				00E356F51AD99517003FC87E /* PBXTargetDependency */,
+			);
+			name = DeepARExampleTests;
+			productName = DeepARExampleTests;
+			productReference = 00E356EE1AD99517003FC87E /* DeepARExampleTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		13B07F861A680F5B00A75B9A /* DeepARExample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "DeepARExample" */;
+			buildPhases = (
+				C38B50BA6285516D6DCD4F65 /* [CP] Check Pods Manifest.lock */,
+				FD10A7F022414F080027D42C /* Start Packager */,
+				13B07F871A680F5B00A75B9A /* Sources */,
+				13B07F8C1A680F5B00A75B9A /* Frameworks */,
+				13B07F8E1A680F5B00A75B9A /* Resources */,
+				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
+				00EEFC60759A1932668264C0 /* [CP] Embed Pods Frameworks */,
+				E235C05ADACE081382539298 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DeepARExample;
+			productName = DeepARExample;
+			productReference = 13B07F961A680F5B00A75B9A /* DeepARExample.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-    83CBB9F71A601CBA00E9B192 /* Project object */ = {
-      isa = PBXProject;
-      attributes = {
-        LastUpgradeCheck = 1130;
-        TargetAttributes = {
-          00E356ED1AD99517003FC87E = {
-            CreatedOnToolsVersion = 6.2;
-            TestTargetID = 13B07F861A680F5B00A75B9A;
-          };
-          13B07F861A680F5B00A75B9A = {
-            LastSwiftMigration = 1120;
-          };
-          2D02E47A1E0B4A5D006451C7 = {
-            CreatedOnToolsVersion = 8.2.1;
-            ProvisioningStyle = Automatic;
-          };
-          2D02E48F1E0B4A5D006451C7 = {
-            CreatedOnToolsVersion = 8.2.1;
-            ProvisioningStyle = Automatic;
-            TestTargetID = 2D02E47A1E0B4A5D006451C7;
-          };
-        };
-      };
-      buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "DeeparExample" */;
-      compatibilityVersion = "Xcode 3.2";
-      developmentRegion = en;
-      hasScannedForEncodings = 0;
-      knownRegions = (
-        en,
-        Base,
-      );
-      mainGroup = 83CBB9F61A601CBA00E9B192;
-      productRefGroup = 83CBBA001A601CBA00E9B192 /* Products */;
-      projectDirPath = "";
-      projectRoot = "";
-      targets = (
-        13B07F861A680F5B00A75B9A /* DeeparExample */,
-        00E356ED1AD99517003FC87E /* DeeparExampleTests */,
-        2D02E47A1E0B4A5D006451C7 /* DeeparExample-tvOS */,
-        2D02E48F1E0B4A5D006451C7 /* DeeparExample-tvOSTests */,
-      );
-    };
+		83CBB9F71A601CBA00E9B192 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1210;
+				TargetAttributes = {
+					00E356ED1AD99517003FC87E = {
+						CreatedOnToolsVersion = 6.2;
+						TestTargetID = 13B07F861A680F5B00A75B9A;
+					};
+					13B07F861A680F5B00A75B9A = {
+						LastSwiftMigration = 1120;
+					};
+				};
+			};
+			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "DeepARExample" */;
+			compatibilityVersion = "Xcode 12.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 83CBB9F61A601CBA00E9B192;
+			productRefGroup = 83CBBA001A601CBA00E9B192 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				13B07F861A680F5B00A75B9A /* DeepARExample */,
+				00E356ED1AD99517003FC87E /* DeepARExampleTests */,
+			);
+		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-    00E356EC1AD99517003FC87E /* Resources */ = {
-      isa = PBXResourcesBuildPhase;
-      buildActionMask = 2147483647;
-      files = (
-      );
-      runOnlyForDeploymentPostprocessing = 0;
-    };
-    13B07F8E1A680F5B00A75B9A /* Resources */ = {
-      isa = PBXResourcesBuildPhase;
-      buildActionMask = 2147483647;
-      files = (
-        81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
-        13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
-      );
-      runOnlyForDeploymentPostprocessing = 0;
-    };
-    2D02E4791E0B4A5D006451C7 /* Resources */ = {
-      isa = PBXResourcesBuildPhase;
-      buildActionMask = 2147483647;
-      files = (
-        2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */,
-      );
-      runOnlyForDeploymentPostprocessing = 0;
-    };
-    2D02E48E1E0B4A5D006451C7 /* Resources */ = {
-      isa = PBXResourcesBuildPhase;
-      buildActionMask = 2147483647;
-      files = (
-      );
-      runOnlyForDeploymentPostprocessing = 0;
-    };
+		00E356EC1AD99517003FC87E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		13B07F8E1A680F5B00A75B9A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
+				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				13EB6700CA3740C188E57846 /* aviators in Resources */,
+				6156868CD2904CB993B3EC3E /* background_segmentation in Resources */,
+				BB2BC15044164EA9B3644287 /* ball_face in Resources */,
+				686B9C0FA84547E8B3EAA685 /* beard in Resources */,
+				BE3B4487667544768DD7F8A3 /* beauty in Resources */,
+				475D079FB8A344BEA79ED17D /* fairy_lights in Resources */,
+				9E1306DBBD6A49E396B10DC9 /* flower_crown in Resources */,
+				6EB1AFA50D1D472FB84AFF4C /* frankenstein in Resources */,
+				0C800B54079A4B75BE19101B /* hair_segmentation in Resources */,
+				F44D9D0DAD654FD7A36CFFF0 /* lion in Resources */,
+				C038C9BC5BDA4F05A2976655 /* look1 in Resources */,
+				319E970ED83B4209BFE41416 /* look2 in Resources */,
+				ED717F5F5E224CA0A79DBF82 /* manly_face in Resources */,
+				922FB68A931C451DA003B26C /* plastic_ocean in Resources */,
+				F5FA85A2958E4A07B772B855 /* pumpkin in Resources */,
+				1818FD18A21C41CA8A467D77 /* scuba in Resources */,
+				4CEE6FC964E54856AE4580A7 /* tape_face in Resources */,
+				C45608ADEE58499980609A68 /* tiny_sunglasses in Resources */,
+				298685AB69E1464D94C8EA6F /* topology in Resources */,
+				B8F14816E81845E4888D41C0 /* viking_helmet in Resources */,
+				D8C5551BAB00457E9C0A1EEC /* emotion_meter in Resources */,
+				00CB5FFF345142BFAB073EFA /* emotions_exaggerator in Resources */,
+				B7347BC379774B4E95960472 /* fire_effect in Resources */,
+				BD950589DF824D9B980BAB3B /* humanoid in Resources */,
+				B5A251FC4C5141D3A5FB67A1 /* ping_pong in Resources */,
+				B9C6D6D63DA94F7EAAAACF99 /* stallone in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-    00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */ = {
-      isa = PBXShellScriptBuildPhase;
-      buildActionMask = 2147483647;
-      files = (
-      );
-      inputPaths = (
-      );
-      name = "Bundle React Native code and images";
-      outputPaths = (
-      );
-      runOnlyForDeploymentPostprocessing = 0;
-      shellPath = /bin/sh;
-      shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
-    };
-    2D02E4CB1E0B4B27006451C7 /* Bundle React Native Code And Images */ = {
-      isa = PBXShellScriptBuildPhase;
-      buildActionMask = 2147483647;
-      files = (
-      );
-      inputPaths = (
-      );
-      name = "Bundle React Native Code And Images";
-      outputPaths = (
-      );
-      runOnlyForDeploymentPostprocessing = 0;
-      shellPath = /bin/sh;
-      shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
-    };
-    3BD00D8DB48E257517D6B951 /* [CP] Check Pods Manifest.lock */ = {
-      isa = PBXShellScriptBuildPhase;
-      buildActionMask = 2147483647;
-      files = (
-      );
-      inputFileListPaths = (
-      );
-      inputPaths = (
-        "${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-        "${PODS_ROOT}/Manifest.lock",
-      );
-      name = "[CP] Check Pods Manifest.lock";
-      outputFileListPaths = (
-      );
-      outputPaths = (
-        "$(DERIVED_FILE_DIR)/Pods-DeeparExample-DeeparExampleTests-checkManifestLockResult.txt",
-      );
-      runOnlyForDeploymentPostprocessing = 0;
-      shellPath = /bin/sh;
-      shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-      showEnvVarsInLog = 0;
-    };
-    441170A4DAEF877A820C1CEA /* [CP] Copy Pods Resources */ = {
-      isa = PBXShellScriptBuildPhase;
-      buildActionMask = 2147483647;
-      files = (
-      );
-      inputPaths = (
-        "${PODS_ROOT}/Target Support Files/Pods-DeeparExample-DeeparExampleTests/Pods-DeeparExample-DeeparExampleTests-resources.sh",
-        "${PODS_CONFIGURATION_BUILD_DIR}/React-Core/AccessibilityResources.bundle",
-      );
-      name = "[CP] Copy Pods Resources";
-      outputPaths = (
-        "${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AccessibilityResources.bundle",
-      );
-      runOnlyForDeploymentPostprocessing = 0;
-      shellPath = /bin/sh;
-      shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DeeparExample-DeeparExampleTests/Pods-DeeparExample-DeeparExampleTests-resources.sh\"\n";
-      showEnvVarsInLog = 0;
-    };
-    4F0A6FC082772762E3E4C96C /* [CP] Check Pods Manifest.lock */ = {
-      isa = PBXShellScriptBuildPhase;
-      buildActionMask = 2147483647;
-      files = (
-      );
-      inputFileListPaths = (
-      );
-      inputPaths = (
-        "${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-        "${PODS_ROOT}/Manifest.lock",
-      );
-      name = "[CP] Check Pods Manifest.lock";
-      outputFileListPaths = (
-      );
-      outputPaths = (
-        "$(DERIVED_FILE_DIR)/Pods-DeeparExample-checkManifestLockResult.txt",
-      );
-      runOnlyForDeploymentPostprocessing = 0;
-      shellPath = /bin/sh;
-      shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-      showEnvVarsInLog = 0;
-    };
-    87811D0F8FEC6FC2E70EDF88 /* [CP] Check Pods Manifest.lock */ = {
-      isa = PBXShellScriptBuildPhase;
-      buildActionMask = 2147483647;
-      files = (
-      );
-      inputFileListPaths = (
-      );
-      inputPaths = (
-        "${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-        "${PODS_ROOT}/Manifest.lock",
-      );
-      name = "[CP] Check Pods Manifest.lock";
-      outputFileListPaths = (
-      );
-      outputPaths = (
-        "$(DERIVED_FILE_DIR)/Pods-DeeparExample-tvOS-checkManifestLockResult.txt",
-      );
-      runOnlyForDeploymentPostprocessing = 0;
-      shellPath = /bin/sh;
-      shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-      showEnvVarsInLog = 0;
-    };
-    A1191D9E34FEA625352E7BA9 /* [CP] Check Pods Manifest.lock */ = {
-      isa = PBXShellScriptBuildPhase;
-      buildActionMask = 2147483647;
-      files = (
-      );
-      inputFileListPaths = (
-      );
-      inputPaths = (
-        "${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-        "${PODS_ROOT}/Manifest.lock",
-      );
-      name = "[CP] Check Pods Manifest.lock";
-      outputFileListPaths = (
-      );
-      outputPaths = (
-        "$(DERIVED_FILE_DIR)/Pods-DeeparExample-tvOSTests-checkManifestLockResult.txt",
-      );
-      runOnlyForDeploymentPostprocessing = 0;
-      shellPath = /bin/sh;
-      shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-      showEnvVarsInLog = 0;
-    };
-    C1D60D28B925C94BD88E79D7 /* [CP] Copy Pods Resources */ = {
-      isa = PBXShellScriptBuildPhase;
-      buildActionMask = 2147483647;
-      files = (
-      );
-      inputPaths = (
-        "${PODS_ROOT}/Target Support Files/Pods-DeeparExample/Pods-DeeparExample-resources.sh",
-        "${PODS_CONFIGURATION_BUILD_DIR}/React-Core/AccessibilityResources.bundle",
-      );
-      name = "[CP] Copy Pods Resources";
-      outputPaths = (
-        "${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AccessibilityResources.bundle",
-      );
-      runOnlyForDeploymentPostprocessing = 0;
-      shellPath = /bin/sh;
-      shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DeeparExample/Pods-DeeparExample-resources.sh\"\n";
-      showEnvVarsInLog = 0;
-    };
-    FD10A7F022414F080027D42C /* Start Packager */ = {
-      isa = PBXShellScriptBuildPhase;
-      buildActionMask = 2147483647;
-      files = (
-      );
-      inputFileListPaths = (
-      );
-      inputPaths = (
-      );
-      name = "Start Packager";
-      outputFileListPaths = (
-      );
-      outputPaths = (
-      );
-      runOnlyForDeploymentPostprocessing = 0;
-      shellPath = /bin/sh;
-      shellScript = "export RCT_METRO_PORT=\"${RCT_METRO_PORT:=8081}\"\necho \"export RCT_METRO_PORT=${RCT_METRO_PORT}\" > \"${SRCROOT}/../node_modules/react-native/scripts/.packager.env\"\nif [ -z \"${RCT_NO_LAUNCH_PACKAGER+xxx}\" ] ; then\n  if nc -w 5 -z localhost ${RCT_METRO_PORT} ; then\n    if ! curl -s \"http://localhost:${RCT_METRO_PORT}/status\" | grep -q \"packager-status:running\" ; then\n      echo \"Port ${RCT_METRO_PORT} already in use, packager is either not running or not running correctly\"\n      exit 2\n    fi\n  else\n    open \"$SRCROOT/../node_modules/react-native/scripts/launchPackager.command\" || echo \"Can't start packager automatically\"\n  fi\nfi\n";
-      showEnvVarsInLog = 0;
-    };
-    FD10A7F122414F3F0027D42C /* Start Packager */ = {
-      isa = PBXShellScriptBuildPhase;
-      buildActionMask = 2147483647;
-      files = (
-      );
-      inputFileListPaths = (
-      );
-      inputPaths = (
-      );
-      name = "Start Packager";
-      outputFileListPaths = (
-      );
-      outputPaths = (
-      );
-      runOnlyForDeploymentPostprocessing = 0;
-      shellPath = /bin/sh;
-      shellScript = "export RCT_METRO_PORT=\"${RCT_METRO_PORT:=8081}\"\necho \"export RCT_METRO_PORT=${RCT_METRO_PORT}\" > \"${SRCROOT}/../node_modules/react-native/scripts/.packager.env\"\nif [ -z \"${RCT_NO_LAUNCH_PACKAGER+xxx}\" ] ; then\n  if nc -w 5 -z localhost ${RCT_METRO_PORT} ; then\n    if ! curl -s \"http://localhost:${RCT_METRO_PORT}/status\" | grep -q \"packager-status:running\" ; then\n      echo \"Port ${RCT_METRO_PORT} already in use, packager is either not running or not running correctly\"\n      exit 2\n    fi\n  else\n    open \"$SRCROOT/../node_modules/react-native/scripts/launchPackager.command\" || echo \"Can't start packager automatically\"\n  fi\nfi\n";
-      showEnvVarsInLog = 0;
-    };
+		00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Bundle React Native code and images";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "set -e\n\nexport NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh\n";
+		};
+		00EEFC60759A1932668264C0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DeepARExample/Pods-DeepARExample-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DeepARExample/Pods-DeepARExample-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DeepARExample/Pods-DeepARExample-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A55EABD7B0C7F3A422A6CC61 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DeepARExample-DeepARExampleTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C38B50BA6285516D6DCD4F65 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DeepARExample-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C59DA0FBD6956966B86A3779 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DeepARExample-DeepARExampleTests/Pods-DeepARExample-DeepARExampleTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DeepARExample-DeepARExampleTests/Pods-DeepARExample-DeepARExampleTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DeepARExample-DeepARExampleTests/Pods-DeepARExample-DeepARExampleTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E235C05ADACE081382539298 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DeepARExample/Pods-DeepARExample-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DeepARExample/Pods-DeepARExample-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DeepARExample/Pods-DeepARExample-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F6A41C54EA430FDDC6A6ED99 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DeepARExample-DeepARExampleTests/Pods-DeepARExample-DeepARExampleTests-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DeepARExample-DeepARExampleTests/Pods-DeepARExample-DeepARExampleTests-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DeepARExample-DeepARExampleTests/Pods-DeepARExample-DeepARExampleTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FD10A7F022414F080027D42C /* Start Packager */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Start Packager";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export RCT_METRO_PORT=\"${RCT_METRO_PORT:=8081}\"\necho \"export RCT_METRO_PORT=${RCT_METRO_PORT}\" > \"${SRCROOT}/../node_modules/react-native/scripts/.packager.env\"\nif [ -z \"${RCT_NO_LAUNCH_PACKAGER+xxx}\" ] ; then\n  if nc -w 5 -z localhost ${RCT_METRO_PORT} ; then\n    if ! curl -s \"http://localhost:${RCT_METRO_PORT}/status\" | grep -q \"packager-status:running\" ; then\n      echo \"Port ${RCT_METRO_PORT} already in use, packager is either not running or not running correctly\"\n      exit 2\n    fi\n  else\n    open \"$SRCROOT/../node_modules/react-native/scripts/launchPackager.command\" || echo \"Can't start packager automatically\"\n  fi\nfi\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-    00E356EA1AD99517003FC87E /* Sources */ = {
-      isa = PBXSourcesBuildPhase;
-      buildActionMask = 2147483647;
-      files = (
-        00E356F31AD99517003FC87E /* DeeparExampleTests.m in Sources */,
-      );
-      runOnlyForDeploymentPostprocessing = 0;
-    };
-    13B07F871A680F5B00A75B9A /* Sources */ = {
-      isa = PBXSourcesBuildPhase;
-      buildActionMask = 2147483647;
-      files = (
-        13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
-        13B07FC11A68108700A75B9A /* main.m in Sources */,
-      );
-      runOnlyForDeploymentPostprocessing = 0;
-    };
-    2D02E4771E0B4A5D006451C7 /* Sources */ = {
-      isa = PBXSourcesBuildPhase;
-      buildActionMask = 2147483647;
-      files = (
-        2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */,
-        2D02E4BC1E0B4A80006451C7 /* AppDelegate.m in Sources */,
-      );
-      runOnlyForDeploymentPostprocessing = 0;
-    };
-    2D02E48C1E0B4A5D006451C7 /* Sources */ = {
-      isa = PBXSourcesBuildPhase;
-      buildActionMask = 2147483647;
-      files = (
-        2DCD954D1E0B4F2C00145EB5 /* DeeparExampleTests.m in Sources */,
-      );
-      runOnlyForDeploymentPostprocessing = 0;
-    };
+		00E356EA1AD99517003FC87E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				00E356F31AD99517003FC87E /* DeepARExampleTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		13B07F871A680F5B00A75B9A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */,
+				13B07FC11A68108700A75B9A /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-    00E356F51AD99517003FC87E /* PBXTargetDependency */ = {
-      isa = PBXTargetDependency;
-      target = 13B07F861A680F5B00A75B9A /* DeeparExample */;
-      targetProxy = 00E356F41AD99517003FC87E /* PBXContainerItemProxy */;
-    };
-    2D02E4921E0B4A5D006451C7 /* PBXTargetDependency */ = {
-      isa = PBXTargetDependency;
-      target = 2D02E47A1E0B4A5D006451C7 /* DeeparExample-tvOS */;
-      targetProxy = 2D02E4911E0B4A5D006451C7 /* PBXContainerItemProxy */;
-    };
+		00E356F51AD99517003FC87E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 13B07F861A680F5B00A75B9A /* DeepARExample */;
+			targetProxy = 00E356F41AD99517003FC87E /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-    00E356F61AD99517003FC87E /* Debug */ = {
-      isa = XCBuildConfiguration;
-      baseConfigurationReference = 20AB94514737C20DFC4350AE /* Pods-DeeparExample-DeeparExampleTests.debug.xcconfig */;
-      buildSettings = {
-        BUNDLE_LOADER = "$(TEST_HOST)";
-        GCC_PREPROCESSOR_DEFINITIONS = (
-          "DEBUG=1",
-          "$(inherited)",
-        );
-        INFOPLIST_FILE = DeeparExampleTests/Info.plist;
-        IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-        LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-        OTHER_LDFLAGS = (
-          "-ObjC",
-          "-lc++",
-          "$(inherited)",
-        );
-        PRODUCT_BUNDLE_IDENTIFIER = "com.example.reactnativedeepar";
-        PRODUCT_NAME = "$(TARGET_NAME)";
-        TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DeeparExample.app/DeeparExample";
-      };
-      name = Debug;
-    };
-    00E356F71AD99517003FC87E /* Release */ = {
-      isa = XCBuildConfiguration;
-      baseConfigurationReference = EC1294380F6AD2F72CA45BA5 /* Pods-DeeparExample-DeeparExampleTests.release.xcconfig */;
-      buildSettings = {
-        BUNDLE_LOADER = "$(TEST_HOST)";
-        COPY_PHASE_STRIP = NO;
-        INFOPLIST_FILE = DeeparExampleTests/Info.plist;
-        IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-        LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-        OTHER_LDFLAGS = (
-          "-ObjC",
-          "-lc++",
-          "$(inherited)",
-        );
-        PRODUCT_BUNDLE_IDENTIFIER = "com.example.reactnativedeepar";
-        PRODUCT_NAME = "$(TARGET_NAME)";
-        TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DeeparExample.app/DeeparExample";
-      };
-      name = Release;
-    };
-    13B07F941A680F5B00A75B9A /* Debug */ = {
-      isa = XCBuildConfiguration;
-      baseConfigurationReference = 47F7ED3B7971BE374F7B8635 /* Pods-DeeparExample.debug.xcconfig */;
-      buildSettings = {
-        ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-        CLANG_ENABLE_MODULES = YES;
-        CURRENT_PROJECT_VERSION = 1;
-        ENABLE_BITCODE = NO;
-        INFOPLIST_FILE = DeeparExample/Info.plist;
-        LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-        OTHER_LDFLAGS = (
-          "$(inherited)",
-          "-ObjC",
-          "-lc++",
-        );
-        PRODUCT_BUNDLE_IDENTIFIER = "com.example.reactnativedeepar";
-        PRODUCT_NAME = DeeparExample;
-        SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-        SWIFT_VERSION = 5.0;
-        VERSIONING_SYSTEM = "apple-generic";
-      };
-      name = Debug;
-    };
-    13B07F951A680F5B00A75B9A /* Release */ = {
-      isa = XCBuildConfiguration;
-      baseConfigurationReference = E00ACF0FDA8BF921659E2F9A /* Pods-DeeparExample.release.xcconfig */;
-      buildSettings = {
-        ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-        CLANG_ENABLE_MODULES = YES;
-        CURRENT_PROJECT_VERSION = 1;
-        INFOPLIST_FILE = DeeparExample/Info.plist;
-        LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-        OTHER_LDFLAGS = (
-          "$(inherited)",
-          "-ObjC",
-          "-lc++",
-        );
-        PRODUCT_BUNDLE_IDENTIFIER = "com.example.reactnativedeepar";
-        PRODUCT_NAME = DeeparExample;
-        SWIFT_VERSION = 5.0;
-        VERSIONING_SYSTEM = "apple-generic";
-      };
-      name = Release;
-    };
-    2D02E4971E0B4A5E006451C7 /* Debug */ = {
-      isa = XCBuildConfiguration;
-      baseConfigurationReference = AE69546072F7DC475F196F4C /* Pods-DeeparExample-tvOS.debug.xcconfig */;
-      buildSettings = {
-        ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
-        ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-        CLANG_ANALYZER_NONNULL = YES;
-        CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-        CLANG_WARN_INFINITE_RECURSION = YES;
-        CLANG_WARN_SUSPICIOUS_MOVE = YES;
-        DEBUG_INFORMATION_FORMAT = dwarf;
-        ENABLE_TESTABILITY = YES;
-        GCC_NO_COMMON_BLOCKS = YES;
-        INFOPLIST_FILE = "DeeparExample-tvOS/Info.plist";
-        LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-        OTHER_LDFLAGS = (
-          "$(inherited)",
-          "-ObjC",
-          "-lc++",
-        );
-        PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.DeeparExample-tvOS";
-        PRODUCT_NAME = "$(TARGET_NAME)";
-        SDKROOT = appletvos;
-        TARGETED_DEVICE_FAMILY = 3;
-        TVOS_DEPLOYMENT_TARGET = 10.0;
-      };
-      name = Debug;
-    };
-    2D02E4981E0B4A5E006451C7 /* Release */ = {
-      isa = XCBuildConfiguration;
-      baseConfigurationReference = E88D904CC5F3CC947B01AB46 /* Pods-DeeparExample-tvOS.release.xcconfig */;
-      buildSettings = {
-        ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
-        ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-        CLANG_ANALYZER_NONNULL = YES;
-        CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-        CLANG_WARN_INFINITE_RECURSION = YES;
-        CLANG_WARN_SUSPICIOUS_MOVE = YES;
-        COPY_PHASE_STRIP = NO;
-        DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-        GCC_NO_COMMON_BLOCKS = YES;
-        INFOPLIST_FILE = "DeeparExample-tvOS/Info.plist";
-        LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-        OTHER_LDFLAGS = (
-          "$(inherited)",
-          "-ObjC",
-          "-lc++",
-        );
-        PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.DeeparExample-tvOS";
-        PRODUCT_NAME = "$(TARGET_NAME)";
-        SDKROOT = appletvos;
-        TARGETED_DEVICE_FAMILY = 3;
-        TVOS_DEPLOYMENT_TARGET = 10.0;
-      };
-      name = Release;
-    };
-    2D02E4991E0B4A5E006451C7 /* Debug */ = {
-      isa = XCBuildConfiguration;
-      baseConfigurationReference = FFD6887008BEF5F1A6973F45 /* Pods-DeeparExample-tvOSTests.debug.xcconfig */;
-      buildSettings = {
-        BUNDLE_LOADER = "$(TEST_HOST)";
-        CLANG_ANALYZER_NONNULL = YES;
-        CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-        CLANG_WARN_INFINITE_RECURSION = YES;
-        CLANG_WARN_SUSPICIOUS_MOVE = YES;
-        DEBUG_INFORMATION_FORMAT = dwarf;
-        ENABLE_TESTABILITY = YES;
-        GCC_NO_COMMON_BLOCKS = YES;
-        INFOPLIST_FILE = "DeeparExample-tvOSTests/Info.plist";
-        LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-        OTHER_LDFLAGS = (
-          "$(inherited)",
-          "-ObjC",
-          "-lc++",
-        );
-        PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.DeeparExample-tvOSTests";
-        PRODUCT_NAME = "$(TARGET_NAME)";
-        SDKROOT = appletvos;
-        TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DeeparExample-tvOS.app/DeeparExample-tvOS";
-        TVOS_DEPLOYMENT_TARGET = 10.1;
-      };
-      name = Debug;
-    };
-    2D02E49A1E0B4A5E006451C7 /* Release */ = {
-      isa = XCBuildConfiguration;
-      baseConfigurationReference = 1172626FD82B50406EC37522 /* Pods-DeeparExample-tvOSTests.release.xcconfig */;
-      buildSettings = {
-        BUNDLE_LOADER = "$(TEST_HOST)";
-        CLANG_ANALYZER_NONNULL = YES;
-        CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-        CLANG_WARN_INFINITE_RECURSION = YES;
-        CLANG_WARN_SUSPICIOUS_MOVE = YES;
-        COPY_PHASE_STRIP = NO;
-        DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-        GCC_NO_COMMON_BLOCKS = YES;
-        INFOPLIST_FILE = "DeeparExample-tvOSTests/Info.plist";
-        LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-        OTHER_LDFLAGS = (
-          "$(inherited)",
-          "-ObjC",
-          "-lc++",
-        );
-        PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.DeeparExample-tvOSTests";
-        PRODUCT_NAME = "$(TARGET_NAME)";
-        SDKROOT = appletvos;
-        TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DeeparExample-tvOS.app/DeeparExample-tvOS";
-        TVOS_DEPLOYMENT_TARGET = 10.1;
-      };
-      name = Release;
-    };
-    83CBBA201A601CBA00E9B192 /* Debug */ = {
-      isa = XCBuildConfiguration;
-      buildSettings = {
-        ALWAYS_SEARCH_USER_PATHS = NO;
-        CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
-        CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-        CLANG_CXX_LIBRARY = "libc++";
-        CLANG_ENABLE_MODULES = YES;
-        CLANG_ENABLE_OBJC_ARC = YES;
-        CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
-        CLANG_WARN_BOOL_CONVERSION = YES;
-        CLANG_WARN_COMMA = YES;
-        CLANG_WARN_CONSTANT_CONVERSION = YES;
-        CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
-        CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-        CLANG_WARN_EMPTY_BODY = YES;
-        CLANG_WARN_ENUM_CONVERSION = YES;
-        CLANG_WARN_INFINITE_RECURSION = YES;
-        CLANG_WARN_INT_CONVERSION = YES;
-        CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-        CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
-        CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-        CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-        CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-        CLANG_WARN_STRICT_PROTOTYPES = YES;
-        CLANG_WARN_SUSPICIOUS_MOVE = YES;
-        CLANG_WARN_UNREACHABLE_CODE = YES;
-        CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-        "CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-        COPY_PHASE_STRIP = NO;
-        ENABLE_STRICT_OBJC_MSGSEND = YES;
-        ENABLE_TESTABILITY = YES;
-        GCC_C_LANGUAGE_STANDARD = gnu99;
-        GCC_DYNAMIC_NO_PIC = NO;
-        GCC_NO_COMMON_BLOCKS = YES;
-        GCC_OPTIMIZATION_LEVEL = 0;
-        GCC_PREPROCESSOR_DEFINITIONS = (
-          "DEBUG=1",
-          "$(inherited)",
-        );
-        GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-        GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-        GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-        GCC_WARN_UNDECLARED_SELECTOR = YES;
-        GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-        GCC_WARN_UNUSED_FUNCTION = YES;
-        GCC_WARN_UNUSED_VARIABLE = YES;
-        IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-        LD_RUNPATH_SEARCH_PATHS = "/usr/lib/swift $(inherited)";
-        LIBRARY_SEARCH_PATHS = (
-          "\"$(TOOLCHAIN_DIR)/usr/lib/swift/$(PLATFORM_NAME)\"",
-          "\"$(TOOLCHAIN_DIR)/usr/lib/swift-5.0/$(PLATFORM_NAME)\"",
-          "\"$(inherited)\"",
-        );
-        MTL_ENABLE_DEBUG_INFO = YES;
-        ONLY_ACTIVE_ARCH = YES;
-        SDKROOT = iphoneos;
-      };
-      name = Debug;
-    };
-    83CBBA211A601CBA00E9B192 /* Release */ = {
-      isa = XCBuildConfiguration;
-      buildSettings = {
-        ALWAYS_SEARCH_USER_PATHS = NO;
-        CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
-        CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-        CLANG_CXX_LIBRARY = "libc++";
-        CLANG_ENABLE_MODULES = YES;
-        CLANG_ENABLE_OBJC_ARC = YES;
-        CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
-        CLANG_WARN_BOOL_CONVERSION = YES;
-        CLANG_WARN_COMMA = YES;
-        CLANG_WARN_CONSTANT_CONVERSION = YES;
-        CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
-        CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-        CLANG_WARN_EMPTY_BODY = YES;
-        CLANG_WARN_ENUM_CONVERSION = YES;
-        CLANG_WARN_INFINITE_RECURSION = YES;
-        CLANG_WARN_INT_CONVERSION = YES;
-        CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-        CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
-        CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-        CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-        CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-        CLANG_WARN_STRICT_PROTOTYPES = YES;
-        CLANG_WARN_SUSPICIOUS_MOVE = YES;
-        CLANG_WARN_UNREACHABLE_CODE = YES;
-        CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-        "CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-        COPY_PHASE_STRIP = YES;
-        ENABLE_NS_ASSERTIONS = NO;
-        ENABLE_STRICT_OBJC_MSGSEND = YES;
-        GCC_C_LANGUAGE_STANDARD = gnu99;
-        GCC_NO_COMMON_BLOCKS = YES;
-        GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-        GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-        GCC_WARN_UNDECLARED_SELECTOR = YES;
-        GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-        GCC_WARN_UNUSED_FUNCTION = YES;
-        GCC_WARN_UNUSED_VARIABLE = YES;
-        IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-        LD_RUNPATH_SEARCH_PATHS = "/usr/lib/swift $(inherited)";
-        LIBRARY_SEARCH_PATHS = (
-          "\"$(TOOLCHAIN_DIR)/usr/lib/swift/$(PLATFORM_NAME)\"",
-          "\"$(TOOLCHAIN_DIR)/usr/lib/swift-5.0/$(PLATFORM_NAME)\"",
-          "\"$(inherited)\"",
-        );
-        MTL_ENABLE_DEBUG_INFO = NO;
-        SDKROOT = iphoneos;
-        VALIDATE_PRODUCT = YES;
-      };
-      name = Release;
-    };
+		00E356F61AD99517003FC87E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5B7EB9410499542E8C5724F5 /* Pods-DeepARExample-DeepARExampleTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = DeepARExampleTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-lc++",
+					"$(inherited)",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DeepARExample.app/DeepARExample";
+			};
+			name = Debug;
+		};
+		00E356F71AD99517003FC87E /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 89C6BE57DB24E9ADA2F236DE /* Pods-DeepARExample-DeepARExampleTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COPY_PHASE_STRIP = NO;
+				INFOPLIST_FILE = DeepARExampleTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-lc++",
+					"$(inherited)",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DeepARExample.app/DeepARExample";
+			};
+			name = Release;
+		};
+		13B07F941A680F5B00A75B9A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3B4392A12AC88292D35C810B /* Pods-DeepARExample.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 6FSCKSHQY2;
+				ENABLE_BITCODE = NO;
+				INFOPLIST_FILE = DeepARExample/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-lc++",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.reactnativedeepar;
+				PRODUCT_NAME = DeepARExample;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				VERSIONING_SYSTEM = "apple-generic";
+			};
+			name = Debug;
+		};
+		13B07F951A680F5B00A75B9A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5709B34CF0A7D63546082F79 /* Pods-DeepARExample.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 6FSCKSHQY2;
+				INFOPLIST_FILE = DeepARExample/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-lc++",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.reactnativedeepar;
+				PRODUCT_NAME = DeepARExample;
+				SWIFT_VERSION = 5.0;
+				VERSIONING_SYSTEM = "apple-generic";
+			};
+			name = Release;
+		};
+		83CBBA201A601CBA00E9B192 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "c++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					/usr/lib/swift,
+					"$(inherited)",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"\"$(SDKROOT)/usr/lib/swift\"",
+					"\"$(TOOLCHAIN_DIR)/usr/lib/swift/$(PLATFORM_NAME)\"",
+					"\"$(inherited)\"",
+				);
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_CPLUSPLUSFLAGS = (
+					"$(OTHER_CFLAGS)",
+					"-DFOLLY_NO_CONFIG",
+					"-DFOLLY_MOBILE=1",
+					"-DFOLLY_USE_LIBCPP=1",
+				);
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		83CBBA211A601CBA00E9B192 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "c++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					/usr/lib/swift,
+					"$(inherited)",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"\"$(SDKROOT)/usr/lib/swift\"",
+					"\"$(TOOLCHAIN_DIR)/usr/lib/swift/$(PLATFORM_NAME)\"",
+					"\"$(inherited)\"",
+				);
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_CPLUSPLUSFLAGS = (
+					"$(OTHER_CFLAGS)",
+					"-DFOLLY_NO_CONFIG",
+					"-DFOLLY_MOBILE=1",
+					"-DFOLLY_USE_LIBCPP=1",
+				);
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-    00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "DeeparExampleTests" */ = {
-      isa = XCConfigurationList;
-      buildConfigurations = (
-        00E356F61AD99517003FC87E /* Debug */,
-        00E356F71AD99517003FC87E /* Release */,
-      );
-      defaultConfigurationIsVisible = 0;
-      defaultConfigurationName = Release;
-    };
-    13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "DeeparExample" */ = {
-      isa = XCConfigurationList;
-      buildConfigurations = (
-        13B07F941A680F5B00A75B9A /* Debug */,
-        13B07F951A680F5B00A75B9A /* Release */,
-      );
-      defaultConfigurationIsVisible = 0;
-      defaultConfigurationName = Release;
-    };
-    2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "DeeparExample-tvOS" */ = {
-      isa = XCConfigurationList;
-      buildConfigurations = (
-        2D02E4971E0B4A5E006451C7 /* Debug */,
-        2D02E4981E0B4A5E006451C7 /* Release */,
-      );
-      defaultConfigurationIsVisible = 0;
-      defaultConfigurationName = Release;
-    };
-    2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "DeeparExample-tvOSTests" */ = {
-      isa = XCConfigurationList;
-      buildConfigurations = (
-        2D02E4991E0B4A5E006451C7 /* Debug */,
-        2D02E49A1E0B4A5E006451C7 /* Release */,
-      );
-      defaultConfigurationIsVisible = 0;
-      defaultConfigurationName = Release;
-    };
-    83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "DeeparExample" */ = {
-      isa = XCConfigurationList;
-      buildConfigurations = (
-        83CBBA201A601CBA00E9B192 /* Debug */,
-        83CBBA211A601CBA00E9B192 /* Release */,
-      );
-      defaultConfigurationIsVisible = 0;
-      defaultConfigurationName = Release;
-    };
+		00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "DeepARExampleTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				00E356F61AD99517003FC87E /* Debug */,
+				00E356F71AD99517003FC87E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "DeepARExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				13B07F941A680F5B00A75B9A /* Debug */,
+				13B07F951A680F5B00A75B9A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "DeepARExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				83CBBA201A601CBA00E9B192 /* Debug */,
+				83CBBA211A601CBA00E9B192 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 /* End XCConfigurationList section */
-  };
-  rootObject = 83CBB9F71A601CBA00E9B192 /* Project object */;
+	};
+	rootObject = 83CBB9F71A601CBA00E9B192 /* Project object */;
 }

@@ -39,7 +39,134 @@ jobs:
           paths: example/node_modules
       - persist_to_workspace:
           root: .
+          paths: .version: 2.1
+
+executors:
+  default:
+    docker:
+      - image: circleci/node:12
+    working_directory: ~/project
+
+commands:
+  attach_project:
+    steps:
+      - attach_workspace:
+          at: ~/project
+
+jobs:
+  install-dependencies:
+    executor: default
+    steps:
+      - checkout
+      - attach_project
+      - restore_cache:
+          keys:
+            - dependencies-{{ checksum "package.json" }}
+            - dependencies-
+      - restore_cache:
+          keys:
+            - dependencies-example-{{ checksum "example/package.json" }}
+            - dependencies-example-
+      - run:
+          name: Install dependencies
+          command: |
+            yarn install --cwd example --frozen-lockfile
+            yarn install --frozen-lockfile
+      - save_cache:
+          key: dependencies-{{ checksum "package.json" }}
+          paths: node_modules
+      - save_cache:
+          key: dependencies-example-{{ checksum "example/package.json" }}
+          paths: example/node_modules
+      - persist_to_workspace:
+          root: .
           paths: .
+
+  lint:
+    executor: default
+    steps:
+      - attach_project
+      - run:
+          name: Lint files
+          command: |
+            yarn lint
+  typescript:
+    executor: default
+    steps:
+      - attach_project
+      - run:
+          name: Typecheck files
+          command: |
+            yarn typescript
+  unit-tests:
+    executor: default
+    steps:
+      - attach_project
+      - run:
+          name: Run unit tests
+          command: |
+            yarn test --coverage
+      - store_artifacts:
+          path: coverage
+          destination: coverage
+
+  build-package:
+    executor: default
+    steps:
+      - attach_project
+      - run:
+          name: Build package
+          command: |
+            yarn prepare
+  deploy:
+    executor: default
+    steps:
+      - attach_project
+      - run:
+          name: Authenticate with registry
+          command: npm config set //registry.npmjs.org/:_authToken $NPM_TOKEN
+      - run:
+          name: Set git config ability to create commits
+          command: |
+            git config --global user.name $GIT_AUTHOR
+            git config --global user.email $GIT_AUTHOR_EMAIL
+      - run:
+          name: Add GitHub to known_hosts
+          command: |
+            mkdir ~/.ssh
+            touch ~/.ssh/known_hosts
+            ssh-keyscan github.com >> ~/.ssh/known_hosts
+      - run:
+          name: Publish package
+          command: npm run release -- --ci --no-git.requireCleanWorkingDir
+
+workflows:
+  build-and-deploy:
+    jobs:
+      - install-dependencies
+      - lint:
+          requires:
+            - install-dependencies
+      - typescript:
+          requires:
+            - install-dependencies
+      - unit-tests:
+          requires:
+            - install-dependencies
+      - build-package:
+          requires:
+            - install-dependencies
+      - deploy:
+          requires:
+            - install-dependencies
+            - lint
+            - typescript
+            - unit-tests
+            - build-package
+          filters:
+            branches:
+              only: master
+
 
   lint:
     executor: default

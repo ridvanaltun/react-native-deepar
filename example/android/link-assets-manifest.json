@@ -1,0 +1,109 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "assets/effects/aviators",
+      "sha1": "d70a97558cc4d9a4df47df096772417e5aad2c18"
+    },
+    {
+      "path": "assets/effects/background_segmentation",
+      "sha1": "219918b714a93fd4a1157d55969e256032c9441a"
+    },
+    {
+      "path": "assets/effects/ball_face",
+      "sha1": "574865775ca23b536ea86999061b573453d579d7"
+    },
+    {
+      "path": "assets/effects/beard",
+      "sha1": "c305727fbb978926a5e468f6b0e7765b1451f7ce"
+    },
+    {
+      "path": "assets/effects/beauty",
+      "sha1": "9d7e8e0bfc5c9917f138e21a619dea181ae145ce"
+    },
+    {
+      "path": "assets/effects/emotion_meter",
+      "sha1": "395a8f5443e03c477a706eff3bb0c09e150b6dc5"
+    },
+    {
+      "path": "assets/effects/emotions_exaggerator",
+      "sha1": "4a4a8fb8f163c6fd7b9f6a50c519e91fddb81570"
+    },
+    {
+      "path": "assets/effects/fairy_lights",
+      "sha1": "65bd412586003aee641395e98ed2ef1730509051"
+    },
+    {
+      "path": "assets/effects/fire_effect",
+      "sha1": "29b48e40730acd702e526fc80943de7b6fc31d4a"
+    },
+    {
+      "path": "assets/effects/flower_crown",
+      "sha1": "f9f72c8d60189c5b60f8bd349415beb146e4d75e"
+    },
+    {
+      "path": "assets/effects/frankenstein",
+      "sha1": "73d4a8fa2f1f164c34d5621ec57c2eb230455444"
+    },
+    {
+      "path": "assets/effects/hair_segmentation",
+      "sha1": "35b479e41ea4c1ca6d247de544d5595c33183032"
+    },
+    {
+      "path": "assets/effects/humanoid",
+      "sha1": "d55892fe97d2adc83768a83fef4ca2979cd8966f"
+    },
+    {
+      "path": "assets/effects/lion",
+      "sha1": "9d70db33a0b97236d1412cf41e1145f563ecaed4"
+    },
+    {
+      "path": "assets/effects/look1",
+      "sha1": "9520c68d008be5756f253df962a6b440f568af31"
+    },
+    {
+      "path": "assets/effects/look2",
+      "sha1": "c1dda1d553246c57fb73bb24d80664598437dffb"
+    },
+    {
+      "path": "assets/effects/manly_face",
+      "sha1": "eed8845684abbcc0140619e19ab5a1d37b577862"
+    },
+    {
+      "path": "assets/effects/ping_pong",
+      "sha1": "116b85b69cd831a8946e957ef8c8657eccf3af6b"
+    },
+    {
+      "path": "assets/effects/plastic_ocean",
+      "sha1": "654d4ce7bb052421407ba114faf3423f8170d969"
+    },
+    {
+      "path": "assets/effects/pumpkin",
+      "sha1": "e18ede43f66f362b8522cfc2bbc2d3a7dac05daa"
+    },
+    {
+      "path": "assets/effects/scuba",
+      "sha1": "00178c665bf71de0a150435ffe885d993721970a"
+    },
+    {
+      "path": "assets/effects/stallone",
+      "sha1": "e28b9a49242d968d5e194f7fecfa8e83c8b2882a"
+    },
+    {
+      "path": "assets/effects/tape_face",
+      "sha1": "773fc3c1b2e190f65744de4496fce238ece8a6d5"
+    },
+    {
+      "path": "assets/effects/tiny_sunglasses",
+      "sha1": "c31c015ae49852faff3a99b2f8e00031198e9bfd"
+    },
+    {
+      "path": "assets/effects/topology",
+      "sha1": "e5cbab1f3916e1546aba65d7f05e55b1e8d4d8cc"
+    },
+    {
+      "path": "assets/effects/viking_helmet",
+      "sha1": "4fe4d10e9dcf910d87e2eb96135762c18c6d3bcd"
+    }
+  ]
+}

@@ -1,25 +1,14 @@
-import * as React from 'react';
+import React from 'react';
+import {NavigationContainer} from '@react-navigation/native';
 
-import { StyleSheet, View } from 'react-native';
-import DeeparViewManager from 'react-native-deepar';
+import AppNavigator from './navigation';
 
-export default function App() {
+const App = () => {
   return (
-    <View style={styles.container}>
-      <DeeparViewManager color="#32a852" style={styles.box} />
-    </View>
+    <NavigationContainer>
+      <AppNavigator />
+    </NavigationContainer>
   );
-}
+};
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  box: {
-    width: 60,
-    height: 60,
-    marginVertical: 20,
-  },
-});
+export default App;
