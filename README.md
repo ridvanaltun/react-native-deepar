@@ -11,6 +11,7 @@
 
 - [Getting started](#getting-started)
 - [Installing AR Models](#installing-ar-models)
+- [Using AR Models over Internet](#using-ar-models-over-internet)
 - [Usage](#usage)
   - [General](#general)
   - [Camera Control](#camera-control)
@@ -27,6 +28,7 @@
 npm install react-native-deepar
 ```
 
+**Note:** Don't forget install Pods for iOS and rebuild your app.
 **Note:** Only works on physical devices, not will work with simulator.
 
 ## Installing AR Models
@@ -57,6 +59,26 @@ npm run asset
 ```
 
 **Note:** If you remove an AR model, you can run the same command for unlinking removed asset.
+
+## Using AR Models over Internet
+
+1. Install [rn-fetch-blob](https://github.com/joltup/rn-fetch-blob) to your project
+2. You can use AR models over internet like below:
+
+```tsx
+import RNFetchBlob from 'rn-fetch-blob';
+
+RNFetchBlob.config({
+  fileCache: true,
+})
+  .fetch('GET', 'http://betacoins.magix.net/public/deepar-filters/8bitHearts')
+  .then((res) => {
+    deepARRef?.current?.switchEffectWithPath({
+      path: res.path(),
+      slot: 'effect',
+    });
+  });
+```
 
 ## Usage
 
