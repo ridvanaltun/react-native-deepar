@@ -5,11 +5,12 @@
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 [![license](https://img.shields.io/npm/l/react-native-deepar.svg)](https://github.com/ridvanaltun/react-native-deepar/blob/master/LICENSE)
 
-> [DeepAR](https://www.deepar.ai/) wrapper for React-Native
+> React-Native wrapper for [DeepAR](https://www.deepar.ai/)
 
 # Table of Contents <!-- omit in toc -->
 
 - [Getting started](#getting-started)
+- [Compatibility](#compatibility)
 - [Installing AR Models](#installing-ar-models)
 - [Using AR Models over Internet](#using-ar-models-over-internet)
 - [Usage](#usage)
@@ -24,12 +25,19 @@
 
 ## Getting started
 
+This library under development and It only works on physical devices, not will work with simulator. Some features may not work, if you found a bug, please open an issue from [here](https://github.com/ridvanaltun/react-native-deepar/issues/new).
+
 ```sh
 npm install react-native-deepar
 ```
 
 **Note:** Don't forget install Pods for iOS and rebuild your app.
-**Note:** Only works on physical devices, not will work with simulator.
+
+## Compatibility
+
+| DeepAR SDK | lib version                      | Required React Native Version |
+| ---------- | -------------------------------- | ----------------------------- |
+| 3.4.2      | `react-native-deepar` `>= 0.1.0` | unknown                       |
 
 ## Installing AR Models
 
