@@ -240,12 +240,7 @@ For more details about changeParameter API read our article [here](https://help.
 
 **Change Float:**
 
-This method allows the user to change float parameters during runtime. The method requires a Game Object name, Component name, Parameter name, and a float value.
-
-- `gameObject` is the name of the Game Object in the hierarchy as visible in the Studio. The name should be unique for the method to work properly.
-- `component` is the internal component type.
-- `parameter` is the name or the parameter to be changed, for example, the name of the blendshape on a mesh. The parameter must exist for the component.
-- `value` is the new value to be applied to the parameter.
+This method allows the user to change the value of blendshape parameters during runtime.
 
 ```tsx
 import type {IChangeParamaterFloat} from 'react-native-deepar';
@@ -255,7 +250,7 @@ deepARRef?.current?.changeParameterFloat(params: IChangeParamaterFloat) => void;
 
 **Change Vector4:**
 
-Same as above except the method takes four float values which represent one Vector4. Can be used to change material color. If multiple Game Objects share the same material, changing the parameter once for any Game Object using the material will change it for all Game Objects. To change a uniform on a material, such as color, the parameter must use the internal uniform name. These names can be found in the shader files.
+This method is used to change the certain color of a Game Object at runtime.
 
 ```tsx
 import type {IChangeParamaterVec4} from 'react-native-deepar';
@@ -265,7 +260,7 @@ deepARRef?.current?.changeParameterVec4(params: IChangeParamaterVec4) => void;
 
 **Change Vector3:**
 
-Same as above except the method takes three float values which represent one Vector3. Can be used to change the transform of a Game Object at runtime. Rotations should be written as Euler angles in degrees. To set a parameter on GameObject, the component parameter should be an empty string.
+This method is used to change the transform of a Game Object at runtime, so here you can change the object position, rotation or scale.
 
 ```tsx
 import type {IChangeParamaterVec3} from 'react-native-deepar';
@@ -275,7 +270,7 @@ deepARRef?.current?.changeParameterVec3(params: IChangeParamaterVec3) => void;
 
 **Change Boolean:**
 
-Same as above except val takes a bool value. Can be used to disable or enable GameObjects at runtime. To set a parameter on GameObject, the component parameter should be an empty string.
+Let say you want to put a button in your app that enables or disables Game Object at runtime. (let's say you want your filter character to put their glasses on or take them off) This parameter helps you to enable/disable the value.Here is the code to apply this parameter:
 
 ```tsx
 import type {IChangeParamaterBool} from 'react-native-deepar';
@@ -297,7 +292,7 @@ deepARRef?.current?.changeParameterString(params: IChangeParamaterString) => voi
 
 **Change Texture:**
 
-This method allows the user to change the texture at runtime. The component should be "MeshRenderer". The parameter is the name of the texture that should be changed, this name can be found in the shader that is applied to the material/GameObject.
+This method allows the user to load an image and set it as a texture during runtime. This can be useful if you want to leverage our background segmentation feature, and change the background in your filter.
 
 ```tsx
 import type {IChangeParamaterTexture} from 'react-native-deepar';

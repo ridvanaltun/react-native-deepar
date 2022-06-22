@@ -385,7 +385,7 @@ RCT_EXPORT_METHOD(changeParameterTexture
             [view changeParameterTexture:gameObject component:component parameter:parameter image:image];
         }
         
-        if([type isEqual: @"URI"]) {
+        if([type isEqual: @"BASE64"]) {
             NSData *data = [[NSData alloc]initWithBase64EncodedString:value options:NSDataBase64DecodingIgnoreUnknownCharacters];
             UIImage *image = [UIImage imageWithData:data];
             

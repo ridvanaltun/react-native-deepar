@@ -1,10 +1,8 @@
 package com.reactnativedeepar;
 
-import android.content.ContentResolver;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.net.Uri;
-import android.provider.MediaStore;
+import android.util.Base64;
 import android.widget.FrameLayout;
 
 import com.facebook.infer.annotation.Assertions;
@@ -16,7 +14,6 @@ import com.facebook.react.uimanager.SimpleViewManager;
 import com.facebook.react.uimanager.ThemedReactContext;
 import com.facebook.react.uimanager.annotations.ReactProp;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
@@ -245,27 +242,31 @@ public class RNTDeepARViewManager extends SimpleViewManager<RNTDeepAR> {
           String parameter = args.getString(2);
           String value = args.getString(3);
           String type = args.getString(4);
-          Bitmap image = null;
-
-          try {
-            switch (type) {
-              case "URL":
-                URL url = new URL(value);
-                image = BitmapFactory.decodeStream(url.openConnection().getInputStream());
-                deepARView.changeParameterTexture(gameObject, component, parameter, image);
-                break;
-              case "URI":
-                ContentResolver contentResolver = context.getContentResolver();
-                Uri imageUri = Uri.parse(value);
-                image = MediaStore.Images.Media.getBitmap(contentResolver, imageUri);
-                break;
-              case "PATH":
-                image = BitmapFactory.decodeFile(value);
-                break;
-            }
-            deepARView.changeParameterTexture(gameObject, component, parameter, image);
-          } catch(IOException e) {
-            System.out.println(e);
+          switch (type) {
+            case "URL":
+              new Thread(new Runnable(){
+                @Override
+                public void run() {
+                  try {
+                    URL url = new URL(value);
+                    Bitmap image = BitmapFactory.decodeStream(url.openConnection().getInputStream());
+                    deepARView.changeParameterTexture(gameObject, component, parameter, image);
+                  }
+                  catch (Exception ex) {
+                    ex.printStackTrace();
+                  }
+                }
+              }).start();
+              break;
+            case "BASE64":
+              byte[] decodedString = Base64.decode(value, Base64.DEFAULT);
+              Bitmap image = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
+              deepARView.changeParameterTexture(gameObject, component, parameter, image);
+              break;
+            case "PATH":
+              Bitmap pathImage = BitmapFactory.decodeFile(value);
+              deepARView.changeParameterTexture(gameObject, component, parameter, pathImage);
+              break;
           }
         }
         return;

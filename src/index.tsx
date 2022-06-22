@@ -8,7 +8,7 @@ export enum CameraFacing {
 }
 
 export enum TextureSourceTypes {
-  URI = 'URI',
+  BASE64 = 'BASE64',
   URL = 'URL',
   PATH = 'PATH',
 }

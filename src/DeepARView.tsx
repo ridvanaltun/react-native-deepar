@@ -211,7 +211,7 @@ const DeepARView = forwardRef<IDeepARHandle, IDeepARProps>(
         UIManager.dispatchViewManagerCommand(
           findNodeHandle(nativeRef.current),
           UIManager.getViewManagerConfig(NATIVE_VIEW_KEY).Commands
-            .changeParameterTextureWithPath,
+            .changeParameterTexture,
           [gameObject, component, parameter, value, type]
         );
       },

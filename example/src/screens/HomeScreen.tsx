@@ -6,8 +6,12 @@ import {
   Image,
   Platform,
   StyleSheet,
+  Alert,
 } from 'react-native';
-import DeepARView, {IDeepARHandle} from 'react-native-deepar';
+import DeepARView, {
+  IDeepARHandle,
+  TextureSourceTypes,
+} from 'react-native-deepar';
 import RNFetchBlob from 'rn-fetch-blob';
 
 import {Button} from '../components';
@@ -155,6 +159,32 @@ const HomeScreen = ({navigation}: {navigation: any}) => {
             text="Switch Video Mode"
             onPress={() => {
               setVideoMode(true);
+            }}
+          />
+          <Button
+            style={styles.upLeftButton}
+            text="Random Background Image"
+            onPress={() => {
+              const isBackgroundSegmantation =
+                Effects[currEffectIndex].name === 'background_segmentation';
+
+              if (isBackgroundSegmantation === false) {
+                return Alert.alert(
+                  'Open Background  Segmentation Effect First!'
+                );
+              }
+
+              RNFetchBlob.config({})
+                .fetch('GET', 'https://random.imagecdn.app/450/800')
+                .then((res) => {
+                  deepARRef?.current?.changeParameterTexture({
+                    gameObject: 'Background',
+                    component: 'MeshRenderer',
+                    parameter: 's_texColor',
+                    type: TextureSourceTypes.BASE64,
+                    value: res.base64(),
+                  });
+                });
             }}
           />
         </View>
