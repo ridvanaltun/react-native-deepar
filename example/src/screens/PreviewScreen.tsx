@@ -36,10 +36,10 @@ const PreviewScreen = ({navigation, route}: any) => {
               .then(() => {
                 Alert.alert(
                   `${Utils.capitalize(type)} Saved`,
-                  `${Utils.capitalize(type)} saved to Gallery!`,
+                  `${Utils.capitalize(type)} saved to Gallery!`
                 );
               })
-              .catch(err => {
+              .catch((err) => {
                 Alert.alert('Something Goes Wrong', err.message);
               });
           }}

@@ -1,6 +1,6 @@
 import DeepARView from './DeepARView';
 
-import type { ViewProps } from 'react-native';
+import type {ViewProps} from 'react-native';
 
 export enum CameraFacing {
   FRONT = 'front',
@@ -21,7 +21,7 @@ export interface IDeepAREvent {
 
 export interface IRNTDeepARView {
   apiKey: String;
-  onEventSent: ({ nativeEvent }: { nativeEvent: IDeepAREvent }) => void;
+  onEventSent: ({nativeEvent}: {nativeEvent: IDeepAREvent}) => void;
 }
 
 export interface IDeepARProps extends ViewProps {

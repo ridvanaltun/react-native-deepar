@@ -1,9 +1,5 @@
-import React, { useRef, forwardRef, useImperativeHandle } from 'react';
-import {
-  UIManager,
-  requireNativeComponent,
-  findNodeHandle,
-} from 'react-native';
+import React, {useRef, forwardRef, useImperativeHandle} from 'react';
+import {UIManager, requireNativeComponent, findNodeHandle} from 'react-native';
 
 import {
   IDeepARHandle,
@@ -40,7 +36,7 @@ const DeepARView = forwardRef<IDeepARHandle, IDeepARProps>(
 
     useImperativeHandle(ref, () => ({
       switchEffect(params) {
-        let { mask, slot } = params;
+        let {mask, slot} = params;
 
         if (!!slot === false) {
           slot = 'effect';
@@ -53,7 +49,7 @@ const DeepARView = forwardRef<IDeepARHandle, IDeepARProps>(
         );
       },
       switchEffectWithPath(params) {
-        let { path, slot } = params;
+        let {path, slot} = params;
 
         if (!!slot === false) {
           slot = 'effect';
@@ -171,7 +167,7 @@ const DeepARView = forwardRef<IDeepARHandle, IDeepARProps>(
         );
       },
       changeParameterFloat(params) {
-        const { gameObject, component, parameter, value } = params;
+        const {gameObject, component, parameter, value} = params;
         UIManager.dispatchViewManagerCommand(
           findNodeHandle(nativeRef.current),
           UIManager.getViewManagerConfig(NATIVE_VIEW_KEY).Commands
@@ -180,7 +176,7 @@ const DeepARView = forwardRef<IDeepARHandle, IDeepARProps>(
         );
       },
       changeParameterVec3(params) {
-        const { gameObject, component, parameter, x, y, z } = params;
+        const {gameObject, component, parameter, x, y, z} = params;
         UIManager.dispatchViewManagerCommand(
           findNodeHandle(nativeRef.current),
           UIManager.getViewManagerConfig(NATIVE_VIEW_KEY).Commands
@@ -189,7 +185,7 @@ const DeepARView = forwardRef<IDeepARHandle, IDeepARProps>(
         );
       },
       changeParameterVec4(params) {
-        const { gameObject, component, parameter, x, y, z, w } = params;
+        const {gameObject, component, parameter, x, y, z, w} = params;
         UIManager.dispatchViewManagerCommand(
           findNodeHandle(nativeRef.current),
           UIManager.getViewManagerConfig(NATIVE_VIEW_KEY).Commands
@@ -198,7 +194,7 @@ const DeepARView = forwardRef<IDeepARHandle, IDeepARProps>(
         );
       },
       changeParameterBool(params) {
-        const { gameObject, component, parameter, value } = params;
+        const {gameObject, component, parameter, value} = params;
         UIManager.dispatchViewManagerCommand(
           findNodeHandle(nativeRef.current),
           UIManager.getViewManagerConfig(NATIVE_VIEW_KEY).Commands
@@ -207,7 +203,7 @@ const DeepARView = forwardRef<IDeepARHandle, IDeepARProps>(
         );
       },
       changeParameterTexture(params) {
-        const { gameObject, component, parameter, value, type } = params;
+        const {gameObject, component, parameter, value, type} = params;
         UIManager.dispatchViewManagerCommand(
           findNodeHandle(nativeRef.current),
           UIManager.getViewManagerConfig(NATIVE_VIEW_KEY).Commands
@@ -216,7 +212,7 @@ const DeepARView = forwardRef<IDeepARHandle, IDeepARProps>(
         );
       },
       changeParameterString(params) {
-        const { gameObject, component, parameter, value } = params;
+        const {gameObject, component, parameter, value} = params;
         UIManager.dispatchViewManagerCommand(
           findNodeHandle(nativeRef.current),
           UIManager.getViewManagerConfig(NATIVE_VIEW_KEY).Commands
@@ -230,7 +226,7 @@ const DeepARView = forwardRef<IDeepARHandle, IDeepARProps>(
       <RNTDeepARView
         ref={nativeRef}
         apiKey={apiKey}
-        onEventSent={({ nativeEvent }) => {
+        onEventSent={({nativeEvent}) => {
           if (onEventSent) onEventSent(nativeEvent);
           switch (nativeEvent.type) {
             case 'initialized':

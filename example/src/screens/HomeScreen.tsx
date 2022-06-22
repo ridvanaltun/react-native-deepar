@@ -23,7 +23,7 @@ const askAndroidPermissions = () =>
     PermissionsAndroid.PERMISSIONS.CAMERA,
     PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE,
     PermissionsAndroid.PERMISSIONS.RECORD_AUDIO,
-  ]).then(result => {
+  ]).then((result) => {
     return (
       result['android.permission.CAMERA'] === 'granted' &&
       result['android.permission.WRITE_EXTERNAL_STORAGE'] === 'granted' &&
@@ -44,12 +44,12 @@ const HomeScreen = ({navigation}: {navigation: any}) => {
 
   const isCurrEffectSupported = useMemo(
     () => Effects[currEffectIndex].platforms.includes(Platform.OS),
-    [currEffectIndex],
+    [currEffectIndex]
   );
 
   useEffect(() => {
     if (Computed.IS_ANDROID) {
-      askAndroidPermissions().then(isGranted => {
+      askAndroidPermissions().then((isGranted) => {
         setPermsGranted(isGranted);
       });
     }
@@ -118,7 +118,7 @@ const HomeScreen = ({navigation}: {navigation: any}) => {
           />
           <Button
             style={styles.upLeftButton}
-            text="Test On Fly"
+            text="Load Effect on Fly"
             onPress={() => {
               RNFetchBlob.config({
                 fileCache: true,
@@ -128,9 +128,9 @@ const HomeScreen = ({navigation}: {navigation: any}) => {
                   Config.TEST.REMOTE_EFFECT_URL +
                     Config.TEST.EFFECTS[
                       Utils.randomNumber(0, Config.TEST.EFFECTS.length)
-                    ],
+                    ]
                 )
-                .then(res => {
+                .then((res) => {
                   console.log(res);
                   deepARRef?.current?.switchEffectWithPath({
                     path: res.path(),
