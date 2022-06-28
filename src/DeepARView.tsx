@@ -34,191 +34,94 @@ const DeepARView = forwardRef<IDeepARHandle, IDeepARProps>(
   ) => {
     const nativeRef = useRef(null);
 
+    const nativeExecute = (name: string, params?: Array<any>) => {
+      return UIManager.dispatchViewManagerCommand(
+        findNodeHandle(nativeRef.current),
+        UIManager.getViewManagerConfig(NATIVE_VIEW_KEY).Commands[name],
+        params
+      );
+    };
+
     useImperativeHandle(ref, () => ({
       switchEffect(params) {
-        let {mask, slot} = params;
-
-        if (!!slot === false) {
-          slot = 'effect';
-        }
-
-        UIManager.dispatchViewManagerCommand(
-          findNodeHandle(nativeRef.current),
-          UIManager.getViewManagerConfig(NATIVE_VIEW_KEY).Commands.switchEffect,
-          [mask, slot]
-        );
+        const {mask, slot} = params;
+        nativeExecute('switchEffect', [mask, slot || 'effect']);
       },
       switchEffectWithPath(params) {
-        let {path, slot} = params;
-
-        if (!!slot === false) {
-          slot = 'effect';
-        }
-
-        UIManager.dispatchViewManagerCommand(
-          findNodeHandle(nativeRef.current),
-          UIManager.getViewManagerConfig(NATIVE_VIEW_KEY).Commands
-            .switchEffectWithPath,
-          [path, slot]
-        );
+        const {path, slot} = params;
+        nativeExecute('switchEffectWithPath', [path, slot || 'effect']);
       },
       fireTrigger(trigger) {
-        UIManager.dispatchViewManagerCommand(
-          findNodeHandle(nativeRef.current),
-          UIManager.getViewManagerConfig(NATIVE_VIEW_KEY).Commands.fireTrigger,
-          [trigger]
-        );
+        nativeExecute('fireTrigger', [trigger]);
       },
       switchCamera() {
-        UIManager.dispatchViewManagerCommand(
-          findNodeHandle(nativeRef.current),
-          UIManager.getViewManagerConfig(NATIVE_VIEW_KEY).Commands.switchCamera,
-          undefined
-        );
+        nativeExecute('switchCamera');
       },
       setFlashOn(enabled) {
-        UIManager.dispatchViewManagerCommand(
-          findNodeHandle(nativeRef.current),
-          UIManager.getViewManagerConfig(NATIVE_VIEW_KEY).Commands.setFlashOn,
-          [enabled]
-        );
+        nativeExecute('setFlashOn', [enabled]);
       },
       startRecording() {
-        UIManager.dispatchViewManagerCommand(
-          findNodeHandle(nativeRef.current),
-          UIManager.getViewManagerConfig(NATIVE_VIEW_KEY).Commands
-            .startRecording,
-          undefined
-        );
+        nativeExecute('startRecording');
       },
       resumeRecording() {
-        UIManager.dispatchViewManagerCommand(
-          findNodeHandle(nativeRef.current),
-          UIManager.getViewManagerConfig(NATIVE_VIEW_KEY).Commands
-            .resumeRecording,
-          undefined
-        );
+        nativeExecute('resumeRecording');
       },
       pauseRecording() {
-        UIManager.dispatchViewManagerCommand(
-          findNodeHandle(nativeRef.current),
-          UIManager.getViewManagerConfig(NATIVE_VIEW_KEY).Commands
-            .pauseRecording,
-          undefined
-        );
+        nativeExecute('pauseRecording');
       },
       finishRecording() {
-        UIManager.dispatchViewManagerCommand(
-          findNodeHandle(nativeRef.current),
-          UIManager.getViewManagerConfig(NATIVE_VIEW_KEY).Commands
-            .finishRecording,
-          undefined
-        );
+        nativeExecute('finishRecording');
       },
       setAudioMute(enabled) {
-        UIManager.dispatchViewManagerCommand(
-          findNodeHandle(nativeRef.current),
-          UIManager.getViewManagerConfig(NATIVE_VIEW_KEY).Commands.setAudioMute,
-          [enabled]
-        );
+        nativeExecute('setAudioMute', [enabled]);
       },
       pause() {
-        UIManager.dispatchViewManagerCommand(
-          findNodeHandle(nativeRef.current),
-          UIManager.getViewManagerConfig(NATIVE_VIEW_KEY).Commands.pause,
-          undefined
-        );
+        nativeExecute('pause');
       },
       resume() {
-        UIManager.dispatchViewManagerCommand(
-          findNodeHandle(nativeRef.current),
-          UIManager.getViewManagerConfig(NATIVE_VIEW_KEY).Commands.resume,
-          undefined
-        );
+        nativeExecute('resume');
       },
       takeScreenshot() {
-        UIManager.dispatchViewManagerCommand(
-          findNodeHandle(nativeRef.current),
-          UIManager.getViewManagerConfig(NATIVE_VIEW_KEY).Commands
-            .takeScreenshot,
-          undefined
-        );
+        nativeExecute('takeScreenshot');
       },
       setLiveMode(enabled) {
-        UIManager.dispatchViewManagerCommand(
-          findNodeHandle(nativeRef.current),
-          UIManager.getViewManagerConfig(NATIVE_VIEW_KEY).Commands.setLiveMode,
-          [enabled]
-        );
+        nativeExecute('setLiveMode', [enabled]);
       },
       setFaceDetectionSensitivity(sensitivity) {
-        UIManager.dispatchViewManagerCommand(
-          findNodeHandle(nativeRef.current),
-          UIManager.getViewManagerConfig(NATIVE_VIEW_KEY).Commands
-            .setFaceDetectionSensitivity,
-          [sensitivity]
-        );
+        nativeExecute('setFaceDetectionSensitivity', [sensitivity]);
       },
       showStats(enabled) {
-        UIManager.dispatchViewManagerCommand(
-          findNodeHandle(nativeRef.current),
-          UIManager.getViewManagerConfig(NATIVE_VIEW_KEY).Commands.showStats,
-          [enabled]
-        );
+        nativeExecute('showStats', [enabled]);
       },
       changeParameterFloat(params) {
         const {gameObject, component, parameter, value} = params;
-        UIManager.dispatchViewManagerCommand(
-          findNodeHandle(nativeRef.current),
-          UIManager.getViewManagerConfig(NATIVE_VIEW_KEY).Commands
-            .changeParameterFloat,
-          [gameObject, component, parameter, value]
-        );
+        const nativeParams = [gameObject, component, parameter, value];
+        nativeExecute('changeParameterFloat', nativeParams);
       },
       changeParameterVec3(params) {
         const {gameObject, component, parameter, x, y, z} = params;
-        UIManager.dispatchViewManagerCommand(
-          findNodeHandle(nativeRef.current),
-          UIManager.getViewManagerConfig(NATIVE_VIEW_KEY).Commands
-            .changeParameterVec3,
-          [gameObject, component, parameter, x, y, z]
-        );
+        const nativeParams = [gameObject, component, parameter, x, y, z];
+        nativeExecute('changeParameterVec3', nativeParams);
       },
       changeParameterVec4(params) {
         const {gameObject, component, parameter, x, y, z, w} = params;
-        UIManager.dispatchViewManagerCommand(
-          findNodeHandle(nativeRef.current),
-          UIManager.getViewManagerConfig(NATIVE_VIEW_KEY).Commands
-            .changeParameterVec4,
-          [gameObject, component, parameter, x, y, z, w]
-        );
+        const nativeParams = [gameObject, component, parameter, x, y, z, w];
+        nativeExecute('changeParameterVec4', nativeParams);
       },
       changeParameterBool(params) {
         const {gameObject, component, parameter, value} = params;
-        UIManager.dispatchViewManagerCommand(
-          findNodeHandle(nativeRef.current),
-          UIManager.getViewManagerConfig(NATIVE_VIEW_KEY).Commands
-            .changeParameterBool,
-          [gameObject, component, parameter, value]
-        );
+        const nativeParams = [gameObject, component, parameter, value];
+        nativeExecute('changeParameterBool', nativeParams);
       },
       changeParameterTexture(params) {
         const {gameObject, component, parameter, value, type} = params;
-        UIManager.dispatchViewManagerCommand(
-          findNodeHandle(nativeRef.current),
-          UIManager.getViewManagerConfig(NATIVE_VIEW_KEY).Commands
-            .changeParameterTexture,
-          [gameObject, component, parameter, value, type]
-        );
+        const nativeParams = [gameObject, component, parameter, value, type];
+        nativeExecute('changeParameterTexture', nativeParams);
       },
       changeParameterString(params) {
         const {gameObject, component, parameter, value} = params;
-        UIManager.dispatchViewManagerCommand(
-          findNodeHandle(nativeRef.current),
-          UIManager.getViewManagerConfig(NATIVE_VIEW_KEY).Commands
-            .changeParameterString,
-          [gameObject, component, parameter, value]
-        );
+        const nativeParams = [gameObject, component, parameter, value];
+        nativeExecute('changeParameterString', nativeParams);
       },
     }));
 
