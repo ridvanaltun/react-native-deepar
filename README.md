@@ -5,11 +5,14 @@
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 [![license](https://img.shields.io/npm/l/react-native-deepar.svg)](https://github.com/ridvanaltun/react-native-deepar/blob/master/LICENSE)
 
-> React-Native wrapper for [DeepAR](https://www.deepar.ai/)
+> Snapchat-like filters, AR lenses, and real-time facial animations.
 
-# Table of Contents <!-- omit in toc -->
+> React-Native wrapper for [DeepAR](https://www.deepar.ai/).
 
-- [Getting started](#getting-started)
+## Table of Contents <!-- omit in toc -->
+
+- [What is DeepAR?](#what-is-deepar)
+- [Getting Started](#getting-started)
 - [Compatibility](#compatibility)
 - [Installing AR Models](#installing-ar-models)
 - [Using AR Models over Internet](#using-ar-models-over-internet)
@@ -23,9 +26,26 @@
 - [Contributing](#contributing)
 - [License](#license)
 
-## Getting started
+## What is DeepAR?
 
-This library under development and It only works on physical devices, not will work with simulator. Some features may not work, if you found a bug, please open an issue from [here](https://github.com/ridvanaltun/react-native-deepar/issues/new).
+| Preview                                                          |
+| ---------------------------------------------------------------- |
+| <img src="./docs/preview.gif" alt="Preview Image" width="600" /> |
+| This GIF taken from DeepAR offical site.                         |
+
+DeepAR is an infrastructure where you can make AR applications in ease. DeepAR is not free, but you can create applications that can be used by up to 10 people for testing purposes for free. To use this library, you need to create an API key, then you're ready to go.
+
+With the [Asset Store](https://www.store.deepar.ai/), you can buy ready to use AR content.
+
+With the [DeepAR Studio](https://www.deepar.ai/creator-studio) program, you can create, edit and fine tune your own AR content.
+
+You can visit [DeepAR's offical site](https://www.deepar.ai/) and [DeepAR Help Center](https://help.deepar.ai/en/) to learn more.
+
+## Getting Started
+
+:warning: This library under development, if you found a bug, please open an issue from [here](https://github.com/ridvanaltun/react-native-deepar/issues/new).
+
+:warning: It only works on physical devices, not will work with simulator.
 
 ```sh
 npm install react-native-deepar
@@ -93,8 +113,8 @@ RNFetchBlob.config({
 [Make registration to DeepAR](https://developer.deepar.ai/) and get an API key from developer panel.
 
 ```tsx
-import React, { useRef } from 'react';
-import DeepAR, { CameraFacing, IDeepARHandle } from 'react-native-deepar';
+import React, {useRef} from 'react';
+import DeepAR, {CameraFacing, IDeepARHandle} from 'react-native-deepar';
 
 const App = () => {
   const deepARRef = useRef<IDeepARHandle>(null);
@@ -103,7 +123,7 @@ const App = () => {
     <DeepAR
       ref={deepARRef}
       apiKey="your-api-key"
-      style={{ flex: 1 }}
+      style={{flex: 1}}
       onInitialized={() => {
         // Called when the DeepAR is initialized.
         // DeepAR methods should not be called before the initialization is completed.
@@ -377,4 +397,4 @@ See the [contributing guide](CONTRIBUTING.md) to learn how to contribute to the 
 
 ## License
 
-MIT
+This project is licensed under the [MIT License](https://opensource.org/licenses/MIT) - see the [`LICENSE`](LICENSE) file for details.
