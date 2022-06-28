@@ -33,13 +33,15 @@
 | <img src="./docs/preview.gif" alt="Preview Image" width="600" /> |
 | This GIF taken from DeepAR offical site.                         |
 
-DeepAR is an infrastructure where you can make AR applications in ease. DeepAR is not free, but you can create applications that can be used by up to 10 people for testing purposes for free. To use this library, you need to create an API key, then you're ready to go.
+DeepAR is an infrastructure where you can make AR applications in ease. DeepAR is not free, but you can create applications that can be used by up to 10 people for testing purposes for free.
 
-With the [Asset Store](https://www.store.deepar.ai/), you can buy ready to use AR content.
+In order to use DeepAR, you need to generate an API key. You can generate the API key from the [Developer Panel](https://developer.deepar.ai/).
 
-With the [DeepAR Studio](https://www.deepar.ai/creator-studio) program, you can create, edit and fine tune your own AR content.
+With the [Asset Store](https://www.store.deepar.ai/), you can buy ready to use AR content. If you're looking for free filter, here is some: [Free Filter Pack](https://help.deepar.ai/en/articles/3580432-free-filter-pack)
 
-You can visit [DeepAR's offical site](https://www.deepar.ai/) and [DeepAR Help Center](https://help.deepar.ai/en/) to learn more.
+With the [DeepAR Studio](https://www.deepar.ai/creator-studio), you can create, edit and fine tune your own AR content. To learn DeepAR Studio, visit [DeepAR Help Center](https://help.deepar.ai/en/).
+
+You can visit [DeepAR's offical site](https://www.deepar.ai/) to learn more.
 
 ## Getting Started
 
