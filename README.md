@@ -17,11 +17,16 @@
 - [Installing AR Models](#installing-ar-models)
 - [Using AR Models over Internet](#using-ar-models-over-internet)
 - [Usage](#usage)
-  - [General](#general)
-  - [Camera Control](#camera-control)
-  - [Video Recording](#video-recording)
-  - [Change Parameters](#change-parameters)
-  - [Core](#core)
+- [API](#api)
+  - [Props](#props)
+  - [Events](#events)
+  - [Methods](#methods)
+    - [General](#general)
+    - [Camera Control](#camera-control)
+    - [Video Recording](#video-recording)
+    - [Change Parameters](#change-parameters)
+    - [Core](#core)
+- [Background Segmentation](#background-segmentation)
 - [Example App](#example-app)
 - [Contributing](#contributing)
 - [License](#license)
@@ -35,11 +40,9 @@
 
 DeepAR is an infrastructure where you can make AR applications in ease. DeepAR is not free, but you can create applications that can be used by up to 10 people for testing purposes for free.
 
-In order to use DeepAR, you need to generate an API key. You can generate the API key from the [Developer Panel](https://developer.deepar.ai/).
-
-With the [Asset Store](https://www.store.deepar.ai/), you can buy ready to use AR content. If you're looking for free filter, here is some: [Free Filter Pack](https://help.deepar.ai/en/articles/3580432-free-filter-pack)
-
-With the [DeepAR Studio](https://www.deepar.ai/creator-studio), you can create, edit and fine tune your own AR content. To learn DeepAR Studio, visit [DeepAR Help Center](https://help.deepar.ai/en/).
+- In order to use DeepAR, you need to generate an API key. You can generate the API key from the [Developer Panel](https://developer.deepar.ai/).
+- With the [Asset Store](https://www.store.deepar.ai/), you can buy ready to use AR content. If you're looking for free filters, here is some: [Free Filter Pack](https://help.deepar.ai/en/articles/3580432-free-filter-pack)
+- With the [DeepAR Studio](https://www.deepar.ai/creator-studio), you can create, edit and fine tune your own AR content. To learn DeepAR Studio, visit [DeepAR Help Center](https://help.deepar.ai/en/).
 
 You can visit [DeepAR's offical site](https://www.deepar.ai/) to learn more.
 
@@ -112,11 +115,11 @@ RNFetchBlob.config({
 
 ## Usage
 
-[Make registration to DeepAR](https://developer.deepar.ai/) and get an API key from developer panel.
+Make registration to DeepAR and get an API key from [Developer Panel](https://developer.deepar.ai/).
 
 ```tsx
 import React, {useRef} from 'react';
-import DeepAR, {CameraFacing, IDeepARHandle} from 'react-native-deepar';
+import DeepAR, {IDeepARHandle} from 'react-native-deepar';
 
 const App = () => {
   const deepARRef = useRef<IDeepARHandle>(null);
@@ -127,243 +130,120 @@ const App = () => {
       apiKey="your-api-key"
       style={{flex: 1}}
       onInitialized={() => {
-        // Called when the DeepAR is initialized.
-        // DeepAR methods should not be called before the initialization is completed.
-      }}
-      onEffectSwitched={(slot: String) => {
-        // Called when an effect has been switched.
-      }}
-      onScreenshotTaken={(path: String) => {
-        // Called when the screen capture is finished.
-      }}
-      onVideoRecordingPrepared={() => {
-        // Called when the video recording is prepared.
-      }}
-      onVideoRecordingStarted={() => {
-        // The start of the video recording process is not synchronous,
-        // so this method will be called when the video recording is started.
-      }}
-      onVideoRecordingFinished={(path: String) => {
-        // Called when the video recording is finished.
-      }}
-      onCameraSwitched={(status: CameraFacing) => {
-        // Todo camera switched.
-      }}
-      onFaceVisibilityChanged={(isVisible: Boolean) => {
-        // Called when the user's face becomes visible or invisible.
-      }}
-      onImageVisibilityChanged={(isVisible: Boolean, gameObject?: String) => {
-        // Called when a natural image is being tracked and the visibility has changed.
-      }}
-      onError={(errorText: String) => {
-        // Called when an error occur
-        // like the model path not found or the effect file failed to load.
+        // ..
       }}
     />
   );
 };
 ```
 
-### General
+## API
 
-**Switch Effect:**
+The `<DeepAR>` component can take a number of inputs to customize it as needed. They are outlined below:
 
-The method used to switch any effect in the scene. Effects are places in slots. Every slot is identified by its unique name and can hold one effect at any given moment. Every subsequent call to this method removes the effect that was previously displayed in this slot.
+### Props
 
-```tsx
-import type {ISwitchEffect} from 'react-native-deepar';
+| Prop   | Type   | Default | Required | Description                                                                                          |
+| ------ | ------ | ------- | -------- | ---------------------------------------------------------------------------------------------------- |
+| apiKey | String | null    | true     | Make registration to DeepAR and get an API key from [Developer Panel](https://developer.deepar.ai/). |
 
-deepARRef?.current?.switchEffect(params: ISwitchEffect) => void;
-```
+### Events
 
-**Switch Effect with Path:**
+These are various events that you can hook into and fire functions on in the component:
 
-```tsx
-import type {ISwitchEffectWithPath} from 'react-native-deepar';
+| Callback                 | Description                                                                                                                     |
+| ------------------------ | ------------------------------------------------------------------------------------------------------------------------------- |
+| onInitialized            | Called when the DeepAR is initialized. DeepAR methods should not be called before the initialization is completed.              |
+| onEffectSwitched         | Called when an effect has been switched.                                                                                        |
+| onScreenshotTaken        | Called when the screen capture is finished.                                                                                     |
+| onVideoRecordingPrepared | Called when the video recording is prepared.                                                                                    |
+| onVideoRecordingStarted  | The start of the video recording process is not synchronous, so this method will be called when the video recording is started. |
+| onVideoRecordingFinished | Called when the video recording is finished.                                                                                    |
+| onCameraSwitched         | Fired when camera switched.                                                                                                     |
+| onFaceVisibilityChanged  | Called when the user's face becomes visible or invisible.                                                                       |
+| onImageVisibilityChanged | Called when a natural image is being tracked and the visibility has changed.                                                    |
+| onError                  | Called when an error occur, like the model path not found or the effect file failed to load.                                    |
 
-deepARRef?.current?.switchEffectWithPath(params: ISwitchEffectWithPath) => void;
-```
+### Methods
 
-**Fire Trigger:**
+These are the various methods.
 
-This method allows the user to fire a custom animation trigger for model animations from code. To fire a custom trigger, the trigger string must match the custom trigger set in the Studio when creating the effect.
+#### General
 
-```tsx
-deepARRef?.current?.fireTrigger(trigger: String) => void;
-```
+| Method               | Description                                                                                                                                                                                                                                                                  |
+| -------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| switchEffect         | The method used to switch any effect in the scene. Effects are places in slots. Every slot is identified by its unique name and can hold one effect at any given moment. Every subsequent call to this method removes the effect that was previously displayed in this slot. |
+| switchEffectWithPath | Same as `switchEffect` but with path.                                                                                                                                                                                                                                        |
+| fireTrigger          | This method allows the user to fire a custom animation trigger for model animations from code. To fire a custom trigger, the trigger string must match the custom trigger set in the Studio when creating the effect.                                                        |
+| takeScreenshot       | Captures a screenshot of the current screen. When a screenshot is done `onScreenshotTaken` will be called with a resulting screenshot.                                                                                                                                       |
 
-**Take Screenshot:**
+#### Camera Control
 
-Captures a screenshot of the current screen. When a screenshot is done `onScreenshotTaken` will be called with a resulting screenshot.
+| Method       | Description                          |
+| ------------ | ------------------------------------ |
+| switchCamera | Switches the camera, back and front. |
+| setFlashOn   | Toggle flash.                        |
 
-```tsx
-deepARRef?.current?.takeScreenshot() => void;
-```
+#### Video Recording
 
-### Camera Control
+| Method          | Description                                                                                                                                                                 |
+| --------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| startRecording  | Starts video recording of the camera preview.                                                                                                                               |
+| pauseRecording  | Pauses video recording.                                                                                                                                                     |
+| resumeRecording | Resumes video recording after it has been paused with `pauseRecording`.                                                                                                     |
+| finishRecording | Stops video recording and starts the process of saving the recorded video to the file system. When the file is saved, the method `onVideoRecordingFinished` will be called. |
+| setAudioMute    | Mutes/unmutes the audio while video recording.                                                                                                                              |
 
-**Switch Camera:**
-
-```tsx
-deepARRef?.current?.switchCamera() => void;
-```
-
-**Toggle Flash:**
-
-```tsx
-deepARRef?.current?.setFlashOn(enabled: Boolean) => void;
-```
-
-### Video Recording
-
-**Start Recording:**
-
-Starts video recording of the camera preview.
-
-```tsx
-deepARRef?.current?.startRecording() => void;
-```
-
-**Pause Recording:**
-
-Pauses video recording.
-
-```tsx
-deepARRef?.current?.pauseRecording() => void;
-```
-
-**Resume Recording:**
-
-Resumes video recording after it has been paused with `pauseRecording`.
-
-```tsx
-deepARRef?.current?.resumeRecording() => void;
-```
-
-**Finish Recording:**
-
-Stops video recording and starts the process of saving the recorded video to the file system. When the file is saved, the method `onVideoRecordingFinished` will be called.
-
-```tsx
-deepARRef?.current?.finishRecording() => void;
-```
-
-**Mute:**
-
-Mutes/unmutes the audio while video recording.
-
-```tsx
-deepARRef?.current?.setAudioMute(enabled: Boolean) => void;
-```
-
-### Change Parameters
+#### Change Parameters
 
 For more details about changeParameter API read our article [here](https://help.deepar.ai/en/articles/3732006-changing-filter-parameters-from-code).
 
-**Change Float:**
+| Method                 | Description                                                                                                                                                                                                                            |
+| ---------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| changeParameterFloat   | This method allows the user to change the value of blendshape parameters during runtime.                                                                                                                                               |
+| changeParameterVec4    | This method is used to change the certain color of a Game Object at runtime.                                                                                                                                                           |
+| changeParameterVec3    | This method is used to change the transform of a Game Object at runtime, so here you can change the object position, rotation or scale.                                                                                                |
+| changeParameterBool    | Let say you want to put a button in your app that enables or disables Game Object at runtime. (let's say you want your filter character to put their glasses on or take them off) This function helps you to enable/disable the value. |
+| changeParameterString  | Change a string parameter on a game object. The most common use for this override is to change blend mode and culling mode properties of a game object. **Note:** Only available in iOS                                                |
+| changeParameterTexture | This method allows the user to load an image and set it as a texture during runtime. This can be useful if you want to leverage our background segmentation feature, and change the background in your filter.                         |
 
-This method allows the user to change the value of blendshape parameters during runtime.
+#### Core
 
-```tsx
-import type {IChangeParamaterFloat} from 'react-native-deepar';
+| Method                      | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| --------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| pause                       | Pauses the rendering. This method will not release any resources and should be used only for temporary pause (e.g. user goes to the next screen).                                                                                                                                                                                                                                                                                                                                                                                                                |
+| resume                      | Resumes the rendering if it was previously paused, otherwise doesn't do anything.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| setLiveMode                 | This is an optimization method and it allows the user to indicate the DeepAR in which mode it should operate. If called with true value, DeepAR will expect a continuous flow of new frames and it will optimize its inner processes for such workload. An example of this is the typical use case of processing the frames from the camera stream. If called with false it will optimize for preserving resources and memory by pausing the rendering after each processed frame. A typical use case for this is when the user needs to process just one image. |
+| setFaceDetectionSensitivity | This method allows the user to change face detection sensitivity. The sensitivity parameter can range from 0 to 3, where 0 is the fastest but might not recognize smaller (further away) faces, and 3 is the slowest but will find smaller faces. By default, this parameter is set to 1.                                                                                                                                                                                                                                                                        |
+| showStats                   | Display debugging stats on screen.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
 
-deepARRef?.current?.changeParameterFloat(params: IChangeParamaterFloat) => void;
-```
+## Background Segmentation
 
-**Change Vector4:**
+DeepAR has [Background Segmentation](https://www.deepar.ai/background-removal) feature, with this feature you can change your background in real-time.
 
-This method is used to change the certain color of a Game Object at runtime.
+![Background Segmentation](./docs/background-segmentation.png)
 
-```tsx
-import type {IChangeParamaterVec4} from 'react-native-deepar';
+There is a filter called `Background` from [Free Filter Pack](https://help.deepar.ai/en/articles/3580432-free-filter-pack) and you can use this filter.
 
-deepARRef?.current?.changeParameterVec4(params: IChangeParamaterVec4) => void;
-```
+**How change background image?**
 
-**Change Vector3:**
+Switch the `Background` effect and apply new background image like below:
 
-This method is used to change the transform of a Game Object at runtime, so here you can change the object position, rotation or scale.
+```js
+import {TextureSourceTypes} from 'react-native-deepar';
+import RNFetchBlob from 'rn-fetch-blob';
 
-```tsx
-import type {IChangeParamaterVec3} from 'react-native-deepar';
-
-deepARRef?.current?.changeParameterVec3(params: IChangeParamaterVec3) => void;
-```
-
-**Change Boolean:**
-
-Let say you want to put a button in your app that enables or disables Game Object at runtime. (let's say you want your filter character to put their glasses on or take them off) This function helps you to enable/disable the value.
-
-```tsx
-import type {IChangeParamaterBool} from 'react-native-deepar';
-
-deepARRef?.current?.changeParameterBool(params: IChangeParamaterBool) => void;
-```
-
-**Change String:**
-
-**Note:** Only available in iOS
-
-Change a string parameter on a game object. The most common use for this override is to change blend mode and culling mode properties of a game object.
-
-```tsx
-import type {IChangeParamaterString} from 'react-native-deepar';
-
-deepARRef?.current?.changeParameterString(params: IChangeParamaterString) => void;
-```
-
-**Change Texture:**
-
-This method allows the user to load an image and set it as a texture during runtime. This can be useful if you want to leverage our background segmentation feature, and change the background in your filter.
-
-```tsx
-import type {IChangeParamaterTexture} from 'react-native-deepar';
-
-deepARRef?.current?.changeParameterTexture(params: IChangeParamaterTexture) => void;
-```
-
-### Core
-
-**Pause:**
-
-Pauses the rendering. This method will not release any resources and should be used only for temporary pause (e.g. user goes to the next screen).
-
-```tsx
-deepARRef?.current?.pause() => void;
-```
-
-**Resume:**
-
-Resumes the rendering if it was previously paused, otherwise doesn't do anything.
-
-```tsx
-deepARRef?.current?.resume() => void;
-```
-
-**Change Live Mode:**
-
-This is an optimization method and it allows the user to indicate the DeepAR in which mode it should operate. If called with true value, DeepAR will expect a continuous flow of new frames and it will optimize its inner processes for such workload. An example of this is the typical use case of processing the frames from the camera stream.
-
-If called with false it will optimize for preserving resources and memory by pausing the rendering after each processed frame. A typical use case for this is when the user needs to process just one image.
-
-```tsx
-deepARRef?.current?.setLiveMode(enabled: Boolean) => void;
-```
-
-**Set Face Detection Sensitivity:**
-
-This method allows the user to change face detection sensitivity. The sensitivity parameter can range from 0 to 3, where 0 is the fastest but might not recognize smaller (further away) faces, and 3 is the slowest but will find smaller faces. By default, this parameter is set to 1.
-
-```tsx
-deepARRef?.current?.setFaceDetectionSensitivity(sensitivity: Number) => void;
-```
-
-**Show Stats:**
-
-Display debugging stats on screen.
-
-```tsx
-deepARRef?.current?.showStats(enabled: Boolean) => void;
+RNFetchBlob.config({})
+  .fetch('GET', 'https://random.imagecdn.app/450/800')
+  .then((res) => {
+    deepARRef?.current?.changeParameterTexture({
+      gameObject: 'Background',
+      component: 'MeshRenderer',
+      parameter: 's_texColor',
+      type: TextureSourceTypes.BASE64,
+      value: res.base64(),
+    });
+  });
 ```
 
 ## Example App
