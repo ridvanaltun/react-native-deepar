@@ -292,7 +292,7 @@ deepARRef?.current?.changeParameterVec3(params: IChangeParamaterVec3) => void;
 
 **Change Boolean:**
 
-Let say you want to put a button in your app that enables or disables Game Object at runtime. (let's say you want your filter character to put their glasses on or take them off) This parameter helps you to enable/disable the value.Here is the code to apply this parameter:
+Let say you want to put a button in your app that enables or disables Game Object at runtime. (let's say you want your filter character to put their glasses on or take them off) This function helps you to enable/disable the value.
 
 ```tsx
 import type {IChangeParamaterBool} from 'react-native-deepar';
@@ -304,7 +304,7 @@ deepARRef?.current?.changeParameterBool(params: IChangeParamaterBool) => void;
 
 **Note:** Only available in iOS
 
-Change a string parameter on a game object. The parameter is the name of the parameter you want to change. The most common use for this override is to change blend mode and culling mode properties of a game object.
+Change a string parameter on a game object. The most common use for this override is to change blend mode and culling mode properties of a game object.
 
 ```tsx
 import type {IChangeParamaterString} from 'react-native-deepar';
