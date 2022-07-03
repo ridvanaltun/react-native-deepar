@@ -40,9 +40,20 @@
 
 DeepAR is an infrastructure where you can make AR applications in ease. DeepAR is not free, but you can create applications that can be used by up to 10 people for testing purposes for free.
 
+- Check pricing from [Pricing Page](https://developer.deepar.ai/pricing).
 - In order to use DeepAR, you need to generate an API key. You can generate the API key from the [Developer Panel](https://developer.deepar.ai/).
-- With the [Asset Store](https://www.store.deepar.ai/), you can buy ready to use AR content. If you're looking for free filters, here is some: [Free Filter Pack](https://help.deepar.ai/en/articles/3580432-free-filter-pack)
-- With the [DeepAR Studio](https://www.deepar.ai/creator-studio), you can create, edit and fine tune your own AR content. To learn DeepAR Studio, visit [DeepAR Help Center](https://help.deepar.ai/en/).
+- With the [Asset Store](https://www.store.deepar.ai/), you can buy ready to use AR content.
+- If you're looking for free filters, here is some: [Free Filter Pack](https://help.deepar.ai/en/articles/3580432-free-filter-pack)
+- With the [DeepAR Studio](https://www.deepar.ai/creator-studio), you can create, edit and fine tune your own AR content.
+- To learn DeepAR Studio, visit [DeepAR Help Center](https://help.deepar.ai/en/).
+
+**DeepAR Features:**
+
+- [Face Filters, Effects and Masks](https://www.deepar.ai/face-filters-lenses-masks)
+- [AR Beauty & Makeup](https://www.deepar.ai/beauty-and-makeup)
+- [Realtime Hair Color Segmentation](https://www.deepar.ai/hair-coloring)
+- [Background Removal and Segmentation](https://www.deepar.ai/background-removal)
+- [Realtime Emotion Detection](https://www.deepar.ai/emotion-detection)
 
 You can visit [DeepAR's offical site](https://www.deepar.ai/) to learn more.
 
@@ -95,6 +106,8 @@ npm run asset
 
 ## Using AR Models over Internet
 
+You don't have to install AR models in your app, you can use AR models over Internet.
+
 1. Install [rn-fetch-blob](https://github.com/joltup/rn-fetch-blob) to your project
 2. You can use AR models over internet like below:
 
@@ -143,26 +156,26 @@ The `<DeepAR>` component can take a number of inputs to customize it as needed. 
 
 ### Props
 
-| Prop   | Type   | Default | Required | Description                                                                                          |
-| ------ | ------ | ------- | -------- | ---------------------------------------------------------------------------------------------------- |
-| apiKey | String | null    | true     | Make registration to DeepAR and get an API key from [Developer Panel](https://developer.deepar.ai/). |
+| Prop   | Type   | Default   | Required    | Description                                                                                          |
+| ------ | ------ | --------- | ----------- | ---------------------------------------------------------------------------------------------------- |
+| apiKey | String | undefined | <b>true</b> | Make registration to DeepAR and get an API key from [Developer Panel](https://developer.deepar.ai/). |
 
 ### Events
 
 These are various events that you can hook into and fire functions on in the component:
 
-| Callback                 | Description                                                                                                                     |
-| ------------------------ | ------------------------------------------------------------------------------------------------------------------------------- |
-| onInitialized            | Called when the DeepAR is initialized. DeepAR methods should not be called before the initialization is completed.              |
-| onEffectSwitched         | Called when an effect has been switched.                                                                                        |
-| onScreenshotTaken        | Called when the screen capture is finished.                                                                                     |
-| onVideoRecordingPrepared | Called when the video recording is prepared.                                                                                    |
-| onVideoRecordingStarted  | The start of the video recording process is not synchronous, so this method will be called when the video recording is started. |
-| onVideoRecordingFinished | Called when the video recording is finished.                                                                                    |
-| onCameraSwitched         | Fired when camera switched.                                                                                                     |
-| onFaceVisibilityChanged  | Called when the user's face becomes visible or invisible.                                                                       |
-| onImageVisibilityChanged | Called when a natural image is being tracked and the visibility has changed.                                                    |
-| onError                  | Called when an error occur, like the model path not found or the effect file failed to load.                                    |
+| Callback                 | Callback Params                                       | Description                                                                                                                     |
+| ------------------------ | ----------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| onInitialized            | <div align="center">-</div>                           | Called when the DeepAR is initialized. DeepAR methods should not be called before the initialization is completed.              |
+| onEffectSwitched         | (<b>slot</b>: String)                                 | Called when an effect has been switched.                                                                                        |
+| onScreenshotTaken        | (<b>path</b>: String)                                 | Called when the screen capture is finished.                                                                                     |
+| onVideoRecordingPrepared | <div align="center">-</div>                           | Called when the video recording is prepared.                                                                                    |
+| onVideoRecordingStarted  | <div align="center">-</div>                           | The start of the video recording process is not synchronous, so this method will be called when the video recording is started. |
+| onVideoRecordingFinished | (<b>path</b>: String)                                 | Called when the video recording is finished.                                                                                    |
+| onCameraSwitched         | (<b>facing</b>: CameraFacing)                         | Called when camera switched.                                                                                                    |
+| onFaceVisibilityChanged  | (<b>visible</b>: Boolean)                             | Called when the user's face becomes visible or invisible.                                                                       |
+| onImageVisibilityChanged | (<b>visible</b>: Boolean, <b>gameObject</b>?: String) | Called when a natural image is being tracked and the visibility has changed.                                                    |
+| onError                  | (<b>errorText</b>: String)                            | Called when an error occur, like the model path not found or the effect file failed to load.                                    |
 
 ### Methods
 
@@ -170,52 +183,52 @@ These are the various methods.
 
 #### General
 
-| Method               | Description                                                                                                                                                                                                                                                                  |
-| -------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| switchEffect         | The method used to switch any effect in the scene. Effects are places in slots. Every slot is identified by its unique name and can hold one effect at any given moment. Every subsequent call to this method removes the effect that was previously displayed in this slot. |
-| switchEffectWithPath | Same as `switchEffect` but with path.                                                                                                                                                                                                                                        |
-| fireTrigger          | This method allows the user to fire a custom animation trigger for model animations from code. To fire a custom trigger, the trigger string must match the custom trigger set in the Studio when creating the effect.                                                        |
-| takeScreenshot       | Captures a screenshot of the current screen. When a screenshot is done `onScreenshotTaken` will be called with a resulting screenshot.                                                                                                                                       |
+| Method               | Params                                 | Description                                                                                                                                                                                                                                                                  |
+| -------------------- | -------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| switchEffect         | (<b>params</b>: ISwitchEffect)         | The method used to switch any effect in the scene. Effects are places in slots. Every slot is identified by its unique name and can hold one effect at any given moment. Every subsequent call to this method removes the effect that was previously displayed in this slot. |
+| switchEffectWithPath | (<b>params</b>: ISwitchEffectWithPath) | Same as `switchEffect` but with path.                                                                                                                                                                                                                                        |
+| fireTrigger          | (<b>trigger</b>: String)               | This method allows the user to fire a custom animation trigger for model animations from code. To fire a custom trigger, the trigger string must match the custom trigger set in the Studio when creating the effect.                                                        |
+| takeScreenshot       | <div align="center">-</div>            | Captures a screenshot of the current screen. When a screenshot is done `onScreenshotTaken` will be called with a resulting screenshot.                                                                                                                                       |
 
 #### Camera Control
 
-| Method       | Description                          |
-| ------------ | ------------------------------------ |
-| switchCamera | Switches the camera, back and front. |
-| setFlashOn   | Toggle flash.                        |
+| Method       | Params                      | Description                          |
+| ------------ | --------------------------- | ------------------------------------ |
+| switchCamera | <div align="center">-</div> | Switches the camera, back and front. |
+| setFlashOn   | (<b>enabled</b>: Boolean)   | Toggle flash.                        |
 
 #### Video Recording
 
-| Method          | Description                                                                                                                                                                 |
-| --------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| startRecording  | Starts video recording of the camera preview.                                                                                                                               |
-| pauseRecording  | Pauses video recording.                                                                                                                                                     |
-| resumeRecording | Resumes video recording after it has been paused with `pauseRecording`.                                                                                                     |
-| finishRecording | Stops video recording and starts the process of saving the recorded video to the file system. When the file is saved, the method `onVideoRecordingFinished` will be called. |
-| setAudioMute    | Mutes/unmutes the audio while video recording.                                                                                                                              |
+| Method          | Params                      | Description                                                                                                                                                                 |
+| --------------- | --------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| startRecording  | <div align="center">-</div> | Starts video recording of the camera preview.                                                                                                                               |
+| pauseRecording  | <div align="center">-</div> | Pauses video recording.                                                                                                                                                     |
+| resumeRecording | <div align="center">-</div> | Resumes video recording after it has been paused with `pauseRecording`.                                                                                                     |
+| finishRecording | <div align="center">-</div> | Stops video recording and starts the process of saving the recorded video to the file system. When the file is saved, the method `onVideoRecordingFinished` will be called. |
+| setAudioMute    | (<b>enabled</b>: Boolean)   | Mutes/unmutes the audio while video recording.                                                                                                                              |
 
 #### Change Parameters
 
 For more details about changeParameter API read our article [here](https://help.deepar.ai/en/articles/3732006-changing-filter-parameters-from-code).
 
-| Method                 | Description                                                                                                                                                                                                                            |
-| ---------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| changeParameterFloat   | This method allows the user to change the value of blendshape parameters during runtime.                                                                                                                                               |
-| changeParameterVec4    | This method is used to change the certain color of a Game Object at runtime.                                                                                                                                                           |
-| changeParameterVec3    | This method is used to change the transform of a Game Object at runtime, so here you can change the object position, rotation or scale.                                                                                                |
-| changeParameterBool    | Let say you want to put a button in your app that enables or disables Game Object at runtime. (let's say you want your filter character to put their glasses on or take them off) This function helps you to enable/disable the value. |
-| changeParameterString  | Change a string parameter on a game object. The most common use for this override is to change blend mode and culling mode properties of a game object. **Note:** Only available in iOS                                                |
-| changeParameterTexture | This method allows the user to load an image and set it as a texture during runtime. This can be useful if you want to leverage our background segmentation feature, and change the background in your filter.                         |
+| Method                 | Params                                   | Description                                                                                                                                                                                                                            |
+| ---------------------- | ---------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| changeParameterFloat   | (<b>params</b>: IChangeParamaterFloat)   | This method allows the user to change the value of blendshape parameters during runtime.                                                                                                                                               |
+| changeParameterVec4    | (<b>params</b>: IChangeParamaterVec4)    | This method is used to change the certain color of a Game Object at runtime.                                                                                                                                                           |
+| changeParameterVec3    | (<b>params</b>: IChangeParamaterVec3)    | This method is used to change the transform of a Game Object at runtime, so here you can change the object position, rotation or scale.                                                                                                |
+| changeParameterBool    | (<b>params</b>: IChangeParamaterBool)    | Let say you want to put a button in your app that enables or disables Game Object at runtime. (let's say you want your filter character to put their glasses on or take them off) This function helps you to enable/disable the value. |
+| changeParameterString  | (<b>params</b>: IChangeParamaterString)  | Change a string parameter on a game object. The most common use for this override is to change blend mode and culling mode properties of a game object. **Note:** Only available in iOS                                                |
+| changeParameterTexture | (<b>params</b>: IChangeParamaterTexture) | This method allows the user to load an image and set it as a texture during runtime. This can be useful if you want to leverage our background segmentation feature, and change the background in your filter.                         |
 
 #### Core
 
-| Method                      | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| --------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| pause                       | Pauses the rendering. This method will not release any resources and should be used only for temporary pause (e.g. user goes to the next screen).                                                                                                                                                                                                                                                                                                                                                                                                                |
-| resume                      | Resumes the rendering if it was previously paused, otherwise doesn't do anything.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| setLiveMode                 | This is an optimization method and it allows the user to indicate the DeepAR in which mode it should operate. If called with true value, DeepAR will expect a continuous flow of new frames and it will optimize its inner processes for such workload. An example of this is the typical use case of processing the frames from the camera stream. If called with false it will optimize for preserving resources and memory by pausing the rendering after each processed frame. A typical use case for this is when the user needs to process just one image. |
-| setFaceDetectionSensitivity | This method allows the user to change face detection sensitivity. The sensitivity parameter can range from 0 to 3, where 0 is the fastest but might not recognize smaller (further away) faces, and 3 is the slowest but will find smaller faces. By default, this parameter is set to 1.                                                                                                                                                                                                                                                                        |
-| showStats                   | Display debugging stats on screen.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| Method                      | Params                       | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| --------------------------- | ---------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| pause                       | <div align="center">-</div>  | Pauses the rendering. This method will not release any resources and should be used only for temporary pause (e.g. user goes to the next screen).                                                                                                                                                                                                                                                                                                                                                                                                                |
+| resume                      | <div align="center">-</div>  | Resumes the rendering if it was previously paused, otherwise doesn't do anything.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| setLiveMode                 | (<b>enabled</b>: Boolean)    | This is an optimization method and it allows the user to indicate the DeepAR in which mode it should operate. If called with true value, DeepAR will expect a continuous flow of new frames and it will optimize its inner processes for such workload. An example of this is the typical use case of processing the frames from the camera stream. If called with false it will optimize for preserving resources and memory by pausing the rendering after each processed frame. A typical use case for this is when the user needs to process just one image. |
+| setFaceDetectionSensitivity | (<b>sensitivity</b>: Number) | This method allows the user to change face detection sensitivity. The sensitivity parameter can range from 0 to 3, where 0 is the fastest but might not recognize smaller (further away) faces, and 3 is the slowest but will find smaller faces. By default, this parameter is set to 1.                                                                                                                                                                                                                                                                        |
+| showStats                   | (<b>enabled</b>: Boolean)    | Display debugging stats on screen.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
 
 ## Background Segmentation
 
