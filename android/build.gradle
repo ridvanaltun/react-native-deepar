@@ -2,11 +2,11 @@ buildscript {
   if (project == rootProject) {
     repositories {
       google()
-      jcenter()
+      mavenCentral()
     }
 
     dependencies {
-      classpath 'com.android.tools.build:gradle:3.5.3'
+      classpath 'com.android.tools.build:gradle:3.5.4'
     }
   }
 }
@@ -48,7 +48,7 @@ repositories {
     url("$rootDir/../node_modules/react-native/android")
   }
   google()
-  jcenter()
+  mavenCentral()
 }
 
 dependencies {
@@ -57,7 +57,7 @@ dependencies {
   implementation fileTree(dir: "libs", include: ["*.aar"])
 
   // CameraX core library using the camera2 implementation
-  def camerax_version = "1.1.0-beta02"
+  def camerax_version = "1.1.0"
   // The following line is optional, as the core library is included indirectly by camera-camera2
   implementation "androidx.camera:camera-core:${camerax_version}"
   implementation "androidx.camera:camera-camera2:${camerax_version}"
