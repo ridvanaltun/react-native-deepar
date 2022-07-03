@@ -160,17 +160,18 @@ public class RNTDeepAR extends FrameLayout implements AREventListener, SurfaceHo
       }
     }
 
-    FileOutputStream fos = null;
+    FileOutputStream outputStream = null;
     try {
-      fos = new FileOutputStream(tempPath);
+      outputStream = new FileOutputStream(tempPath);
       // Use the compress method on the BitMap object to write image to the OutputStream
-      bitmapImage.compress(Bitmap.CompressFormat.JPEG, 70, fos);
+      int quality = 100; // 0 to 100
+      bitmapImage.compress(Bitmap.CompressFormat.JPEG, quality, outputStream);
     } catch (Exception e) {
       e.printStackTrace();
     } finally {
       try {
-        fos.flush();
-        fos.close();
+        outputStream.flush();
+        outputStream.close();
       } catch (IOException e) {
         e.printStackTrace();
       }
@@ -274,7 +275,6 @@ public class RNTDeepAR extends FrameLayout implements AREventListener, SurfaceHo
           deepAr.takeScreenshot();
         }
       }, 100);
-
   }
 
   public void startRecording() {
