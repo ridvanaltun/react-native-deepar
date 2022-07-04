@@ -39,6 +39,7 @@
 - (void)setLiveMode:(BOOL)liveMode;
 - (void)setFaceDetectionSensitivity:(int)sensitivity;
 - (void)showStats:(BOOL)enabled;
+- (void)setTouchMode:(BOOL)enabled;
 - (void)changeParameterFloat:(NSString*)gameObject component:(NSString*)component parameter:(NSString*)parameter floatValue:(float)value;
 - (void)changeParameterVec4:(NSString*)gameObject component:(NSString*)component parameter:(NSString*)parameter vectorValue:(Vector4)value;
 - (void)changeParameterVec3:(NSString*)gameObject component:(NSString*)component parameter:(NSString*)parameter vector3Value:(Vector3)value;

@@ -274,6 +274,23 @@ RCT_EXPORT_METHOD(showStats
   }];
 }
 
+RCT_EXPORT_METHOD(setTouchMode
+                  : (nonnull NSNumber *)reactTag andEnabled
+                  : (BOOL)enabled) {
+  [self.bridge.uiManager addUIBlock:^(__unused RCTUIManager *uiManager,
+                                      NSDictionary<NSNumber *, RNTDeepAR *>
+                                          *viewRegistry) {
+    RNTDeepAR *view = viewRegistry[reactTag];
+    if (![view isKindOfClass:[RNTDeepAR class]]) {
+      RCTLogError(
+          @"Invalid view returned from registry, expecting RCTWebView, got: %@",
+          view);
+    } else {
+        [view setTouchMode:enabled];
+    }
+  }];
+}
+
 RCT_EXPORT_METHOD(changeParameterFloat
                   : (nonnull NSNumber *)reactTag andMaskPath
                   : (NSString *)gameObject andComponent

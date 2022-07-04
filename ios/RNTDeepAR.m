@@ -18,6 +18,8 @@ ARView *_arview;
 UIImageView *_backgroundView;
 }
 
+BOOL touchMode = false;
+
 - (void)dealloc {
 [self.deepar shutdown];
 }
@@ -186,6 +188,82 @@ if (self.flashOn &&
 
 - (void)showStats:(BOOL)enabled {
 [_arview showStats:enabled];
+}
+
+- (void)setTouchMode:(BOOL)enabled {
+    touchMode = enabled;
+}
+
+// Retrieves and normalizes the location point of the given touch within the view
+- (CGPoint)getPoint:(UITouch *)touch {
+  CGPoint point = [touch locationInView:_arview];
+  CGRect frame = self.bounds;
+  return CGPointMake(point.x / frame.size.width, point.y / frame.size.height);
+}
+
+// Called every time a new touch is detected
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+if (touchMode == false) {
+  return;
+}
+
+if (event.type == UIEventTypeTouches) {
+  UITouch *touch = [touches allObjects][0];
+  CGPoint point = [self getPoint:touch];
+  TouchInfo info = {point.x, point.y, START};
+  [self.deepar touchOccurred:info];
+} else {
+  [super touchesBegan:touches withEvent:event];
+}
+}
+
+// Called every time a change in the previously started touch is detected
+- (void)touchesMoved:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+if (touchMode == false) {
+  return;
+}
+
+if (event.type == UIEventTypeTouches) {
+  UITouch *touch = [touches allObjects][0];
+  CGPoint point = [self getPoint:touch];
+  TouchInfo info = {point.x, point.y, MOVE};
+  [self.deepar touchOccurred:info];
+} else {
+  [super touchesMoved:touches withEvent:event];
+}
+}
+
+// Called every time a previously started touch is ended
+- (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+if (touchMode == false) {
+  return;
+}
+
+if (event.type == UIEventTypeTouches) {
+  UITouch *touch = [touches allObjects][0];
+  CGPoint point = [self getPoint:touch];
+  TouchInfo info = {point.x, point.y, END};
+  [self.deepar touchOccurred:info];
+} else {
+  [super touchesEnded:touches withEvent:event];
+}
+}
+
+// Called every time a previously started touch is cancelled (interrupted)
+- (void)touchesCancelled:(NSSet<UITouch *> *)touches
+             withEvent:(UIEvent *)event {
+if (touchMode == false) {
+  return;
+}
+
+if (event.type == UIEventTypeTouches) {
+  UITouch *touch = [touches allObjects][0];
+  CGPoint point = [self getPoint:touch];
+  TouchInfo info = {point.x, point.y, END};
+  [self.deepar touchOccurred:info];
+} else {
+  [super touchesCancelled:touches withEvent:event];
+}
 }
 
 - (void)changeParameterFloat:(NSString *)gameObject

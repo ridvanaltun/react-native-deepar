@@ -25,6 +25,7 @@
 		6EB1AFA50D1D472FB84AFF4C /* frankenstein in Resources */ = {isa = PBXBuildFile; fileRef = FBDA78A7D19B4C8AA649D5EA /* frankenstein */; };
 		7699B88040F8A987B510C191 /* libPods-DeepARExample-DeepARExampleTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-DeepARExample-DeepARExampleTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		8A717FA1BBE24B9DBEF78C79 /* face_painting in Resources */ = {isa = PBXBuildFile; fileRef = 8BAE8EF3D6FD4F46BC465F83 /* face_painting */; };
 		922FB68A931C451DA003B26C /* plastic_ocean in Resources */ = {isa = PBXBuildFile; fileRef = 6E56DDABDDDF4A3F997C7304 /* plastic_ocean */; };
 		9E1306DBBD6A49E396B10DC9 /* flower_crown in Resources */ = {isa = PBXBuildFile; fileRef = 43AB9FB8D98F4493A642F7BC /* flower_crown */; };
 		B5A251FC4C5141D3A5FB67A1 /* ping_pong in Resources */ = {isa = PBXBuildFile; fileRef = 620A4AECB3654FC3B0BAD990 /* ping_pong */; };
@@ -56,7 +57,7 @@
 		00E356EE1AD99517003FC87E /* DeepARExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DeepARExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* DeepARExampleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DeepARExampleTests.m; sourceTree = "<group>"; };
-		06FE57D2A9A1493683886FF2 /* stallone */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = stallone; path = ../assets/effects/stallone; sourceTree = "<group>"; };
+		06FE57D2A9A1493683886FF2 /* stallone */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = stallone; path = ../assets/effects/stallone; sourceTree = "<group>"; };
 		0914D8FB54A14A1388D5D360 /* tape_face */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = tape_face; path = ../assets/effects/tape_face; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* DeepARExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DeepARExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = DeepARExample/AppDelegate.h; sourceTree = "<group>"; };
@@ -66,7 +67,7 @@
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = DeepARExample/main.m; sourceTree = "<group>"; };
 		17DCCF2F555749CBB5B344E4 /* scuba */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = scuba; path = ../assets/effects/scuba; sourceTree = "<group>"; };
 		19F6CBCC0A4E27FBF8BF4A61 /* libPods-DeepARExample-DeepARExampleTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DeepARExample-DeepARExampleTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		21E599B7B73441AC8CDD9DE9 /* emotions_exaggerator */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = emotions_exaggerator; path = ../assets/effects/emotions_exaggerator; sourceTree = "<group>"; };
+		21E599B7B73441AC8CDD9DE9 /* emotions_exaggerator */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = emotions_exaggerator; path = ../assets/effects/emotions_exaggerator; sourceTree = "<group>"; };
 		2715548AD30B491D9782100D /* manly_face */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = manly_face; path = ../assets/effects/manly_face; sourceTree = "<group>"; };
 		3B4392A12AC88292D35C810B /* Pods-DeepARExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DeepARExample.debug.xcconfig"; path = "Target Support Files/Pods-DeepARExample/Pods-DeepARExample.debug.xcconfig"; sourceTree = "<group>"; };
 		3ED9B35DF6DB4EE8A2277B54 /* look2 */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = look2; path = ../assets/effects/look2; sourceTree = "<group>"; };
@@ -76,20 +77,21 @@
 		5709B34CF0A7D63546082F79 /* Pods-DeepARExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DeepARExample.release.xcconfig"; path = "Target Support Files/Pods-DeepARExample/Pods-DeepARExample.release.xcconfig"; sourceTree = "<group>"; };
 		5B7EB9410499542E8C5724F5 /* Pods-DeepARExample-DeepARExampleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DeepARExample-DeepARExampleTests.debug.xcconfig"; path = "Target Support Files/Pods-DeepARExample-DeepARExampleTests/Pods-DeepARExample-DeepARExampleTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5DCACB8F33CDC322A6C60F78 /* libPods-DeepARExample.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DeepARExample.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		620A4AECB3654FC3B0BAD990 /* ping_pong */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = ping_pong; path = ../assets/effects/ping_pong; sourceTree = "<group>"; };
-		6442CE00FBE943318DEC230E /* viking_helmet */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = viking_helmet; path = ../assets/effects/viking_helmet; sourceTree = "<group>"; };
+		620A4AECB3654FC3B0BAD990 /* ping_pong */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = ping_pong; path = ../assets/effects/ping_pong; sourceTree = "<group>"; };
+		6442CE00FBE943318DEC230E /* viking_helmet */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = viking_helmet; path = ../assets/effects/viking_helmet; sourceTree = "<group>"; };
 		6E56DDABDDDF4A3F997C7304 /* plastic_ocean */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = plastic_ocean; path = ../assets/effects/plastic_ocean; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = DeepARExample/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-DeepARExample-DeepARExampleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DeepARExample-DeepARExampleTests.release.xcconfig"; path = "Target Support Files/Pods-DeepARExample-DeepARExampleTests/Pods-DeepARExample-DeepARExampleTests.release.xcconfig"; sourceTree = "<group>"; };
-		94029A43571E45E681C4C2B8 /* humanoid */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = humanoid; path = ../assets/effects/humanoid; sourceTree = "<group>"; };
+		8BAE8EF3D6FD4F46BC465F83 /* face_painting */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = face_painting; path = ../assets/effects/face_painting; sourceTree = "<group>"; };
+		94029A43571E45E681C4C2B8 /* humanoid */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = humanoid; path = ../assets/effects/humanoid; sourceTree = "<group>"; };
 		9911BA2EC461446CB9CCDF23 /* look1 */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = look1; path = ../assets/effects/look1; sourceTree = "<group>"; };
 		9B6D4B8FF2C04AA2ABD9148C /* background_segmentation */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = background_segmentation; path = ../assets/effects/background_segmentation; sourceTree = "<group>"; };
 		9E94A08033774ACCB0D0DDE0 /* ball_face */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = ball_face; path = ../assets/effects/ball_face; sourceTree = "<group>"; };
 		A00A8A52A5514A3B9DD69BC3 /* beard */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = beard; path = ../assets/effects/beard; sourceTree = "<group>"; };
 		B09D89ABE8F949F486790E89 /* aviators */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = aviators; path = ../assets/effects/aviators; sourceTree = "<group>"; };
 		B4B5BED83CB44C42B29FAD79 /* tiny_sunglasses */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = tiny_sunglasses; path = ../assets/effects/tiny_sunglasses; sourceTree = "<group>"; };
-		BBE9CACC4E494C5688471D78 /* fire_effect */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = fire_effect; path = ../assets/effects/fire_effect; sourceTree = "<group>"; };
-		C30C9D9E5E5242BF9533BF69 /* emotion_meter */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = emotion_meter; path = ../assets/effects/emotion_meter; sourceTree = "<group>"; };
+		BBE9CACC4E494C5688471D78 /* fire_effect */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = fire_effect; path = ../assets/effects/fire_effect; sourceTree = "<group>"; };
+		C30C9D9E5E5242BF9533BF69 /* emotion_meter */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = emotion_meter; path = ../assets/effects/emotion_meter; sourceTree = "<group>"; };
 		CC72BD5E482644C1A10CCDAD /* lion */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = lion; path = ../assets/effects/lion; sourceTree = "<group>"; };
 		D4B0CF3C226042C7ADD4387F /* topology */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = topology; path = ../assets/effects/topology; sourceTree = "<group>"; };
 		DAA11144EB104BCB9C6D8CF2 /* beauty */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = beauty; path = ../assets/effects/beauty; sourceTree = "<group>"; };
@@ -187,6 +189,7 @@
 				94029A43571E45E681C4C2B8 /* humanoid */,
 				620A4AECB3654FC3B0BAD990 /* ping_pong */,
 				06FE57D2A9A1493683886FF2 /* stallone */,
+				8BAE8EF3D6FD4F46BC465F83 /* face_painting */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -356,6 +359,7 @@
 				BD950589DF824D9B980BAB3B /* humanoid in Resources */,
 				B5A251FC4C5141D3A5FB67A1 /* ping_pong in Resources */,
 				B9C6D6D63DA94F7EAAAACF99 /* stallone in Resources */,
+				8A717FA1BBE24B9DBEF78C79 /* face_painting in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -595,8 +599,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 6FSCKSHQY2;
+				DEVELOPMENT_TEAM = YWL87A3UG6;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = DeepARExample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -610,6 +616,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.reactnativedeepar;
 				PRODUCT_NAME = DeepARExample;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -622,8 +629,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 6FSCKSHQY2;
+				DEVELOPMENT_TEAM = YWL87A3UG6;
 				INFOPLIST_FILE = DeepARExample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -636,6 +645,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.reactnativedeepar;
 				PRODUCT_NAME = DeepARExample;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
