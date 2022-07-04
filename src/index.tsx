@@ -101,6 +101,7 @@ export interface IDeepARHandle {
   setLiveMode: (enabled: Boolean) => void;
   setFaceDetectionSensitivity: (sensitivity: Number) => void;
   showStats: (enabled: Boolean) => void;
+  setTouchMode: (enabled: Boolean) => void;
   changeParameterFloat: (params: IChangeParamaterFloat) => void;
   changeParameterVec3: (params: IChangeParamaterVec3) => void;
   changeParameterVec4: (params: IChangeParamaterVec4) => void;

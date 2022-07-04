@@ -93,6 +93,9 @@ const DeepARView = forwardRef<IDeepARHandle, IDeepARProps>(
       showStats(enabled) {
         nativeExecute('showStats', [enabled]);
       },
+      setTouchMode(enabled) {
+        nativeExecute('setTouchMode', [enabled]);
+      },
       changeParameterFloat(params) {
         const {gameObject, component, parameter, value} = params;
         const nativeParams = [gameObject, component, parameter, value];

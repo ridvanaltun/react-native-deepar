@@ -17,6 +17,7 @@ import android.os.Environment;
 import android.text.format.DateFormat;
 import android.util.AttributeSet;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.View;
@@ -38,6 +39,8 @@ import java.util.Date;
 
 import ai.deepar.ar.ARErrorType;
 import ai.deepar.ar.AREventListener;
+import ai.deepar.ar.ARTouchInfo;
+import ai.deepar.ar.ARTouchType;
 import ai.deepar.ar.DeepAR;
 
 public class RNTDeepAR extends FrameLayout implements AREventListener, SurfaceHolder.Callback, LifecycleObserver {
@@ -328,6 +331,32 @@ public class RNTDeepAR extends FrameLayout implements AREventListener, SurfaceHo
       return;
     }
     deepAr.setAudioMute(enabled);
+  }
+
+  public void setTouchMode(boolean enabled) {
+    if (deepAr == null) {
+      return;
+    }
+
+    if (enabled) {
+      surface.setOnTouchListener((v, event) -> {
+        switch (event.getAction()) {
+          case MotionEvent.ACTION_DOWN:
+            deepAr.touchOccurred(new ARTouchInfo(event.getX(), event.getY(), ARTouchType.Start));
+            return true;
+          case MotionEvent.ACTION_MOVE:
+            deepAr.touchOccurred(new ARTouchInfo(event.getX(), event.getY(), ARTouchType.Move));
+            return true;
+          case MotionEvent.ACTION_UP:
+            deepAr.touchOccurred(new ARTouchInfo(event.getX(), event.getY(), ARTouchType.End));
+            return true;
+        }
+
+        return false;
+      });
+    } else {
+      surface.setOnTouchListener(null);
+    }
   }
 
   public void setLiveMode(boolean enabled) {

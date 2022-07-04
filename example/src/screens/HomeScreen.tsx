@@ -41,6 +41,7 @@ const HomeScreen = ({navigation}: {navigation: any}) => {
   const [videoMode, setVideoMode] = useState(false);
   const [isVideoRecording, setIsVideoRecording] = useState(false);
   const [isVideoRecordingPaused, setIsVideoRecordingPaused] = useState(false);
+  const [isFacePaintingStarted, setIsFacePaintingStarted] = useState(false);
 
   const isCurrEffectSupported = useMemo(
     () => Effects[currEffectIndex].platforms.includes(Platform.OS),
@@ -170,7 +171,7 @@ const HomeScreen = ({navigation}: {navigation: any}) => {
 
               if (isBackgroundSegmantation === false) {
                 return Alert.alert(
-                  'Open Background  Segmentation Effect First!'
+                  'Open Background Segmentation Effect First!'
                 );
               }
 
@@ -185,6 +186,32 @@ const HomeScreen = ({navigation}: {navigation: any}) => {
                     value: res.base64(),
                   });
                 });
+            }}
+          />
+          <Button
+            style={styles.upLeftButton}
+            text={
+              isFacePaintingStarted
+                ? 'Stop Face Painting'
+                : 'Start Face Painting'
+            }
+            onPress={() => {
+              const isStarted = !isFacePaintingStarted;
+
+              if (isStarted) {
+                const isFacePainting =
+                  Effects[currEffectIndex].name === 'face_painting';
+
+                if (isFacePainting === false) {
+                  return Alert.alert('Open Face Painting Effect First!');
+                }
+
+                deepARRef?.current?.setTouchMode(true);
+              } else {
+                deepARRef?.current?.setTouchMode(false);
+              }
+
+              setIsFacePaintingStarted(isStarted);
             }}
           />
         </View>

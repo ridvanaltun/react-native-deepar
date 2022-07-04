@@ -5,6 +5,11 @@ export default [
     platforms: ['ios', 'android'],
   },
   {
+    name: 'face_painting',
+    title: 'Face Painting',
+    platforms: ['ios', 'android'],
+  },
+  {
     name: 'viking_helmet',
     title: 'Viking Helmet',
     platforms: ['ios', 'android'],

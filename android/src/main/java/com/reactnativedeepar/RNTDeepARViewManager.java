@@ -45,6 +45,7 @@ public class RNTDeepARViewManager extends SimpleViewManager<RNTDeepAR> {
   private static final int SET_LIVE_MODE = 14;
   private static final int SET_FACE_DETECTION_SENSITIVITY = 15;
   private static final int SHOW_STATS = 16;
+  private static final int SET_TOUCH_MODE = 17;
   private static final int CHANGE_PARAMETER_FLOAT = 20;
   private static final int CHANGE_PARAMETER_VEC4 = 21;
   private static final int CHANGE_PARAMETER_VEC3 = 22;
@@ -89,6 +90,7 @@ public class RNTDeepARViewManager extends SimpleViewManager<RNTDeepAR> {
         put("setLiveMode", SET_LIVE_MODE);
         put("setFaceDetectionSensitivity", SET_FACE_DETECTION_SENSITIVITY);
         put("showStats", SHOW_STATS);
+        put("setTouchMode", SET_TOUCH_MODE);
         put("changeParameterFloat", CHANGE_PARAMETER_FLOAT);
         put("changeParameterVec4", CHANGE_PARAMETER_VEC4);
         put("changeParameterVec3", CHANGE_PARAMETER_VEC3);
@@ -188,6 +190,11 @@ public class RNTDeepARViewManager extends SimpleViewManager<RNTDeepAR> {
       case SHOW_STATS: {
         boolean enabled = args.getBoolean(0);
         deepARView.showStats(enabled);
+        return;
+      }
+      case SET_TOUCH_MODE: {
+        boolean enabled = args.getBoolean(0);
+        deepARView.setTouchMode(enabled);
         return;
       }
       case CHANGE_PARAMETER_FLOAT: {

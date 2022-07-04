@@ -27,6 +27,7 @@
     - [Change Parameters](#change-parameters)
     - [Core](#core)
 - [Background Segmentation](#background-segmentation)
+- [Face Painting](#face-painting)
 - [Example App](#example-app)
 - [Contributing](#contributing)
 - [License](#license)
@@ -189,6 +190,7 @@ These are the various methods.
 | switchEffectWithPath | (<b>params</b>: ISwitchEffectWithPath) | Same as `switchEffect` but with path.                                                                                                                                                                                                                                        |
 | fireTrigger          | (<b>trigger</b>: String)               | This method allows the user to fire a custom animation trigger for model animations from code. To fire a custom trigger, the trigger string must match the custom trigger set in the Studio when creating the effect.                                                        |
 | takeScreenshot       | <div align="center">-</div>            | Captures a screenshot of the current screen. When a screenshot is done `onScreenshotTaken` will be called with a resulting screenshot.                                                                                                                                       |
+| setTouchMode         | (<b>enabled</b>: Boolean)              | This method enable or disable the detection of touches over DeepAR view, it is necessary if your effect has ability to detect touches effects                                                                                                                                |
 
 #### Camera Control
 
@@ -209,7 +211,7 @@ These are the various methods.
 
 #### Change Parameters
 
-For more details about changeParameter API read our article [here](https://help.deepar.ai/en/articles/3732006-changing-filter-parameters-from-code).
+For more details about changeParameter API read this article [here](https://help.deepar.ai/en/articles/3732006-changing-filter-parameters-from-code).
 
 | Method                 | Params                                   | Description                                                                                                                                                                                                                            |
 | ---------------------- | ---------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -234,7 +236,10 @@ For more details about changeParameter API read our article [here](https://help.
 
 DeepAR has [Background Segmentation](https://www.deepar.ai/background-removal) feature, with this feature you can change your background in real-time.
 
-![Background Segmentation](./docs/background-segmentation.png)
+| Background Segmentation Preview                                                            |
+| ------------------------------------------------------------------------------------------ |
+| <img src="./docs/background-segmentation.png" alt="Background Segmentation" width="500" /> |
+| This image taken from DeepAR offical site.                                                 |
 
 There is a filter called `Background` from [Free Filter Pack](https://help.deepar.ai/en/articles/3580432-free-filter-pack) and you can use this filter.
 
@@ -242,7 +247,7 @@ There is a filter called `Background` from [Free Filter Pack](https://help.deepa
 
 Switch the `Background` effect and apply new background image like below:
 
-```js
+```tsx
 import {TextureSourceTypes} from 'react-native-deepar';
 import RNFetchBlob from 'rn-fetch-blob';
 
@@ -257,6 +262,27 @@ RNFetchBlob.config({})
       value: res.base64(),
     });
   });
+```
+
+## Face Painting
+
+You can detect touches in your effects if the effect customized for detecting touches. For an example; DeepAR has a filter called Face Painting, with this effect you can paint your face in real-time with touches.
+
+For more details about face painting effect read this article [here](https://help.deepar.ai/en/articles/5608765-face-painting-effect-tutorial).
+
+| Face Painting Preview                                                   |
+| ----------------------------------------------------------------------- |
+| <img src="./docs/face-painting.jpeg" alt="Face Painting" width="500" /> |
+| This image taken from DeepAR offical site.                              |
+
+If you want to be able to detect touches on the screen, you need to use the following code:
+
+```tsx
+// If you switch to the face painting effect, use below code to ability detect touches over DeepAR view
+deepARRef?.current?.setTouchMode(true);
+
+// If you not use face painting effect, use below code to disable detecting touches over DeepAR view
+deepARRef?.current?.setTouchMode(false);
 ```
 
 ## Example App
