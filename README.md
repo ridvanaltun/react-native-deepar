@@ -261,7 +261,7 @@ These are the various methods.
 | switchEffectWithPath | (<b>params</b>: ISwitchEffectWithPath) | Same as `switchEffect` but with path.                                                                                                                                                                                                                                        |
 | fireTrigger          | (<b>trigger</b>: String)               | This method allows the user to fire a custom animation trigger for model animations from code. To fire a custom trigger, the trigger string must match the custom trigger set in the Studio when creating the effect.                                                        |
 | takeScreenshot       | <div align="center">-</div>            | Captures a screenshot of the current screen. When a screenshot is done `onScreenshotTaken` will be called with a resulting screenshot.                                                                                                                                       |
-| setTouchMode         | (<b>enabled</b>: Boolean)              | This method enable or disable the detection of touches over DeepAR view, it is necessary if your effect has ability to detect touches effects                                                                                                                                |
+| setTouchMode         | (<b>enabled</b>: Boolean)              | This method enable or disable the detection of touches over DeepAR view, it is necessary if your effect has ability to detect touches.                                                                                                                                       |
 
 #### Camera Control
 
