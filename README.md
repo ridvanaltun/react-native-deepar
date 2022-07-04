@@ -13,6 +13,10 @@
 
 - [What is DeepAR?](#what-is-deepar)
 - [Getting Started](#getting-started)
+  - [Other Required Steps](#other-required-steps)
+    - [Android](#android)
+    - [iOS](#ios)
+  - [Requesting Permissions](#requesting-permissions)
 - [Compatibility](#compatibility)
 - [Installing AR Models](#installing-ar-models)
 - [Using AR Models over Internet](#using-ar-models-over-internet)
@@ -68,7 +72,74 @@ You can visit [DeepAR's offical site](https://www.deepar.ai/) to learn more.
 npm install react-native-deepar
 ```
 
+### Other Required Steps
+
+#### Android
+
+Open your project's `AndroidManifest.xml` and add the following lines:
+
+```xml
+<uses-permission android:name="android.permission.CAMERA" />
+
+<!-- optionally, if you want to record audio: -->
+<uses-permission android:name="android.permission.RECORD_AUDIO" />
+```
+
+#### iOS
+
+Open your project's `Info.plist` and add the following lines:
+
+```xml
+<key>NSCameraUsageDescription</key>
+<string>$(PRODUCT_NAME) needs access to your Camera.</string>
+
+<!-- optionally, if you want to record audio: -->
+<key>NSMicrophoneUsageDescription</key>
+<string>$(PRODUCT_NAME) needs access to your Microphone.</string>
+```
+
 **Note:** Don't forget install Pods for iOS and rebuild your app.
+
+### Requesting Permissions
+
+You need to ask necessary permissions for **Android** before render the DeepAR component, if you not, app crash. On iOS, the required permissions are automatically asked during rendering.
+
+**Code example for requesting required permissions:**
+
+```jsx
+import React, {useState, useEffect} from 'react';
+import {Platform, PermissionsAndroid} from 'react-native';
+
+const IS_IOS = Platform.OS === 'ios';
+const IS_ANDROID = Platform.OS === 'android';
+
+const askAndroidPermissions = () =>
+  PermissionsAndroid.requestMultiple([
+    PermissionsAndroid.PERMISSIONS.CAMERA,
+    PermissionsAndroid.PERMISSIONS.RECORD_AUDIO,
+  ]).then((result) => {
+    return (
+      result['android.permission.CAMERA'] === 'granted' &&
+      result['android.permission.RECORD_AUDIO'] === 'granted'
+    );
+  });
+
+const App = () => {
+  const [permsGranted, setPermsGranted] = useState(IS_IOS);
+
+  useEffect(() => {
+    if (IS_ANDROID) {
+      askAndroidPermissions().then((isGranted) => {
+        setPermsGranted(isGranted);
+      });
+    }
+  }, []);
+
+  // ...
+};
+
+export default App;
+```
 
 ## Compatibility
 
