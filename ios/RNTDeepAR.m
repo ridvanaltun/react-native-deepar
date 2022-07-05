@@ -376,10 +376,25 @@ self.onEventSent(
 }
 
 /**
-* Called if there is error encountered while recording video
-*/
+ * Called if there is error encountered while recording video
+ */
 - (void)recordingFailedWithError:(NSError *)error {
-self.onEventSent(@{@"type" : @"error", @"value" : [error description]});
+  NSString * const DEEPAR_ERROR_TYPE_VIDEO = @"VIDEO";
+  self.onEventSent(@{@"type" : @"error", @"value" : [error description], @"value2" : DEEPAR_ERROR_TYPE_VIDEO});
+}
+
+/**
+ * Called when an error has occurred.
+ */
+- (void)onErrorWithCode:(ARErrorType)code error:(NSString *)error {
+    NSString * const ARErrorType_toString[] = {
+        [DEEPAR_ERROR_TYPE_DEBUG] = @"DEBUG",
+        [DEEPAR_ERROR_TYPE_INFO] = @"INFO",
+        [DEEPAR_ERROR_TYPE_WARNING] = @"WARNING",
+        [DEEPAR_ERROR_TYPE_ERROR] = @"ERROR"
+    };
+
+    self.onEventSent(@{@"type" : @"error", @"value" : [error description], @"value2" : ARErrorType_toString[code]});
 }
 
 /**

@@ -6,6 +6,7 @@ import {
   IDeepARProps,
   IRNTDeepARView,
   CameraFacing,
+  ErrorTypes,
 } from './index';
 
 const NATIVE_VIEW_KEY = 'RNTDeepARView';
@@ -180,7 +181,10 @@ const DeepARView = forwardRef<IDeepARHandle, IDeepARProps>(
               if (onShutdownFinished) onShutdownFinished();
               break;
             case 'error':
-              if (onError) onError(nativeEvent.value);
+              if (onError) {
+                // @ts-ignore
+                onError(nativeEvent.value, ErrorTypes[nativeEvent.value2]);
+              }
               break;
             default:
               break;

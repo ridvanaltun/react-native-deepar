@@ -512,7 +512,8 @@ public class RNTDeepAR extends FrameLayout implements AREventListener, SurfaceHo
    * */
   @Override
   public void videoRecordingFailed() {
-    sendEvent("error", "Video Recording Failed", null);
+    String DEEPAR_ERROR_TYPE_VIDEO = "VIDEO";
+    sendEvent("error", "Video Recording Failed", DEEPAR_ERROR_TYPE_VIDEO);
   }
 
   /**
@@ -557,6 +558,6 @@ public class RNTDeepAR extends FrameLayout implements AREventListener, SurfaceHo
    * */
   @Override
   public void error(ARErrorType arErrorType, String errorText) {
-    sendEvent("error", errorText, null);
+    sendEvent("error", errorText, arErrorType.toString());
   }
 }

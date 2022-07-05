@@ -11,6 +11,7 @@ import {
 import DeepARView, {
   IDeepARHandle,
   TextureSourceTypes,
+  ErrorTypes,
 } from 'react-native-deepar';
 import RNFetchBlob from 'rn-fetch-blob';
 
@@ -328,8 +329,8 @@ const HomeScreen = ({navigation}: {navigation: any}) => {
               type: Enums.PREVIEW_TYPES.VIDEO,
             });
           }}
-          onError={(errText: String) => {
-            console.log('onError =>', errText);
+          onError={(text: String, type: ErrorTypes) => {
+            console.log('onError =>', text, 'type =>', type);
           }}
           // eslint-disable-next-line react-native/no-inline-styles
           style={{

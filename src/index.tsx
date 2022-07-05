@@ -24,6 +24,15 @@ export interface IRNTDeepARView {
   onEventSent: ({nativeEvent}: {nativeEvent: IDeepAREvent}) => void;
 }
 
+export enum ErrorTypes {
+  DEBUG = 0,
+  INFO = 1,
+  WARNING = 2,
+  ERROR = 3,
+  VIDEO = 4,
+  UNKNOWN = 5,
+}
+
 export interface IDeepARProps extends ViewProps {
   apiKey: String;
   onEventSent?: (event: IDeepAREvent) => void;
@@ -38,7 +47,7 @@ export interface IDeepARProps extends ViewProps {
   onImageVisibilityChanged?: (isVisible: Boolean, gameObject?: String) => void;
   onFrameAvailable?: () => void;
   onShutdownFinished?: () => void;
-  onError?: (errorText: String) => void;
+  onError?: (text: String, type: ErrorTypes) => void;
 }
 
 interface ISwitchEffect {

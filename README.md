@@ -269,7 +269,7 @@ These are various events that you can hook into and fire functions on in the com
 | onCameraSwitched         | (<b>facing</b>: CameraFacing)                         | Called when camera switched.                                                                                                    |
 | onFaceVisibilityChanged  | (<b>visible</b>: Boolean)                             | Called when the user's face becomes visible or invisible.                                                                       |
 | onImageVisibilityChanged | (<b>visible</b>: Boolean, <b>gameObject</b>?: String) | Called when a natural image is being tracked and the visibility has changed.                                                    |
-| onError                  | (<b>errorText</b>: String)                            | Called when an error occur, like the model path not found or the effect file failed to load.                                    |
+| onError                  | (<b>text</b>: String, <b>type</b>: ErrorTypes,)       | Called when an error occur, like the model path not found or the effect file failed to load.                                    |
 
 ### Methods
 
