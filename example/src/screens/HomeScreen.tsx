@@ -1,13 +1,5 @@
 import React, {useRef, useState, useMemo, useEffect} from 'react';
-import {
-  View,
-  Text,
-  Image,
-  Platform,
-  Linking,
-  StyleSheet,
-  Alert,
-} from 'react-native';
+import {View, Text, Image, Platform, Linking, StyleSheet} from 'react-native';
 import DeepARView, {
   IDeepARHandle,
   TextureSourceTypes,
@@ -134,7 +126,6 @@ const HomeScreen = ({navigation}: {navigation: any}) => {
                     ]
                 )
                 .then((res) => {
-                  console.log(res);
                   deepARRef?.current?.switchEffectWithPath({
                     path: res.path(),
                     slot: 'mask',
@@ -166,17 +157,11 @@ const HomeScreen = ({navigation}: {navigation: any}) => {
           />
           <Button
             style={styles.upLeftButton}
+            disabled={
+              Effects[currEffectIndex].name !== 'background_segmentation'
+            }
             text="Random Background Image"
             onPress={() => {
-              const isBackgroundSegmantation =
-                Effects[currEffectIndex].name === 'background_segmentation';
-
-              if (isBackgroundSegmantation === false) {
-                return Alert.alert(
-                  'Open Background Segmentation Effect First!'
-                );
-              }
-
               RNFetchBlob.config({})
                 .fetch('GET', 'https://random.imagecdn.app/450/800')
                 .then((res) => {
@@ -192,6 +177,7 @@ const HomeScreen = ({navigation}: {navigation: any}) => {
           />
           <Button
             style={styles.upLeftButton}
+            disabled={Effects[currEffectIndex].name !== 'face_painting'}
             text={
               isFacePaintingStarted
                 ? 'Stop Face Painting'
@@ -201,13 +187,6 @@ const HomeScreen = ({navigation}: {navigation: any}) => {
               const isStarted = !isFacePaintingStarted;
 
               if (isStarted) {
-                const isFacePainting =
-                  Effects[currEffectIndex].name === 'face_painting';
-
-                if (isFacePainting === false) {
-                  return Alert.alert('Open Face Painting Effect First!');
-                }
-
                 deepARRef?.current?.setTouchMode(true);
               } else {
                 deepARRef?.current?.setTouchMode(false);
