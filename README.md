@@ -113,7 +113,7 @@ buildscript {
 <string>$(PRODUCT_NAME) needs access to your Microphone.</string>
 ```
 
-2. Open your `ios/YourProject.xcworkspace` file in Xcode and update your iOS version to 11 minimum, like below:
+2. Open your `ios/YourProject.xcworkspace` file in Xcode and update your iOS version to `11.0` minimum, like below:
 
 | Setting iOS Version from Xcode                                                           |
 | ---------------------------------------------------------------------------------------- |
