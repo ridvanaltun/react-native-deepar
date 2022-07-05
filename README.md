@@ -417,6 +417,12 @@ Learn more about limitations from [features by platform
 
 See the [contributing guide](CONTRIBUTING.md) to learn how to contribute to the repository and the development workflow.
 
+**This project exists thanks to all the people who contribute.**
+
+<a href = "https://github.com/ridvanaltun/react-native-deepar/graphs/contributors">
+  <img src = "https://contrib.rocks/image?repo=ridvanaltun/react-native-deepar"/>
+</a>
+
 ## License
 
 This project is licensed under the [MIT License](https://opensource.org/licenses/MIT) - see the [`LICENSE`](LICENSE) file for details.
