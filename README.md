@@ -33,6 +33,7 @@
 - [Background Segmentation](#background-segmentation)
 - [Face Painting](#face-painting)
 - [Example App](#example-app)
+- [Limitations](#limitations)
 - [Contributing](#contributing)
 - [License](#license)
 
@@ -76,7 +77,7 @@ npm install react-native-deepar
 
 #### Android
 
-Open your project's `AndroidManifest.xml` and add the following lines:
+1. Open your project's `AndroidManifest.xml` and add the following lines:
 
 ```xml
 <uses-permission android:name="android.permission.CAMERA" />
@@ -85,9 +86,23 @@ Open your project's `AndroidManifest.xml` and add the following lines:
 <uses-permission android:name="android.permission.RECORD_AUDIO" />
 ```
 
+2. Update your `minSdkVersion` version minimum `21` from `android/build.gradle` file, like below:
+
+```diff
+buildscript {
+    ext {
+        buildToolsVersion = "31.0.0"
+-        minSdkVersion = 20
++        minSdkVersion = 21
+        compileSdkVersion = 31
+        targetSdkVersion = 31
+    }
+}
+```
+
 #### iOS
 
-Open your project's `Info.plist` and add the following lines:
+1. Open your project's `Info.plist` and add the following lines:
 
 ```xml
 <key>NSCameraUsageDescription</key>
@@ -97,6 +112,13 @@ Open your project's `Info.plist` and add the following lines:
 <key>NSMicrophoneUsageDescription</key>
 <string>$(PRODUCT_NAME) needs access to your Microphone.</string>
 ```
+
+2. Open your `ios/YourProject.xcworkspace` file in Xcode and update your iOS version to 11 minimum, like below:
+
+| Setting iOS Version from Xcode                                                           |
+| ---------------------------------------------------------------------------------------- |
+| <img src="./docs/setting-ios-version.png" alt="Xcode Setting iOS Version" width="800" /> |
+| Follow steps in the picture.                                                             |
 
 **Note:** Don't forget install Pods for iOS and rebuild your app.
 
@@ -382,6 +404,14 @@ npm run android
 # run for ios
 npm run ios
 ```
+
+## Limitations
+
+- Background Segmantation filter only works iPhone 7 and newer devices for iOS
+- Hair Segmantation filter not supported on Android and only works iPhone 7 and newer devices for iOS
+
+Learn more about limitations from [features by platform
+](https://help.deepar.ai/en/articles/5789913-features-by-platform) page.
 
 ## Contributing
 
