@@ -17,6 +17,8 @@
     - [Android](#android)
     - [iOS](#ios)
   - [Requesting Permissions](#requesting-permissions)
+    - [Getting Permissions](#getting-permissions)
+    - [Requesting Permissions](#requesting-permissions-1)
 - [Compatibility](#compatibility)
 - [Installing AR Models](#installing-ar-models)
 - [Using AR Models over Internet](#using-ar-models-over-internet)
@@ -30,6 +32,7 @@
     - [Video Recording](#video-recording)
     - [Change Parameters](#change-parameters)
     - [Core](#core)
+  - [Camera Module](#camera-module)
 - [Background Segmentation](#background-segmentation)
 - [Face Painting](#face-painting)
 - [Example App](#example-app)
@@ -124,44 +127,43 @@ buildscript {
 
 ### Requesting Permissions
 
-You need to ask necessary permissions for **Android** before render the DeepAR component, if you not, app crash. On iOS, the required permissions are automatically asked during rendering.
+You need to ask necessary permissions before render the DeepAR component.
 
-**Code example for requesting required permissions:**
+#### Getting Permissions
+
+Simply use the get functions to find out if a user has granted or denied permission before:
 
 ```jsx
-import React, {useState, useEffect} from 'react';
-import {Platform, PermissionsAndroid} from 'react-native';
+import {Camera} from 'react-native-deepar';
 
-const IS_IOS = Platform.OS === 'ios';
-const IS_ANDROID = Platform.OS === 'android';
+// ..
 
-const askAndroidPermissions = () =>
-  PermissionsAndroid.requestMultiple([
-    PermissionsAndroid.PERMISSIONS.CAMERA,
-    PermissionsAndroid.PERMISSIONS.RECORD_AUDIO,
-  ]).then((result) => {
-    return (
-      result['android.permission.CAMERA'] === 'granted' &&
-      result['android.permission.RECORD_AUDIO'] === 'granted'
-    );
-  });
-
-const App = () => {
-  const [permsGranted, setPermsGranted] = useState(IS_IOS);
-
-  useEffect(() => {
-    if (IS_ANDROID) {
-      askAndroidPermissions().then((isGranted) => {
-        setPermsGranted(isGranted);
-      });
-    }
-  }, []);
-
-  // ...
-};
-
-export default App;
+const cameraPermission = await Camera.getCameraPermissionStatus();
+const microphonePermission = await Camera.getMicrophonePermissionStatus();
 ```
+
+A permission status can have the following values:
+
+- `authorized`: Your app is authorized to use said permission. Continue with using the `<DeepAR>` view.
+- `not-determined`: Your app has not yet requested permission from the user. Continue by calling the request functions.
+- `denied`: Your app has already requested permissions from the user, but was explicitly denied. You cannot use the request functions again, but you can use the [Linking API](https://reactnative.dev/docs/linking#opensettings) to redirect the user to the Settings App where he can manually grant the permission.
+- `restricted`: (iOS only) Your app cannot use the Camera or Microphone because that functionality has been restricted, possibly due to active restrictions such as parental controls being in place.
+
+#### Requesting Permissions
+
+Use the request functions to prompt the user to give your app permission to use the Camera or Microphone.
+
+```jsx
+import {Camera} from 'react-native-deepar';
+
+// ..
+
+const cameraPermission = await Camera.requestCameraPermission();
+const microphonePermission = await Camera.requestMicrophonePermission();
+```
+
+- `authorized`: Your app is authorized to use said permission. Continue with using the `<DeepAR>` view.
+- `denied`: The user explicitly denied the permission request alert. You cannot use the request functions again, but you can use the [Linking API](https://reactnative.dev/docs/linking#opensettings) to redirect the user to the Settings App where he can manually grant the permission.
 
 ## Compatibility
 
@@ -324,6 +326,19 @@ For more details about changeParameter API read this article [here](https://help
 | setLiveMode                 | (<b>enabled</b>: Boolean)    | This is an optimization method and it allows the user to indicate the DeepAR in which mode it should operate. If called with true value, DeepAR will expect a continuous flow of new frames and it will optimize its inner processes for such workload. An example of this is the typical use case of processing the frames from the camera stream. If called with false it will optimize for preserving resources and memory by pausing the rendering after each processed frame. A typical use case for this is when the user needs to process just one image. |
 | setFaceDetectionSensitivity | (<b>sensitivity</b>: Number) | This method allows the user to change face detection sensitivity. The sensitivity parameter can range from 0 to 3, where 0 is the fastest but might not recognize smaller (further away) faces, and 3 is the slowest but will find smaller faces. By default, this parameter is set to 1.                                                                                                                                                                                                                                                                        |
 | showStats                   | (<b>enabled</b>: Boolean)    | Display debugging stats on screen.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+
+### Camera Module
+
+```tsx
+import {Camera} from 'react-native-deepar';
+```
+
+| Method                        | Params                      | Returns                                  | Description                                                                                                                                                                                                                                |
+| ----------------------------- | --------------------------- | ---------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| requestCameraPermission       | <div align="center">-</div> | Promise<`CameraPermissionRequestResult`> | Shows a "request permission" alert to the user, and resolves with the new camera permission status. If the user has previously blocked the app from using the camera, the alert will not be shown and `"denied"` will be returned.         |
+| requestMicrophonePermission   | <div align="center">-</div> | Promise<`CameraPermissionRequestResult`> | Shows a "request permission" alert to the user, and resolves with the new microphone permission status. If the user has previously blocked the app from using the microphone, the alert will not be shown and `"denied"` will be returned. |
+| getCameraPermissionStatus     | <div align="center">-</div> | Promise<`CameraPermissionStatus`>        | Gets the current Camera Permission Status. Check this before mounting the Camera to ensure the user has permitted the app to use the camera.                                                                                               |
+| getMicrophonePermissionStatus | <div align="center">-</div> | Promise<`CameraPermissionStatus`>        | Gets the current Microphone-Recording Permission Status. Check this before mounting the Camera to ensure the user has permitted the app to use the microphone.                                                                             |
 
 ## Background Segmentation
 

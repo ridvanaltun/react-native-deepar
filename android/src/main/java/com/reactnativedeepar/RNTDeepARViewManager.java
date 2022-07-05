@@ -29,29 +29,49 @@ public class RNTDeepARViewManager extends SimpleViewManager<RNTDeepAR> {
   private DeepAR deepAr;
   private ReactContext context;
 
-  private static final int SWITCH_CAMERA = 1;
-  private static final int SWITCH_EFFECT = 2;
-  private static final int SWITCH_EFFECT_WITH_PATH = 3;
-  private static final int FIRE_TRIGGER = 4;
-  private static final int SET_FLASH_ON = 5;
-  private static final int PAUSE = 6;
-  private static final int RESUME = 7;
-  private static final int TAKE_SCREENSHOT = 8;
-  private static final int START_RECORDING = 9;
-  private static final int RESUME_RECORDING = 10;
-  private static final int PAUSE_RECORDING = 11;
-  private static final int FINISH_RECORDING = 12;
-  private static final int SET_AUDIO_MUTE = 13;
-  private static final int SET_LIVE_MODE = 14;
-  private static final int SET_FACE_DETECTION_SENSITIVITY = 15;
-  private static final int SHOW_STATS = 16;
-  private static final int SET_TOUCH_MODE = 17;
-  private static final int CHANGE_PARAMETER_FLOAT = 20;
-  private static final int CHANGE_PARAMETER_VEC4 = 21;
-  private static final int CHANGE_PARAMETER_VEC3 = 22;
-  private static final int CHANGE_PARAMETER_BOOL = 23;
-  private static final int CHANGE_PARAMETER_TEXTURE = 24;
-  private static final int CHANGE_PARAMETER_STRING = 25;
+  /**
+   * General
+   */
+  private static final int SWITCH_EFFECT = 1;
+  private static final int SWITCH_EFFECT_WITH_PATH = 2;
+  private static final int FIRE_TRIGGER = 3;
+  private static final int TAKE_SCREENSHOT = 4;
+  private static final int SET_TOUCH_MODE = 5;
+
+  /**
+   * Camera
+   */
+  private static final int SWITCH_CAMERA = 10;
+  private static final int SET_FLASH_ON = 11;
+
+
+  /**
+   * Video Recording
+   */
+  private static final int START_RECORDING = 20;
+  private static final int RESUME_RECORDING = 21;
+  private static final int PAUSE_RECORDING = 22;
+  private static final int FINISH_RECORDING = 23;
+  private static final int SET_AUDIO_MUTE = 24;
+
+  /**
+   * Change Parameter
+   */
+  private static final int CHANGE_PARAMETER_FLOAT = 30;
+  private static final int CHANGE_PARAMETER_VEC4 = 31;
+  private static final int CHANGE_PARAMETER_VEC3 = 32;
+  private static final int CHANGE_PARAMETER_BOOL = 33;
+  private static final int CHANGE_PARAMETER_TEXTURE = 34;
+  private static final int CHANGE_PARAMETER_STRING = 35;
+
+  /**
+   * Core
+   */
+  private static final int PAUSE = 90;
+  private static final int RESUME = 91;
+  private static final int SET_LIVE_MODE = 92;
+  private static final int SET_FACE_DETECTION_SENSITIVITY = 93;
+  private static final int SHOW_STATS = 94;
 
   @Override
   public String getName() {

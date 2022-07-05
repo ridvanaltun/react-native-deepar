@@ -2,15 +2,17 @@ import React, {useRef, useState, useMemo, useEffect} from 'react';
 import {
   View,
   Text,
-  PermissionsAndroid,
   Image,
   Platform,
+  Linking,
   StyleSheet,
   Alert,
 } from 'react-native';
 import DeepARView, {
   IDeepARHandle,
   TextureSourceTypes,
+  CameraPermissionRequestResult,
+  Camera,
   ErrorTypes,
 } from 'react-native-deepar';
 import RNFetchBlob from 'rn-fetch-blob';
@@ -19,23 +21,10 @@ import {Button} from '../components';
 import {Config, Images, Effects, Computed, Enums} from '../constants';
 import Utils from '../utils';
 
-const askAndroidPermissions = () =>
-  PermissionsAndroid.requestMultiple([
-    PermissionsAndroid.PERMISSIONS.CAMERA,
-    PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE,
-    PermissionsAndroid.PERMISSIONS.RECORD_AUDIO,
-  ]).then((result) => {
-    return (
-      result['android.permission.CAMERA'] === 'granted' &&
-      result['android.permission.WRITE_EXTERNAL_STORAGE'] === 'granted' &&
-      result['android.permission.RECORD_AUDIO'] === 'granted'
-    );
-  });
-
 const HomeScreen = ({navigation}: {navigation: any}) => {
   const deepARRef = useRef<IDeepARHandle>(null);
 
-  const [permsGranted, setPermsGranted] = useState(Computed.IS_IOS);
+  const [permsGranted, setPermsGranted] = useState(false);
   const [switchCameraInProgress, setSwitchCameraInProgress] = useState(false);
   const [isStatsEnabled, setIsStatsEnabled] = useState(false);
   const [currEffectIndex, setCurrEffectIndex] = useState(0);
@@ -50,11 +39,23 @@ const HomeScreen = ({navigation}: {navigation: any}) => {
   );
 
   useEffect(() => {
-    if (Computed.IS_ANDROID) {
-      askAndroidPermissions().then((isGranted) => {
-        setPermsGranted(isGranted);
-      });
-    }
+    const requestPermissions = async () => {
+      const cameraPermission = await Camera.requestCameraPermission();
+      const microphonePermission = await Camera.requestMicrophonePermission();
+
+      const isCameraAllowed =
+        cameraPermission === CameraPermissionRequestResult.AUTHORIZED;
+      const isMicrophoneAllowed =
+        microphonePermission === CameraPermissionRequestResult.AUTHORIZED;
+
+      if (isCameraAllowed && isMicrophoneAllowed) {
+        setPermsGranted(true);
+      } else {
+        Linking.openSettings();
+      }
+    };
+
+    requestPermissions();
   }, []);
 
   const switchCamera = () => {

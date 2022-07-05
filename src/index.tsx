@@ -1,4 +1,5 @@
 import DeepARView from './DeepARView';
+import CameraModule from './CameraModule';
 
 import type {ViewProps} from 'react-native';
 
@@ -11,6 +12,18 @@ export enum TextureSourceTypes {
   BASE64 = 'BASE64',
   URL = 'URL',
   PATH = 'PATH',
+}
+
+export enum CameraPermissionStatus {
+  AUTHORIZED = 'authorized',
+  NOT_DETERMINED = 'not-determined',
+  DENIED = 'denied',
+  RESTRICTED = 'restricted',
+}
+
+export enum CameraPermissionRequestResult {
+  AUTHORIZED = 'authorized',
+  DENIED = 'denied',
 }
 
 export interface IDeepAREvent {
@@ -50,46 +63,46 @@ export interface IDeepARProps extends ViewProps {
   onError?: (text: String, type: ErrorTypes) => void;
 }
 
-interface ISwitchEffect {
+export interface ISwitchEffect {
   mask: String;
   slot?: String;
 }
 
-interface ISwitchEffectWithPath {
+export interface ISwitchEffectWithPath {
   path: String;
   slot?: String;
 }
 
-interface IChangeParamater {
+export interface IChangeParamater {
   gameObject: String;
   component: String;
   parameter: String;
 }
 
-interface IChangeParamaterFloat extends IChangeParamater {
+export interface IChangeParamaterFloat extends IChangeParamater {
   value: Number;
 }
 
-interface IChangeParamaterVec3 extends IChangeParamater {
+export interface IChangeParamaterVec3 extends IChangeParamater {
   x: Number;
   y: Number;
   z: Number;
 }
 
-interface IChangeParamaterVec4 extends IChangeParamaterVec3 {
+export interface IChangeParamaterVec4 extends IChangeParamaterVec3 {
   w: Number;
 }
 
-interface IChangeParamaterBool extends IChangeParamater {
+export interface IChangeParamaterBool extends IChangeParamater {
   value: Boolean;
 }
 
-interface IChangeParamaterTexture extends IChangeParamater {
+export interface IChangeParamaterTexture extends IChangeParamater {
   type: TextureSourceTypes;
   value: String;
 }
 
-interface IChangeParamaterString extends IChangeParamater {
+export interface IChangeParamaterString extends IChangeParamater {
   value: String;
 }
 
@@ -118,5 +131,7 @@ export interface IDeepARHandle {
   changeParameterTexture: (params: IChangeParamaterTexture) => void;
   changeParameterString: (params: IChangeParamaterString) => void;
 }
+
+export const Camera = CameraModule;
 
 export default DeepARView;

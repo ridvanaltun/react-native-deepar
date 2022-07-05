@@ -11,7 +11,9 @@ import java.util.List;
 public class RNTDeepARPackage implements ReactPackage {
   @Override
   public List<NativeModule> createNativeModules(ReactApplicationContext reactContext) {
-    return Collections.emptyList();
+    return Collections.singletonList(
+      new RNTCameraModule(reactContext)
+    );
   }
 
   @Override
