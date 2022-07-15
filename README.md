@@ -171,7 +171,7 @@ const microphonePermission = await Camera.requestMicrophonePermission();
 
 | DeepAR SDK | lib version                      | Required React Native Version |
 | ---------- | -------------------------------- | ----------------------------- |
-| 3.4.2      | `react-native-deepar` `>= 0.1.0` | unknown                       |
+| 3.4.2      | `react-native-deepar` `>= 0.1.0` | >= 0.64.2                     |
 
 ## Installing AR Models
 
