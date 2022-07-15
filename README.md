@@ -73,7 +73,7 @@ You can visit [DeepAR's offical site](https://www.deepar.ai/) to learn more.
 :warning: It only works on physical devices, not will work with simulator.
 
 ```sh
-npm install react-native-deepar
+yarn add react-native-deepar
 ```
 
 ### Other Required Steps
@@ -255,7 +255,7 @@ The `<DeepAR>` component can take a number of inputs to customize it as needed. 
 | Prop     | Type           | Default              | Required     | Description                                                                                          |
 | -------- | -------------- | -------------------- | ------------ | ---------------------------------------------------------------------------------------------------- |
 | apiKey   | String         | undefined            | <b>true</b>  | Make registration to DeepAR and get an API key from [Developer Panel](https://developer.deepar.ai/). |
-| position | CameraPosition | CameraPosition.FRONT | <b>false</b> | Camera position, back and front. You can change in real-time.                                                                     |
+| position | CameraPosition | CameraPosition.FRONT | <b>false</b> | Camera position, back and front. You can change in real-time.                                        |
 
 ### Events
 
