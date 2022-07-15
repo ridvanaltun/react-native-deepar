@@ -89,16 +89,18 @@ yarn add react-native-deepar
 <uses-permission android:name="android.permission.RECORD_AUDIO" />
 ```
 
-2. Update your `minSdkVersion` version minimum `21` from `android/build.gradle` file, like below:
+2. Update your `minSdkVersion` version minimum `21`, `compileSdkVersion` and `targetSdkVersion` version minimum `31` from `android/build.gradle` file, like below:
 
 ```diff
 buildscript {
     ext {
-        buildToolsVersion = "31.0.0"
+        buildToolsVersion = "29.0.3"
 -        minSdkVersion = 20
+-        compileSdkVersion = 30
+-        targetSdkVersion = 30
 +        minSdkVersion = 21
-        compileSdkVersion = 31
-        targetSdkVersion = 31
++        compileSdkVersion = 31
++        targetSdkVersion = 31
     }
 }
 ```
