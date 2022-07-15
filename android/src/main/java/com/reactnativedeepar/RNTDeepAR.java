@@ -50,8 +50,6 @@ public class RNTDeepAR extends FrameLayout implements AREventListener, SurfaceHo
   String tempVideoPath;
   private DeepAR deepAr;
   private CameraService cameraService;
-  private final int defaultCameraDevice = Camera.CameraInfo.CAMERA_FACING_FRONT;
-  private int cameraDevice = defaultCameraDevice;
   private CameraManager mCameraManager;
   private boolean started;
 
@@ -187,15 +185,14 @@ public class RNTDeepAR extends FrameLayout implements AREventListener, SurfaceHo
   // Methods
   //
 
-  public void switchCamera() {
+  public void switchCamera(int cameraDevice) {
     if (cameraService != null) {
 
       pause();
 
-      cameraService.switchCamera();
+      cameraService.switchCamera(cameraDevice);
       cameraService.openCamera(deepAr);
 
-      cameraDevice = cameraDevice == Camera.CameraInfo.CAMERA_FACING_FRONT ? Camera.CameraInfo.CAMERA_FACING_BACK : Camera.CameraInfo.CAMERA_FACING_FRONT;
       String status = cameraDevice == Camera.CameraInfo.CAMERA_FACING_FRONT ? "front" : "back";
 
       sendEvent("cameraSwitched", status, null);

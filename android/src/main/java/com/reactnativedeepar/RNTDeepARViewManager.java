@@ -5,6 +5,8 @@ import android.graphics.BitmapFactory;
 import android.util.Base64;
 import android.widget.FrameLayout;
 
+import androidx.camera.core.CameraSelector;
+
 import com.facebook.infer.annotation.Assertions;
 import com.facebook.react.bridge.ReactContext;
 import com.facebook.react.bridge.ReadableArray;
@@ -41,8 +43,7 @@ public class RNTDeepARViewManager extends SimpleViewManager<RNTDeepAR> {
   /**
    * Camera
    */
-  private static final int SWITCH_CAMERA = 10;
-  private static final int SET_FLASH_ON = 11;
+  private static final int SET_FLASH_ON = 10;
 
 
   /**
@@ -94,7 +95,6 @@ public class RNTDeepARViewManager extends SimpleViewManager<RNTDeepAR> {
       private static final long serialVersionUID = 6422000319397326714L;
 
       {
-        put("switchCamera", SWITCH_CAMERA);
         put("switchEffect", SWITCH_EFFECT);
         put("switchEffectWithPath", SWITCH_EFFECT_WITH_PATH);
         put("fireTrigger", FIRE_TRIGGER);
@@ -126,14 +126,26 @@ public class RNTDeepARViewManager extends SimpleViewManager<RNTDeepAR> {
     deepAr.setLicenseKey(apiKey);
   }
 
+  @ReactProp(name = "cameraPosition")
+  public void setCameraPosition(RNTDeepAR deepARView, String cameraPosition) {
+    int position = CameraSelector.LENS_FACING_FRONT;
+
+    switch (cameraPosition) {
+      case "back":
+        position = CameraSelector.LENS_FACING_BACK;
+        break;
+      case "front":
+        position = CameraSelector.LENS_FACING_FRONT;
+        break;
+    }
+
+    deepARView.switchCamera(position);
+  }
+
   @Override
   public void receiveCommand(RNTDeepAR deepARView, int commandId, @Nullable ReadableArray args) {
     Assertions.assertNotNull(deepARView);
     switch (commandId) {
-      case SWITCH_CAMERA: {
-        deepARView.switchCamera();
-        return;
-      }
       case SWITCH_EFFECT: {
         if (args != null) {
           String maskName = args.getString(0);

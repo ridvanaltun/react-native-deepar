@@ -5,9 +5,11 @@ import {
   IDeepARHandle,
   IDeepARProps,
   IRNTDeepARView,
-  CameraFacing,
+  CameraPosition,
   ErrorTypes,
 } from './index';
+
+import Utils from './Utils';
 
 const NATIVE_VIEW_KEY = 'RNTDeepARView';
 const RNTDeepARView = requireNativeComponent<IRNTDeepARView>(NATIVE_VIEW_KEY);
@@ -16,6 +18,7 @@ const DeepARView = forwardRef<IDeepARHandle, IDeepARProps>(
   (
     {
       apiKey,
+      position,
       onEventSent,
       onInitialized,
       onEffectSwitched,
@@ -54,9 +57,6 @@ const DeepARView = forwardRef<IDeepARHandle, IDeepARProps>(
       },
       fireTrigger(trigger) {
         nativeExecute('fireTrigger', [trigger]);
-      },
-      switchCamera() {
-        nativeExecute('switchCamera');
       },
       setFlashOn(enabled) {
         nativeExecute('setFlashOn', [enabled]);
@@ -133,6 +133,7 @@ const DeepARView = forwardRef<IDeepARHandle, IDeepARProps>(
       <RNTDeepARView
         ref={nativeRef}
         apiKey={apiKey}
+        cameraPosition={position || CameraPosition.FRONT}
         onEventSent={({nativeEvent}) => {
           if (onEventSent) onEventSent(nativeEvent);
           switch (nativeEvent.type) {
@@ -146,8 +147,8 @@ const DeepARView = forwardRef<IDeepARHandle, IDeepARProps>(
               if (onCameraSwitched)
                 onCameraSwitched(
                   nativeEvent.value === 'front'
-                    ? CameraFacing.FRONT
-                    : CameraFacing.BACK
+                    ? CameraPosition.FRONT
+                    : CameraPosition.BACK
                 );
               break;
             case 'screenshotTaken':
@@ -165,12 +166,12 @@ const DeepARView = forwardRef<IDeepARHandle, IDeepARProps>(
               break;
             case 'faceVisibilityChanged':
               if (onFaceVisibilityChanged)
-                onFaceVisibilityChanged(nativeEvent.value === 'true');
+                onFaceVisibilityChanged(Utils.strToBool(nativeEvent.value));
               break;
             case 'imageVisibilityChanged':
               if (onImageVisibilityChanged)
                 onImageVisibilityChanged(
-                  nativeEvent.value2 === 'true',
+                  Utils.strToBool(nativeEvent.value2),
                   nativeEvent.value
                 );
               break;

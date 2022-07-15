@@ -101,8 +101,8 @@ public class CameraService {
     frameReceiver = null;
   }
 
-  public void switchCamera() {
-    lensFacing = lensFacing == CameraSelector.LENS_FACING_FRONT ? CameraSelector.LENS_FACING_BACK : CameraSelector.LENS_FACING_FRONT;
+  public void switchCamera(int _lensFacing) {
+    lensFacing = _lensFacing == CameraSelector.LENS_FACING_FRONT ? CameraSelector.LENS_FACING_FRONT : CameraSelector.LENS_FACING_BACK;
     //unbind immediately to avoid mirrored frame.
     ProcessCameraProvider cameraProvider = null;
     try {

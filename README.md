@@ -252,9 +252,10 @@ The `<DeepAR>` component can take a number of inputs to customize it as needed. 
 
 ### Props
 
-| Prop   | Type   | Default   | Required    | Description                                                                                          |
-| ------ | ------ | --------- | ----------- | ---------------------------------------------------------------------------------------------------- |
-| apiKey | String | undefined | <b>true</b> | Make registration to DeepAR and get an API key from [Developer Panel](https://developer.deepar.ai/). |
+| Prop     | Type           | Default              | Required     | Description                                                                                          |
+| -------- | -------------- | -------------------- | ------------ | ---------------------------------------------------------------------------------------------------- |
+| apiKey   | String         | undefined            | <b>true</b>  | Make registration to DeepAR and get an API key from [Developer Panel](https://developer.deepar.ai/). |
+| position | CameraPosition | CameraPosition.FRONT | <b>false</b> | Camera position, back and front. You can change in real-time.                                                                     |
 
 ### Events
 
@@ -268,7 +269,7 @@ These are various events that you can hook into and fire functions on in the com
 | onVideoRecordingPrepared | <div align="center">-</div>                           | Called when the video recording is prepared.                                                                                    |
 | onVideoRecordingStarted  | <div align="center">-</div>                           | The start of the video recording process is not synchronous, so this method will be called when the video recording is started. |
 | onVideoRecordingFinished | (<b>path</b>: String)                                 | Called when the video recording is finished.                                                                                    |
-| onCameraSwitched         | (<b>facing</b>: CameraFacing)                         | Called when camera switched.                                                                                                    |
+| onCameraSwitched         | (<b>facing</b>: CameraPosition)                       | Called when camera switched.                                                                                                    |
 | onFaceVisibilityChanged  | (<b>visible</b>: Boolean)                             | Called when the user's face becomes visible or invisible.                                                                       |
 | onImageVisibilityChanged | (<b>visible</b>: Boolean, <b>gameObject</b>?: String) | Called when a natural image is being tracked and the visibility has changed.                                                    |
 | onError                  | (<b>text</b>: String, <b>type</b>: ErrorTypes,)       | Called when an error occur, like the model path not found or the effect file failed to load.                                    |
@@ -289,10 +290,9 @@ These are the various methods.
 
 #### Camera Control
 
-| Method       | Params                      | Description                          |
-| ------------ | --------------------------- | ------------------------------------ |
-| switchCamera | <div align="center">-</div> | Switches the camera, back and front. |
-| setFlashOn   | (<b>enabled</b>: Boolean)   | Toggle flash.                        |
+| Method     | Params                    | Description   |
+| ---------- | ------------------------- | ------------- |
+| setFlashOn | (<b>enabled</b>: Boolean) | Toggle flash. |
 
 #### Video Recording
 

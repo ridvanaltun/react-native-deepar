@@ -6,6 +6,7 @@ import DeepARView, {
   CameraPermissionRequestResult,
   Camera,
   ErrorTypes,
+  CameraPosition,
 } from 'react-native-deepar';
 import RNFetchBlob from 'rn-fetch-blob';
 
@@ -24,6 +25,7 @@ const HomeScreen = ({navigation}: {navigation: any}) => {
   const [isVideoRecording, setIsVideoRecording] = useState(false);
   const [isVideoRecordingPaused, setIsVideoRecordingPaused] = useState(false);
   const [isFacePaintingStarted, setIsFacePaintingStarted] = useState(false);
+  const [cameraPosition, setCameraPosition] = useState(CameraPosition.FRONT);
 
   const isCurrEffectSupported = useMemo(
     () => Effects[currEffectIndex].platforms.includes(Platform.OS),
@@ -52,7 +54,11 @@ const HomeScreen = ({navigation}: {navigation: any}) => {
 
   const switchCamera = () => {
     if (deepARRef && switchCameraInProgress === false) {
-      deepARRef?.current?.switchCamera();
+      setCameraPosition(
+        cameraPosition === CameraPosition.FRONT
+          ? CameraPosition.BACK
+          : CameraPosition.FRONT
+      );
       setSwitchCameraInProgress(true);
     }
   };
@@ -283,6 +289,7 @@ const HomeScreen = ({navigation}: {navigation: any}) => {
         <DeepARView
           ref={deepARRef}
           apiKey={Config.DEEPAR.API_KEY || ''}
+          position={cameraPosition}
           onCameraSwitched={() => {
             setSwitchCameraInProgress(false);
           }}

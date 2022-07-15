@@ -3,9 +3,10 @@ import CameraModule from './CameraModule';
 
 import type {ViewProps} from 'react-native';
 
-export enum CameraFacing {
+export enum CameraPosition {
   FRONT = 'front',
   BACK = 'back',
+  UNSPECIFIED = 'unspecified',
 }
 
 export enum TextureSourceTypes {
@@ -34,6 +35,7 @@ export interface IDeepAREvent {
 
 export interface IRNTDeepARView {
   apiKey: String;
+  cameraPosition?: CameraPosition;
   onEventSent: ({nativeEvent}: {nativeEvent: IDeepAREvent}) => void;
 }
 
@@ -48,10 +50,11 @@ export enum ErrorTypes {
 
 export interface IDeepARProps extends ViewProps {
   apiKey: String;
+  position?: CameraPosition;
   onEventSent?: (event: IDeepAREvent) => void;
   onInitialized?: () => void;
   onEffectSwitched?: (slot: String) => void;
-  onCameraSwitched?: (facing: CameraFacing) => void;
+  onCameraSwitched?: (position: CameraPosition) => void;
   onScreenshotTaken?: (imagePath: String) => void;
   onVideoRecordingPrepared?: () => void;
   onVideoRecordingStarted?: () => void;
@@ -110,7 +113,6 @@ export interface IDeepARHandle {
   switchEffect: (params: ISwitchEffect) => void;
   switchEffectWithPath: (params: ISwitchEffectWithPath) => void;
   fireTrigger: (trigger: String) => void;
-  switchCamera: () => void;
   setFlashOn: (enabled: Boolean) => void;
   startRecording: () => void;
   resumeRecording: () => void;

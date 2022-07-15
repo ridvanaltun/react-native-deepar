@@ -15,13 +15,13 @@
 @implementation RNTDeepAR {
 CGRect _frame;
 ARView *_arview;
-UIImageView *_backgroundView;
 }
 
 BOOL touchMode = false;
+AVCaptureDevicePosition _cameraPosition;
 
 - (void)dealloc {
-[self.deepar shutdown];
+  [self.deepar shutdown];
 }
 
 - (void)setApiKey:(NSString *)apiKey {
@@ -52,27 +52,32 @@ AVAudioSession *session = [AVAudioSession sharedInstance];
          object:nil];
 }
 
+- (void)setCameraPosition:(NSString *)cameraPosition {
+
+  _cameraPosition = [cameraPosition isEqual:@"back"]
+                        ? AVCaptureDevicePositionBack
+                        : AVCaptureDevicePositionFront;
+
+  if (_arview) {
+    self.cameraController.position = _cameraPosition;
+
+    NSString *const AVCaptureDevicePosition_toString[] = {
+        [AVCaptureDevicePositionUnspecified] = @"unspecified",
+        [AVCaptureDevicePositionBack] = @"back",
+        [AVCaptureDevicePositionFront] = @"front",
+    };
+
+    self.onEventSent(@{
+      @"type" : @"cameraSwitched",
+      @"value" : AVCaptureDevicePosition_toString[_cameraPosition]
+    });
+  }
+}
+
 - (void)reactSetFrame:(CGRect)frame {
 [super reactSetFrame:frame];
 _frame = frame;
 [self setupDeepARViewFrame];
-}
-
-- (void)switchCamera {
-if (_arview) {
-  self.cameraController.position =
-      self.cameraController.position == AVCaptureDevicePositionBack
-          ? AVCaptureDevicePositionFront
-          : AVCaptureDevicePositionBack;
-
-  NSString *message;
-  if (self.cameraController.position == AVCaptureDevicePositionBack) {
-    message = @"back";
-  } else {
-    message = @"front";
-  }
-  self.onEventSent(@{@"type" : @"cameraSwitched", @"value" : message});
-}
 }
 
 - (void)switchEffect:(NSString *)effect andSlot:(NSString *)slot {
@@ -333,10 +338,12 @@ if (event.type == UIEventTypeTouches) {
 #pragma mark - ARViewDelegate methods
 
 /**
-* Called when the DeepAR engine initialization is complete
-*/
+ * Called when the DeepAR engine initialization is complete
+ */
 - (void)didInitialize {
-[self setupDeepARViewFrame];
+  self.cameraController.position = _cameraPosition;
+
+  [self setupDeepARViewFrame];
 }
 
 - (void)setupDeepARViewFrame {

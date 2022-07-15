@@ -14,22 +14,9 @@ RCT_EXPORT_MODULE()
 }
 
 RCT_EXPORT_VIEW_PROPERTY(apiKey, NSString)
-RCT_EXPORT_VIEW_PROPERTY(onEventSent, RCTBubblingEventBlock)
+RCT_EXPORT_VIEW_PROPERTY(cameraPosition, NSString)
 
-RCT_EXPORT_METHOD(switchCamera : (nonnull NSNumber *)reactTag) {
-  [self.bridge.uiManager addUIBlock:^(__unused RCTUIManager *uiManager,
-                                      NSDictionary<NSNumber *, RNTDeepAR *>
-                                          *viewRegistry) {
-    RNTDeepAR *view = viewRegistry[reactTag];
-    if (![view isKindOfClass:[RNTDeepAR class]]) {
-      RCTLogError(
-          @"Invalid view returned from registry, expecting RCTWebView, got: %@",
-          view);
-    } else {
-      [view switchCamera];
-    }
-  }];
-}
+RCT_EXPORT_VIEW_PROPERTY(onEventSent, RCTBubblingEventBlock)
 
 RCT_EXPORT_METHOD(switchEffect
                   : (nonnull NSNumber *)reactTag andMaskPath

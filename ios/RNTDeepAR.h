@@ -23,7 +23,6 @@
 @property(nonatomic, copy) RCTBubblingEventBlock onEventSent;
 @property(nonatomic, copy) NSString *apiKey;
 
-- (void)switchCamera;
 - (void)pause;
 - (void)resume;
 - (void)startRecording;
