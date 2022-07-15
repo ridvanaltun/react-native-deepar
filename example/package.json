@@ -8,7 +8,7 @@
     "start": "react-native start",
     "test": "jest",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
-    "asset": "npx react-native-asset"
+    "asset": "npx react-native-copy-asset"
   },
   "dependencies": {
     "@react-native-community/cameraroll": "^4.1.2",

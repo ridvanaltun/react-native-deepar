@@ -22,7 +22,7 @@
     "!**/__mocks__"
   ],
   "bin": {
-    "react-native-deepar-link": "./node_modules/.bin/react-native-asset"
+    "react-native-deepar-link": "./node_modules/.bin/react-native-copy-asset"
   },
   "scripts": {
     "test": "jest",
@@ -52,7 +52,7 @@
     "registry": "https://registry.npmjs.org/"
   },
   "dependencies": {
-    "react-native-asset": "^2.0.1"
+    "react-native-copy-asset": "^3.0.2"
   },
   "devDependencies": {
     "@commitlint/config-conventional": "^11.0.0",
