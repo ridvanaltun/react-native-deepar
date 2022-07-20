@@ -261,10 +261,11 @@ The `<DeepAR>` component can take a number of inputs to customize it as needed. 
 
 ### Props
 
-| Prop     | Type           | Default              | Required     | Description                                                                                          |
-| -------- | -------------- | -------------------- | ------------ | ---------------------------------------------------------------------------------------------------- |
-| apiKey   | String         | undefined            | <b>true</b>  | Make registration to DeepAR and get an API key from [Developer Panel](https://developer.deepar.ai/). |
-| position | CameraPosition | CameraPosition.FRONT | <b>false</b> | Camera position, back and front. You can change in real-time.                                        |
+| Prop               | Type           | Default              | Required     | Description                                                                                                                                                                                                                                                                                                                                                 |
+| ------------------ | -------------- | -------------------- | ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| apiKey             | String         | undefined            | <b>true</b>  | Make registration to DeepAR and get an API key from [Developer Panel](https://developer.deepar.ai/).                                                                                                                                                                                                                                                        |
+| position           | CameraPosition | CameraPosition.FRONT | <b>false</b> | Camera position, back and front. You can change in real-time.                                                                                                                                                                                                                                                                                               |
+| videoWarmupEnabled | boolean        | false                | <b>false</b> | If set to true, changes how `startRecording` and `resumeRecording` methods work; `startRecording` method will no longer start the video recording immediately, instead it triggers `onVideoRecordingPrepared` event. You can start video recording with `resumeRecording` after `onVideoRecordingPrepared` event triggered. **Note:** Only available in iOS |
 
 ### Events
 
@@ -275,7 +276,7 @@ These are various events that you can hook into and fire functions on in the com
 | onInitialized            | <div align="center">-</div>                           | Called when the DeepAR is initialized. DeepAR methods should not be called before the initialization is completed.              |
 | onEffectSwitched         | (<b>slot</b>: String)                                 | Called when an effect has been switched.                                                                                        |
 | onScreenshotTaken        | (<b>path</b>: String)                                 | Called when the screen capture is finished.                                                                                     |
-| onVideoRecordingPrepared | <div align="center">-</div>                           | Called when the video recording is prepared.                                                                                    |
+| onVideoRecordingPrepared | <div align="center">-</div>                           | Called when the video recording is prepared. Check `videoWarmupEnabled` option to learn more. **Note:** Only available in iOS   |
 | onVideoRecordingStarted  | <div align="center">-</div>                           | The start of the video recording process is not synchronous, so this method will be called when the video recording is started. |
 | onVideoRecordingFinished | (<b>path</b>: String)                                 | Called when the video recording is finished.                                                                                    |
 | onCameraSwitched         | (<b>facing</b>: CameraPosition)                       | Called when camera switched.                                                                                                    |

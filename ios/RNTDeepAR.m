@@ -51,6 +51,13 @@ AVAudioSession *session = [AVAudioSession sharedInstance];
          object:nil];
 }
 
+- (void)setVideoWarmupEnabled:(NSString *)enabled {
+    Boolean _enabled = [enabled isEqual:@"true"]
+                          ? YES
+                          : NO;
+    self.deepar.videoRecordingWarmupEnabled = _enabled;
+}
+
 - (void)setCameraPosition:(NSString *)cameraPosition {
 
   _cameraPosition = [cameraPosition isEqual:@"back"]

@@ -15,6 +15,7 @@ RCT_EXPORT_MODULE()
 
 RCT_EXPORT_VIEW_PROPERTY(apiKey, NSString)
 RCT_EXPORT_VIEW_PROPERTY(cameraPosition, NSString)
+RCT_EXPORT_VIEW_PROPERTY(videoWarmupEnabled, NSString)
 
 RCT_EXPORT_VIEW_PROPERTY(onEventSent, RCTBubblingEventBlock)
 

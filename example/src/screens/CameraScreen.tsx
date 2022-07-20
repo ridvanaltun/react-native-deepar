@@ -297,6 +297,7 @@ const CameraScreen = ({navigation}: {navigation: any}) => {
           ref={deepARRef}
           apiKey={Config.DEEPAR.API_KEY || ''}
           position={cameraPosition}
+          videoWarmupEnabled={false}
           onCameraSwitched={() => {
             setSwitchCameraInProgress(false);
           }}

@@ -126,6 +126,11 @@ public class RNTDeepARViewManager extends SimpleViewManager<RNTDeepAR> {
     deepAr.setLicenseKey(apiKey);
   }
 
+  @ReactProp(name = "videoWarmupEnabled")
+  public void setVideoWarmupEnabled(FrameLayout view, String enabled) {
+    // ..
+  }
+
   @ReactProp(name = "cameraPosition")
   public void setCameraPosition(RNTDeepAR deepARView, String cameraPosition) {
     int position = CameraSelector.LENS_FACING_FRONT;
