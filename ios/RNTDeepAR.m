@@ -88,15 +88,18 @@ _frame = frame;
 
 - (void)switchEffect:(NSString *)effect andSlot:(NSString *)slot {
 NSString *path = [[NSBundle mainBundle] pathForResource:effect ofType:@""];
-[_arview switchEffectWithSlot:slot path:path];
+if (self.deepar)
+  [self.deepar switchEffectWithSlot:slot path:path];
 }
 
 - (void)switchEffectWithPath:(NSString *)path andSlot:(NSString *)slot {
-[_arview switchEffectWithSlot:slot path:path];
+if (self.deepar)
+  [self.deepar switchEffectWithSlot:slot path:path];
 }
 
 - (void)fireTrigger:(NSString *)trigger {
-[_arview fireTrigger:trigger];
+if (self.deepar)
+  [self.deepar fireTrigger:trigger];
 }
 
 - (void)setFlashOn:(bool)flashOn {
@@ -121,19 +124,18 @@ if (captureDeviceClass != nil) {
 }
 
 - (void)pause {
-if (_arview) {
-  [_arview pause];
-}
+  if (self.deepar)
+    [self.deepar pause];
 }
 
 - (void)resume {
-if (_arview) {
-  [_arview resume];
-}
+  if (self.deepar)
+    [self.deepar resume];
 }
 
 - (void)takeScreenshot {
-[_arview takeScreenshot];
+  if (self.deepar)
+    [self.deepar takeScreenshot];
 }
 
 - (void)startRecording {
@@ -153,52 +155,56 @@ if (self.flashOn &&
       dispatch_after(
           dispatch_time(DISPATCH_TIME_NOW, 0.25 * NSEC_PER_SEC),
           dispatch_get_main_queue(), ^{
-            if (self->_arview) {
-              [self->_arview
-                  startVideoRecordingWithOutputWidth:self.frame.size.width *
-                                                     0.75
-                                        outputHeight:self.frame.size.height *
-                                                     0.75];
+            if (self->_deepar) {
+              [self->_deepar
+                  startVideoRecordingWithOutputWidth:self.frame.size.width
+                                        outputHeight:self.frame.size.height];
             }
           });
     }
   }
 } else {
-  if (_arview) {
-    [self->_arview
-        startVideoRecordingWithOutputWidth:self.frame.size.width * 0.75
-                              outputHeight:self.frame.size.height * 0.75];
-    //[_arview startRecordingWithScale:0.5];
+  if (self.deepar) {
+    [self->_deepar
+        startVideoRecordingWithOutputWidth:self.frame.size.width
+                              outputHeight:self.frame.size.height];
   }
 }
 }
 
 - (void)resumeRecording {
-[_arview resumeVideoRecording];
+  if (self.deepar)
+    [self.deepar resumeVideoRecording];
 }
 
 - (void)pauseRecording {
-[_arview pauseVideoRecording];
+  if (self.deepar)
+    [self.deepar pauseVideoRecording];
 }
 
 - (void)finishRecording {
-[_arview finishVideoRecording];
+  if (self.deepar)
+    [self.deepar finishVideoRecording];
 }
 
 - (void)setAudioMute:(BOOL)enabled {
-[_arview enableAudioProcessing:enabled];
+  if (self.deepar)
+    [self.deepar enableAudioProcessing:enabled];
 }
 
 - (void)setLiveMode:(BOOL)liveMode {
-[self.deepar changeLiveMode:liveMode];
+  if (self.deepar)
+    [self.deepar changeLiveMode:liveMode];
 }
 
 - (void)setFaceDetectionSensitivity:(int)sensitivity {
-[self.deepar setFaceDetectionSensitivity:sensitivity];
+  if (self.deepar)
+    [self.deepar setFaceDetectionSensitivity:sensitivity];
 }
 
 - (void)showStats:(BOOL)enabled {
-[_arview showStats:enabled];
+  if (self.deepar)
+    [self.deepar showStats:enabled];
 }
 
 - (void)setTouchMode:(BOOL)enabled {
@@ -278,63 +284,69 @@ if (event.type == UIEventTypeTouches) {
 }
 
 - (void)changeParameterFloat:(NSString *)gameObject
-                 component:(NSString *)component
-                 parameter:(NSString *)parameter
-                floatValue:(float)value {
-[self.deepar changeParameter:gameObject
-                   component:component
-                   parameter:parameter
-                  floatValue:value];
+                   component:(NSString *)component
+                   parameter:(NSString *)parameter
+                  floatValue:(float)value {
+  if (self.deepar)
+    [self.deepar changeParameter:gameObject
+                       component:component
+                       parameter:parameter
+                      floatValue:value];
 }
 
 - (void)changeParameterVec4:(NSString *)gameObject
-                component:(NSString *)component
-                parameter:(NSString *)parameter
-              vectorValue:(Vector4)value {
-[self.deepar changeParameter:gameObject
-                   component:component
-                   parameter:parameter
-                 vectorValue:value];
+                  component:(NSString *)component
+                  parameter:(NSString *)parameter
+                vectorValue:(Vector4)value {
+  if (self.deepar)
+    [self.deepar changeParameter:gameObject
+                       component:component
+                       parameter:parameter
+                     vectorValue:value];
 }
 
 - (void)changeParameterVec3:(NSString *)gameObject
-                component:(NSString *)component
-                parameter:(NSString *)parameter
-             vector3Value:(Vector3)value {
-[self.deepar changeParameter:gameObject
-                   component:component
-                   parameter:parameter
-                vector3Value:value];
+                  component:(NSString *)component
+                  parameter:(NSString *)parameter
+               vector3Value:(Vector3)value {
+  if (self.deepar)
+    [self.deepar changeParameter:gameObject
+                       component:component
+                       parameter:parameter
+                    vector3Value:value];
 }
 
 - (void)changeParameterBool:(NSString *)gameObject
-                component:(NSString *)component
-                parameter:(NSString *)parameter
-                boolValue:(bool)value {
-[self.deepar changeParameter:gameObject
-                   component:component
-                   parameter:parameter
-                   boolValue:value];
+                  component:(NSString *)component
+                  parameter:(NSString *)parameter
+                  boolValue:(bool)value {
+  if (self.deepar)
+    [self.deepar changeParameter:gameObject
+                       component:component
+                       parameter:parameter
+                       boolValue:value];
 }
 
 - (void)changeParameterTexture:(NSString *)gameObject
-                   component:(NSString *)component
-                   parameter:(NSString *)parameter
-                       image:(UIImage *)image {
-[self.deepar changeParameter:gameObject
-                   component:component
-                   parameter:parameter
-                       image:image];
+                     component:(NSString *)component
+                     parameter:(NSString *)parameter
+                         image:(UIImage *)image {
+  if (self.deepar)
+    [self.deepar changeParameter:gameObject
+                       component:component
+                       parameter:parameter
+                           image:image];
 }
 
 - (void)changeParameterString:(NSString *)gameObject
-                  component:(NSString *)component
-                  parameter:(NSString *)parameter
-                stringValue:(NSString *)value {
-[self.deepar changeParameter:gameObject
-                   component:component
-                   parameter:parameter
-                 stringValue:value];
+                    component:(NSString *)component
+                    parameter:(NSString *)parameter
+                  stringValue:(NSString *)value {
+  if (self.deepar)
+    [self.deepar changeParameter:gameObject
+                       component:component
+                       parameter:parameter
+                     stringValue:value];
 }
 
 //
