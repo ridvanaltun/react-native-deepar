@@ -6,7 +6,6 @@
 //  Copyright © 2022 Facebook. All rights reserved.
 //
 
-#import "JSONModelLib.h"
 #import "RNTDeepAR.h"
 #import "React/UIView+React.h"
 #import <DeepAR/CameraController.h>

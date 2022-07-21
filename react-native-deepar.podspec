@@ -14,11 +14,7 @@ Pod::Spec.new do |s|
   s.source = { :git => "https://github.com/ridvanaltun/react-native-deepar.git", :tag => "#{s.version}" }
 
   s.source_files = "ios/**/*.{h,m,mm}"
-
-  # s.vendored_frameworks = "ios/DeepAR.framework"
-  # s.vendored_frameworks = "ios/Frameworks/*.framework"
   s.vendored_frameworks = "ios/Frameworks/*.xcframework"
 
   s.dependency "React-Core"
-  s.dependency "JSONModel", "~> 1.7.0"
 end

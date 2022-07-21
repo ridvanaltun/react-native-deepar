@@ -61,12 +61,12 @@ public class RNTDeepAR extends FrameLayout implements AREventListener, SurfaceHo
 
   public RNTDeepAR(@NonNull Context context, @Nullable AttributeSet attrs) {
     super(context, attrs);
-        init();
+    init();
   }
 
   public RNTDeepAR(Context context, AttributeSet attrs, int defStyle) {
     super(context, attrs, defStyle);
-        init();
+    init();
   }
 
   public void init() {
@@ -80,9 +80,6 @@ public class RNTDeepAR extends FrameLayout implements AREventListener, SurfaceHo
   @Override
   protected void onDetachedFromWindow() {
     super.onDetachedFromWindow();
-    // deepAr.setAREventListener(null);
-    // deepAr.release();
-    // deepAr = null;
   }
 
   private void setupDeepAR() {

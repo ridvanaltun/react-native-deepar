@@ -12,24 +12,17 @@ import com.facebook.react.bridge.Promise;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
-import com.facebook.react.bridge.WritableMap;
-import com.facebook.react.bridge.WritableNativeMap;
 import com.facebook.react.module.annotations.ReactModule;
 import com.facebook.react.modules.core.PermissionAwareActivity;
-
-import ai.deepar.ar.DeepAR;
 
 @ReactModule(name = RNTCameraModule.NAME)
 public class RNTCameraModule extends ReactContextBaseJavaModule {
     public static final String NAME = "RNTCameraModule";
-    public static final String TAG = "RNTCameraModule";
 
-    private final DeepAR deepAr;
     public Integer RequestCode = 10;
 
     public RNTCameraModule(ReactApplicationContext reactContext) {
       super(reactContext);
-      deepAr = new DeepAR(reactContext);
     }
 
     @Override

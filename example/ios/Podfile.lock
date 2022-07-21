@@ -73,7 +73,6 @@ PODS:
     - FlipperKit/FlipperKitNetworkPlugin
   - fmt (6.2.1)
   - glog (0.3.5)
-  - JSONModel (1.7.0)
   - libevent (2.1.12)
   - OpenSSL-Universal (1.1.1100)
   - RCT-Folly (2021.06.28.00-v2):
@@ -289,8 +288,7 @@ PODS:
     - react-native-config/App (= 1.4.6)
   - react-native-config/App (1.4.6):
     - React-Core
-  - react-native-deepar (0.5.0):
-    - JSONModel (~> 1.7.0)
+  - react-native-deepar (0.6.1):
     - React-Core
   - react-native-safe-area-context (4.3.1):
     - RCT-Folly
@@ -455,7 +453,6 @@ SPEC REPOS:
     - Flipper-RSocket
     - FlipperKit
     - fmt
-    - JSONModel
     - libevent
     - OpenSSL-Universal
     - SocketRocket
@@ -556,7 +553,6 @@ SPEC CHECKSUMS:
   FlipperKit: cbdee19bdd4e7f05472a66ce290f1b729ba3cb86
   fmt: ff9d55029c625d3757ed641535fd4a75fedc7ce9
   glog: 476ee3e89abb49e07f822b48323c51c57124b572
-  JSONModel: 840bc0fcffb24b8454d2c026bf26fea454b8e98d
   libevent: 4049cae6c81cdb3654a443be001fb9bdceff7913
   OpenSSL-Universal: ebc357f1e6bc71fa463ccb2fe676756aff50e88c
   RCT-Folly: 4d8508a426467c48885f1151029bc15fa5d7b3b8
@@ -574,7 +570,7 @@ SPEC CHECKSUMS:
   React-logger: a0833912d93b36b791b7a521672d8ee89107aff1
   react-native-cameraroll: 2957f2bce63ae896a848fbe0d5352c1bd4d20866
   react-native-config: 7cd105e71d903104e8919261480858940a6b9c0e
-  react-native-deepar: 363727613c63441a755590a698babfd92a92cade
+  react-native-deepar: 46ec529fcda2a0a6a5dc23cff9965cad82ff728c
   react-native-safe-area-context: 6c12e3859b6f27b25de4fee8201cfb858432d8de
   react-native-video: a4c2635d0802f983594b7057e1bce8f442f0ad28
   React-perflogger: a18b4f0bd933b8b24ecf9f3c54f9bf65180f3fe6
