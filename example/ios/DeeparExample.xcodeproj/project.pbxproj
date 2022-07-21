@@ -38,6 +38,7 @@
 		C038C9BC5BDA4F05A2976655 /* look1 in Resources */ = {isa = PBXBuildFile; fileRef = 9911BA2EC461446CB9CCDF23 /* look1 */; };
 		C45608ADEE58499980609A68 /* tiny_sunglasses in Resources */ = {isa = PBXBuildFile; fileRef = B4B5BED83CB44C42B29FAD79 /* tiny_sunglasses */; };
 		D8C5551BAB00457E9C0A1EEC /* emotion_meter in Resources */ = {isa = PBXBuildFile; fileRef = C30C9D9E5E5242BF9533BF69 /* emotion_meter */; };
+		E316CE9E28885FA300601329 /* DeepAR.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E316CE9D28885FA300601329 /* DeepAR.xcframework */; };
 		ED717F5F5E224CA0A79DBF82 /* manly_face in Resources */ = {isa = PBXBuildFile; fileRef = 2715548AD30B491D9782100D /* manly_face */; };
 		F44D9D0DAD654FD7A36CFFF0 /* lion in Resources */ = {isa = PBXBuildFile; fileRef = CC72BD5E482644C1A10CCDAD /* lion */; };
 		F5FA85A2958E4A07B772B855 /* pumpkin in Resources */ = {isa = PBXBuildFile; fileRef = 553826421ACE4AA1BC7F91BA /* pumpkin */; };
@@ -95,6 +96,7 @@
 		CC72BD5E482644C1A10CCDAD /* lion */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = lion; path = ../assets/effects/lion; sourceTree = "<group>"; };
 		D4B0CF3C226042C7ADD4387F /* topology */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = topology; path = ../assets/effects/topology; sourceTree = "<group>"; };
 		DAA11144EB104BCB9C6D8CF2 /* beauty */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = beauty; path = ../assets/effects/beauty; sourceTree = "<group>"; };
+		E316CE9D28885FA300601329 /* DeepAR.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = DeepAR.xcframework; path = ../../ios/Frameworks/DeepAR.xcframework; sourceTree = "<group>"; };
 		E549236312D347BAA5DD917F /* fairy_lights */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = fairy_lights; path = ../assets/effects/fairy_lights; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		FBDA78A7D19B4C8AA649D5EA /* frankenstein */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = frankenstein; path = ../assets/effects/frankenstein; sourceTree = "<group>"; };
@@ -113,6 +115,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E316CE9E28885FA300601329 /* DeepAR.xcframework in Frameworks */,
 				0C80B921A6F3F58F76C31292 /* libPods-DeepARExample.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -153,6 +156,7 @@
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E316CE9D28885FA300601329 /* DeepAR.xcframework */,
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				5DCACB8F33CDC322A6C60F78 /* libPods-DeepARExample.a */,
 				19F6CBCC0A4E27FBF8BF4A61 /* libPods-DeepARExample-DeepARExampleTests.a */,

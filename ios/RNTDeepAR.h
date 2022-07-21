@@ -10,7 +10,7 @@
 #define RNTDeepAR_h
 
 #import <AVKit/AVKit.h>
-#import <DeepAR/ARView.h>
+#import <ARView.h>
 #import <React/RCTComponent.h>
 #import <React/RCTView.h>
 

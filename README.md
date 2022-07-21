@@ -12,6 +12,7 @@
 ## Table of Contents <!-- omit in toc -->
 
 - [What is DeepAR?](#what-is-deepar)
+- [Compatibility](#compatibility)
 - [Getting Started](#getting-started)
   - [Other Required Steps](#other-required-steps)
     - [Android](#android)
@@ -19,7 +20,6 @@
   - [Requesting Permissions](#requesting-permissions)
     - [Getting Permissions](#getting-permissions)
     - [Requesting Permissions](#requesting-permissions-1)
-- [Compatibility](#compatibility)
 - [Installing AR Models](#installing-ar-models)
 - [Using AR Models over Internet](#using-ar-models-over-internet)
 - [Usage](#usage)
@@ -65,6 +65,12 @@ DeepAR is an infrastructure where you can make AR applications in ease. DeepAR i
 - [Realtime Emotion Detection](https://www.deepar.ai/emotion-detection)
 
 You can visit [DeepAR's offical site](https://www.deepar.ai/) to learn more.
+
+## Compatibility
+
+| DeepAR SDK | lib version                      | Required React Native Version |
+| ---------- | -------------------------------- | ----------------------------- |
+| 3.4.2      | `react-native-deepar` `>= 0.1.0` | >= 0.64.2                     |
 
 ## Getting Started
 
@@ -125,6 +131,13 @@ buildscript {
 | <img src="./docs/setting-ios-version.png" alt="Xcode Setting iOS Version" width="800" /> |
 | Follow steps in the picture.                                                             |
 
+3. Add `DeepAR.xcframework` to Build Phases:
+
+| Add DeepAR to Build Phases (1)                                                                       | Add DeepAR to Build Phases (2)                                                                       |
+| ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| <img src="./docs/setting-ios-library-1.png" alt="Add DeepAR to Build Phases in Xcode" width="400" /> | <img src="./docs/setting-ios-library-2.png" alt="Add DeepAR to Build Phases in Xcode" width="400" /> |
+| Follow steps in the picture.                                                                         | Follow steps in the picture.                                                                         |
+
 **Note:** Don't forget install Pods for iOS and rebuild your app.
 
 ### Requesting Permissions
@@ -166,12 +179,6 @@ const microphonePermission = await Camera.requestMicrophonePermission();
 
 - `authorized`: Your app is authorized to use said permission. Continue with using the `<DeepAR>` view.
 - `denied`: The user explicitly denied the permission request alert. You cannot use the request functions again, but you can use the [Linking API](https://reactnative.dev/docs/linking#opensettings) to redirect the user to the Settings App where he can manually grant the permission.
-
-## Compatibility
-
-| DeepAR SDK | lib version                      | Required React Native Version |
-| ---------- | -------------------------------- | ----------------------------- |
-| 3.4.2      | `react-native-deepar` `>= 0.1.0` | >= 0.64.2                     |
 
 ## Installing AR Models
 

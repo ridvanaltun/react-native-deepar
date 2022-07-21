@@ -8,7 +8,7 @@
 
 #import "RNTDeepAR.h"
 #import "React/UIView+React.h"
-#import <DeepAR/CameraController.h>
+#import <CameraController.h>
 #import <Foundation/Foundation.h>
 
 @implementation RNTDeepAR {
