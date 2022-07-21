@@ -405,6 +405,10 @@ deepARRef?.current?.setTouchMode(false);
 
 ## Example App
 
+| Ball Face                                                          | Background Segmentation                                                           |
+| ------------------------------------------------------------------ | --------------------------------------------------------------------------------- |
+| <img src="./docs/example-app-1.png" alt="Ball Face" width="300" /> | <img src="./docs/example-app-2.png" alt="Background Segmentation " width="300" /> |
+
 ```sh
 # clone the project
 git clone https://github.com/ridvanaltun/react-native-deepar.git
