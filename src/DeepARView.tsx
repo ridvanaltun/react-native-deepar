@@ -62,8 +62,11 @@ const DeepARView = forwardRef<IDeepARHandle, IDeepARProps>(
       setFlashOn(enabled) {
         nativeExecute('setFlashOn', [enabled]);
       },
-      startRecording() {
-        nativeExecute('startRecording');
+      startRecording(params) {
+        nativeExecute('startRecording', [
+          params?.width || -1,
+          params?.height || -1,
+        ]);
       },
       resumeRecording() {
         nativeExecute('resumeRecording');

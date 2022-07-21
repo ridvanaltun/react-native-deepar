@@ -194,7 +194,9 @@ public class RNTDeepARViewManager extends SimpleViewManager<RNTDeepAR> {
         return;
       }
       case START_RECORDING: {
-        deepARView.startRecording();
+        Integer width = args.getInt(0);
+        Integer height = args.getInt(1);
+        deepARView.startRecording(width, height);
         return;
       }
       case RESUME_RECORDING: {

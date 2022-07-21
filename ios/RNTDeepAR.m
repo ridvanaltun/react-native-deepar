@@ -138,7 +138,10 @@ if (captureDeviceClass != nil) {
     [self.deepar takeScreenshot];
 }
 
-- (void)startRecording {
+- (void)startRecording:(CGFloat)width
+             withHeight:(CGFloat)height {
+    CGFloat _width = width == -1 ? self.frame.size.width : width;
+    CGFloat _height = height == -1 ? self.frame.size.height : height;
 if (self.flashOn &&
     self.cameraController.position == AVCaptureDevicePositionBack) {
   Class captureDeviceClass = NSClassFromString(@"AVCaptureDevice");
@@ -157,8 +160,8 @@ if (self.flashOn &&
           dispatch_get_main_queue(), ^{
             if (self->_deepar) {
               [self->_deepar
-                  startVideoRecordingWithOutputWidth:self.frame.size.width
-                                        outputHeight:self.frame.size.height];
+                  startVideoRecordingWithOutputWidth:_width
+                                        outputHeight:_height];
             }
           });
     }
@@ -166,8 +169,8 @@ if (self.flashOn &&
 } else {
   if (self.deepar) {
     [self->_deepar
-        startVideoRecordingWithOutputWidth:self.frame.size.width
-                              outputHeight:self.frame.size.height];
+        startVideoRecordingWithOutputWidth:_width
+                              outputHeight:_height];
   }
 }
 }

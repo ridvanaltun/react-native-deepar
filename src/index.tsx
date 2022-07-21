@@ -111,12 +111,17 @@ export interface IChangeParamaterString extends IChangeParamater {
   value: String;
 }
 
+export interface IStartRecording {
+  width: number;
+  height: number;
+}
+
 export interface IDeepARHandle {
   switchEffect: (params: ISwitchEffect) => void;
   switchEffectWithPath: (params: ISwitchEffectWithPath) => void;
   fireTrigger: (trigger: String) => void;
   setFlashOn: (enabled: Boolean) => void;
-  startRecording: () => void;
+  startRecording: (params?: IStartRecording) => void;
   resumeRecording: () => void;
   pauseRecording: () => void;
   finishRecording: () => void;

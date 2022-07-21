@@ -306,13 +306,13 @@ These are the various methods.
 
 #### Video Recording
 
-| Method          | Params                      | Description                                                                                                                                                                 |
-| --------------- | --------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| startRecording  | <div align="center">-</div> | Starts video recording of the camera preview.                                                                                                                               |
-| pauseRecording  | <div align="center">-</div> | Pauses video recording.                                                                                                                                                     |
-| resumeRecording | <div align="center">-</div> | Resumes video recording after it has been paused with `pauseRecording`.                                                                                                     |
-| finishRecording | <div align="center">-</div> | Stops video recording and starts the process of saving the recorded video to the file system. When the file is saved, the method `onVideoRecordingFinished` will be called. |
-| setAudioMute    | (<b>enabled</b>: Boolean)   | Mutes/unmutes the audio while video recording.                                                                                                                              |
+| Method          | Params                           | Description                                                                                                                                                                 |
+| --------------- | -------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| startRecording  | (<b>params</b>: IStartRecording) | Starts video recording of the camera preview.                                                                                                                               |
+| pauseRecording  | <div align="center">-</div>      | Pauses video recording.                                                                                                                                                     |
+| resumeRecording | <div align="center">-</div>      | Resumes video recording after it has been paused with `pauseRecording`.                                                                                                     |
+| finishRecording | <div align="center">-</div>      | Stops video recording and starts the process of saving the recorded video to the file system. When the file is saved, the method `onVideoRecordingFinished` will be called. |
+| setAudioMute    | (<b>enabled</b>: Boolean)        | Mutes/unmutes the audio while video recording.                                                                                                                              |
 
 #### Change Parameters
 

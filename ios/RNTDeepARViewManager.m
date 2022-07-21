@@ -134,7 +134,10 @@ RCT_EXPORT_METHOD(takeScreenshot : (nonnull NSNumber *)reactTag) {
   }];
 }
 
-RCT_EXPORT_METHOD(startRecording : (nonnull NSNumber *)reactTag) {
+RCT_EXPORT_METHOD(startRecording
+                  : (nonnull NSNumber *)reactTag andWidth
+                  : (CGFloat)width andHeight
+                  : (CGFloat)height) {
   [self.bridge.uiManager addUIBlock:^(__unused RCTUIManager *uiManager,
                                       NSDictionary<NSNumber *, RNTDeepAR *>
                                           *viewRegistry) {
@@ -144,7 +147,7 @@ RCT_EXPORT_METHOD(startRecording : (nonnull NSNumber *)reactTag) {
           @"Invalid view returned from registry, expecting RCTWebView, got: %@",
           view);
     } else {
-      [view startRecording];
+        [view startRecording:width withHeight:height];
     }
   }];
 }

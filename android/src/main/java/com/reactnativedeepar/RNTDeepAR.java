@@ -274,7 +274,7 @@ public class RNTDeepAR extends FrameLayout implements AREventListener, SurfaceHo
       }, 100);
   }
 
-  public void startRecording() {
+  public void startRecording(Integer width, Integer height) {
     if (deepAr == null) {
       return;
     }
@@ -294,9 +294,11 @@ public class RNTDeepAR extends FrameLayout implements AREventListener, SurfaceHo
       recordingWidth = (int) (recordingHeight * aspectRatio);
     }
 
+    int _width = width == -1 ? recordingWidth : width;
+    int _height = height == -1 ? recordingHeight : height;
 
     tempVideoPath = Environment.getExternalStorageDirectory().toString() + File.separator + "video.mp4";
-    deepAr.startVideoRecording(tempVideoPath, recordingWidth, recordingHeight);
+    deepAr.startVideoRecording(tempVideoPath, _width, _height);
   }
 
   public void resumeRecording() {

@@ -25,7 +25,7 @@
 
 - (void)pause;
 - (void)resume;
-- (void)startRecording;
+- (void)startRecording:(CGFloat)width withHeight:(CGFloat)height;
 - (void)resumeRecording;
 - (void)pauseRecording;
 - (void)finishRecording;
