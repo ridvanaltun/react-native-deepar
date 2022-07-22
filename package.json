@@ -21,9 +21,6 @@
     "!**/__fixtures__",
     "!**/__mocks__"
   ],
-  "bin": {
-    "react-native-deepar-link": "./node_modules/.bin/react-native-copy-asset"
-  },
   "scripts": {
     "test": "jest",
     "typescript": "tsc --noEmit",

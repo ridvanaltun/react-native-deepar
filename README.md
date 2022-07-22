@@ -196,7 +196,7 @@ module.exports = {
 ```diff
 {
   "scripts": {
-+   "asset": "./node_modules/.bin/react-native-deepar-link"
++   "asset": "./node_modules/.bin/react-native-copy-asset"
   }
 }
 ```
