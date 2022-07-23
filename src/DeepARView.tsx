@@ -19,7 +19,7 @@ const DeepARView = forwardRef<IDeepARHandle, IDeepARProps>(
     {
       apiKey,
       position,
-      videoWarmupEnabled,
+      videoWarmup,
       onEventSent,
       onInitialized,
       onEffectSwitched,
@@ -138,7 +138,7 @@ const DeepARView = forwardRef<IDeepARHandle, IDeepARProps>(
         ref={nativeRef}
         apiKey={apiKey}
         cameraPosition={position || CameraPosition.FRONT}
-        videoWarmupEnabled={videoWarmupEnabled ? 'true' : 'false'}
+        videoWarmup={videoWarmup ? 'true' : 'false'}
         onEventSent={({nativeEvent}) => {
           if (onEventSent) onEventSent(nativeEvent);
           switch (nativeEvent.type) {

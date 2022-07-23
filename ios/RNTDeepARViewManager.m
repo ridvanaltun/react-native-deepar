@@ -15,7 +15,7 @@ RCT_EXPORT_MODULE()
 
 RCT_EXPORT_VIEW_PROPERTY(apiKey, NSString)
 RCT_EXPORT_VIEW_PROPERTY(cameraPosition, NSString)
-RCT_EXPORT_VIEW_PROPERTY(videoWarmupEnabled, NSString)
+RCT_EXPORT_VIEW_PROPERTY(videoWarmup, NSString)
 
 RCT_EXPORT_VIEW_PROPERTY(onEventSent, RCTBubblingEventBlock)
 
@@ -389,20 +389,20 @@ RCT_EXPORT_METHOD(changeParameterTexture
             NSURL * url = [NSURL URLWithString:value];
             NSData * data = [NSData dataWithContentsOfURL:url];
             UIImage * image = [UIImage imageWithData:data];
-            
+
             [view changeParameterTexture:gameObject component:component parameter:parameter image:image];
         }
-        
+
         if([type isEqual: @"BASE64"]) {
             NSData *data = [[NSData alloc]initWithBase64EncodedString:value options:NSDataBase64DecodingIgnoreUnknownCharacters];
             UIImage *image = [UIImage imageWithData:data];
-            
+
             [view changeParameterTexture:gameObject component:component parameter:parameter image:image];
         }
-        
+
         if([type isEqual: @"PATH"]) {
             UIImage *image = [UIImage imageWithContentsOfFile:value];
-            
+
             [view changeParameterTexture:gameObject component:component parameter:parameter image:image];
         }
     }

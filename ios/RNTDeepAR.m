@@ -51,7 +51,7 @@ AVAudioSession *session = [AVAudioSession sharedInstance];
          object:nil];
 }
 
-- (void)setVideoWarmupEnabled:(NSString *)enabled {
+- (void)setVideoWarmup:(NSString *)enabled {
     Boolean _enabled = [enabled isEqual:@"true"]
                           ? YES
                           : NO;

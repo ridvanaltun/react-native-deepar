@@ -126,8 +126,8 @@ public class RNTDeepARViewManager extends SimpleViewManager<RNTDeepAR> {
     deepAr.setLicenseKey(apiKey);
   }
 
-  @ReactProp(name = "videoWarmupEnabled")
-  public void setVideoWarmupEnabled(FrameLayout view, String enabled) {
+  @ReactProp(name = "videoWarmup")
+  public void setVideoWarmup(FrameLayout view, String enabled) {
     // ..
   }
 

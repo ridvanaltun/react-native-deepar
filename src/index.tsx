@@ -36,7 +36,7 @@ export interface IDeepAREvent {
 export interface IRNTDeepARView {
   apiKey: String;
   cameraPosition?: CameraPosition;
-  videoWarmupEnabled?: string;
+  videoWarmup?: string;
   onEventSent: ({nativeEvent}: {nativeEvent: IDeepAREvent}) => void;
 }
 
@@ -52,7 +52,7 @@ export enum ErrorTypes {
 export interface IDeepARProps extends ViewProps {
   apiKey: String;
   position?: CameraPosition;
-  videoWarmupEnabled?: boolean;
+  videoWarmup?: boolean;
   onEventSent?: (event: IDeepAREvent) => void;
   onInitialized?: () => void;
   onEffectSwitched?: (slot: String) => void;
