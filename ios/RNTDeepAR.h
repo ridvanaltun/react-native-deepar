@@ -20,6 +20,7 @@
 @property(nonatomic, assign) BOOL flashOn;
 @property(nonatomic, strong) CameraController *cameraController;
 @property(nonatomic, strong) DeepAR *deepar;
+@property(nonatomic, strong) UIView *arview;
 @property(nonatomic, copy) RCTBubblingEventBlock onEventSent;
 @property(nonatomic, copy) NSString *apiKey;
 

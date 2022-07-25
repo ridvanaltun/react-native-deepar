@@ -6,18 +6,19 @@
 
 @implementation RNTDeepARViewManager
 
-RCT_EXPORT_MODULE()
-
-- (UIView *)view {
-
-  return [RNTDeepAR new];
-}
-
+RCT_EXPORT_MODULE(RNTDeepARViewManager)
 RCT_EXPORT_VIEW_PROPERTY(apiKey, NSString)
 RCT_EXPORT_VIEW_PROPERTY(cameraPosition, NSString)
 RCT_EXPORT_VIEW_PROPERTY(videoWarmup, NSString)
-
 RCT_EXPORT_VIEW_PROPERTY(onEventSent, RCTBubblingEventBlock)
+
+//+ (BOOL)requiresMainQueueSetup {
+//  return YES;
+//}
+
+- (UIView *)view {
+  return [RNTDeepAR new];
+}
 
 RCT_EXPORT_METHOD(switchEffect
                   : (nonnull NSNumber *)reactTag andMaskPath
@@ -29,7 +30,7 @@ RCT_EXPORT_METHOD(switchEffect
     RNTDeepAR *view = viewRegistry[reactTag];
     if (![view isKindOfClass:[RNTDeepAR class]]) {
       RCTLogError(
-          @"Invalid view returned from registry, expecting RCTWebView, got: %@",
+          @"Invalid view returned from registry, expecting RNTDeepAR, got: %@",
           view);
     } else {
       [view switchEffect:effect andSlot:slot];
@@ -47,7 +48,7 @@ RCT_EXPORT_METHOD(switchEffectWithPath
     RNTDeepAR *view = viewRegistry[reactTag];
     if (![view isKindOfClass:[RNTDeepAR class]]) {
       RCTLogError(
-          @"Invalid view returned from registry, expecting RCTWebView, got: %@",
+          @"Invalid view returned from registry, expecting RNTDeepAR, got: %@",
           view);
     } else {
       [view switchEffectWithPath:path andSlot:slot];
@@ -64,7 +65,7 @@ RCT_EXPORT_METHOD(fireTrigger
     RNTDeepAR *view = viewRegistry[reactTag];
     if (![view isKindOfClass:[RNTDeepAR class]]) {
       RCTLogError(
-          @"Invalid view returned from registry, expecting RCTWebView, got: %@",
+          @"Invalid view returned from registry, expecting RNTDeepAR, got: %@",
           view);
     } else {
       [view fireTrigger:trigger];
@@ -81,7 +82,7 @@ RCT_EXPORT_METHOD(setFlashOn
     RNTDeepAR *view = viewRegistry[reactTag];
     if (![view isKindOfClass:[RNTDeepAR class]]) {
       RCTLogError(
-          @"Invalid view returned from registry, expecting RCTWebView, got: %@",
+          @"Invalid view returned from registry, expecting RNTDeepAR, got: %@",
           view);
     } else {
       [view setFlashOn:flashOn];
@@ -96,7 +97,7 @@ RCT_EXPORT_METHOD(pause : (nonnull NSNumber *)reactTag) {
     RNTDeepAR *view = viewRegistry[reactTag];
     if (![view isKindOfClass:[RNTDeepAR class]]) {
       RCTLogError(
-          @"Invalid view returned from registry, expecting RCTWebView, got: %@",
+          @"Invalid view returned from registry, expecting RNTDeepAR, got: %@",
           view);
     } else {
       [view pause];
@@ -111,7 +112,7 @@ RCT_EXPORT_METHOD(resume : (nonnull NSNumber *)reactTag) {
     RNTDeepAR *view = viewRegistry[reactTag];
     if (![view isKindOfClass:[RNTDeepAR class]]) {
       RCTLogError(
-          @"Invalid view returned from registry, expecting RCTWebView, got: %@",
+          @"Invalid view returned from registry, expecting RNTDeepAR, got: %@",
           view);
     } else {
       [view resume];
@@ -126,7 +127,7 @@ RCT_EXPORT_METHOD(takeScreenshot : (nonnull NSNumber *)reactTag) {
     RNTDeepAR *view = viewRegistry[reactTag];
     if (![view isKindOfClass:[RNTDeepAR class]]) {
       RCTLogError(
-          @"Invalid view returned from registry, expecting RCTWebView, got: %@",
+          @"Invalid view returned from registry, expecting RNTDeepAR, got: %@",
           view);
     } else {
       [view takeScreenshot];
@@ -144,7 +145,7 @@ RCT_EXPORT_METHOD(startRecording
     RNTDeepAR *view = viewRegistry[reactTag];
     if (![view isKindOfClass:[RNTDeepAR class]]) {
       RCTLogError(
-          @"Invalid view returned from registry, expecting RCTWebView, got: %@",
+          @"Invalid view returned from registry, expecting RNTDeepAR, got: %@",
           view);
     } else {
         [view startRecording:width withHeight:height];
@@ -159,7 +160,7 @@ RCT_EXPORT_METHOD(resumeRecording : (nonnull NSNumber *)reactTag) {
     RNTDeepAR *view = viewRegistry[reactTag];
     if (![view isKindOfClass:[RNTDeepAR class]]) {
       RCTLogError(
-          @"Invalid view returned from registry, expecting RCTWebView, got: %@",
+          @"Invalid view returned from registry, expecting RNTDeepAR, got: %@",
           view);
     } else {
       [view resumeRecording];
@@ -174,7 +175,7 @@ RCT_EXPORT_METHOD(pauseRecording : (nonnull NSNumber *)reactTag) {
     RNTDeepAR *view = viewRegistry[reactTag];
     if (![view isKindOfClass:[RNTDeepAR class]]) {
       RCTLogError(
-          @"Invalid view returned from registry, expecting RCTWebView, got: %@",
+          @"Invalid view returned from registry, expecting RNTDeepAR, got: %@",
           view);
     } else {
       [view pauseRecording];
@@ -189,7 +190,7 @@ RCT_EXPORT_METHOD(finishRecording : (nonnull NSNumber *)reactTag) {
     RNTDeepAR *view = viewRegistry[reactTag];
     if (![view isKindOfClass:[RNTDeepAR class]]) {
       RCTLogError(
-          @"Invalid view returned from registry, expecting RCTWebView, got: %@",
+          @"Invalid view returned from registry, expecting RNTDeepAR, got: %@",
           view);
     } else {
       [view finishRecording];
@@ -206,7 +207,7 @@ RCT_EXPORT_METHOD(setAudioMute
     RNTDeepAR *view = viewRegistry[reactTag];
     if (![view isKindOfClass:[RNTDeepAR class]]) {
       RCTLogError(
-          @"Invalid view returned from registry, expecting RCTWebView, got: %@",
+          @"Invalid view returned from registry, expecting RNTDeepAR, got: %@",
           view);
     } else {
       [view setAudioMute:enabled];
@@ -223,7 +224,7 @@ RCT_EXPORT_METHOD(setLiveMode
     RNTDeepAR *view = viewRegistry[reactTag];
     if (![view isKindOfClass:[RNTDeepAR class]]) {
       RCTLogError(
-          @"Invalid view returned from registry, expecting RCTWebView, got: %@",
+          @"Invalid view returned from registry, expecting RNTDeepAR, got: %@",
           view);
     } else {
       [view setLiveMode:liveMode];
@@ -240,7 +241,7 @@ RCT_EXPORT_METHOD(setFaceDetectionSensitivity
     RNTDeepAR *view = viewRegistry[reactTag];
     if (![view isKindOfClass:[RNTDeepAR class]]) {
       RCTLogError(
-          @"Invalid view returned from registry, expecting RCTWebView, got: %@",
+          @"Invalid view returned from registry, expecting RNTDeepAR, got: %@",
           view);
     } else {
       [view setFaceDetectionSensitivity:sensitivity];
@@ -257,7 +258,7 @@ RCT_EXPORT_METHOD(showStats
     RNTDeepAR *view = viewRegistry[reactTag];
     if (![view isKindOfClass:[RNTDeepAR class]]) {
       RCTLogError(
-          @"Invalid view returned from registry, expecting RCTWebView, got: %@",
+          @"Invalid view returned from registry, expecting RNTDeepAR, got: %@",
           view);
     } else {
         [view showStats:enabled];
@@ -274,7 +275,7 @@ RCT_EXPORT_METHOD(setTouchMode
     RNTDeepAR *view = viewRegistry[reactTag];
     if (![view isKindOfClass:[RNTDeepAR class]]) {
       RCTLogError(
-          @"Invalid view returned from registry, expecting RCTWebView, got: %@",
+          @"Invalid view returned from registry, expecting RNTDeepAR, got: %@",
           view);
     } else {
         [view setTouchMode:enabled];
@@ -294,7 +295,7 @@ RCT_EXPORT_METHOD(changeParameterFloat
     RNTDeepAR *view = viewRegistry[reactTag];
     if (![view isKindOfClass:[RNTDeepAR class]]) {
       RCTLogError(
-          @"Invalid view returned from registry, expecting RCTWebView, got: %@",
+          @"Invalid view returned from registry, expecting RNTDeepAR, got: %@",
           view);
     } else {
         [view changeParameterFloat:gameObject component:component parameter:parameter floatValue:floatValue];
@@ -317,7 +318,7 @@ RCT_EXPORT_METHOD(changeParameterVec4
     RNTDeepAR *view = viewRegistry[reactTag];
     if (![view isKindOfClass:[RNTDeepAR class]]) {
       RCTLogError(
-          @"Invalid view returned from registry, expecting RCTWebView, got: %@",
+          @"Invalid view returned from registry, expecting RNTDeepAR, got: %@",
           view);
     } else {
         Vector4 value = {.x = valX, .y = valY, .z = valZ, .w = valW};
@@ -340,7 +341,7 @@ RCT_EXPORT_METHOD(changeParameterVec3
     RNTDeepAR *view = viewRegistry[reactTag];
     if (![view isKindOfClass:[RNTDeepAR class]]) {
       RCTLogError(
-          @"Invalid view returned from registry, expecting RCTWebView, got: %@",
+          @"Invalid view returned from registry, expecting RNTDeepAR, got: %@",
           view);
     } else {
         Vector3 value = {.x = valX, .y = valY, .z = valZ};
@@ -361,7 +362,7 @@ RCT_EXPORT_METHOD(changeParameterBool
     RNTDeepAR *view = viewRegistry[reactTag];
     if (![view isKindOfClass:[RNTDeepAR class]]) {
       RCTLogError(
-          @"Invalid view returned from registry, expecting RCTWebView, got: %@",
+          @"Invalid view returned from registry, expecting RNTDeepAR, got: %@",
           view);
     } else {
         [view changeParameterBool:gameObject component:component parameter:parameter boolValue:value];
@@ -382,7 +383,7 @@ RCT_EXPORT_METHOD(changeParameterTexture
     RNTDeepAR *view = viewRegistry[reactTag];
     if (![view isKindOfClass:[RNTDeepAR class]]) {
       RCTLogError(
-          @"Invalid view returned from registry, expecting RCTWebView, got: %@",
+          @"Invalid view returned from registry, expecting RNTDeepAR, got: %@",
           view);
     } else {
         if([type isEqual: @"URL"]) {
@@ -421,7 +422,7 @@ RCT_EXPORT_METHOD(changeParameterString
     RNTDeepAR *view = viewRegistry[reactTag];
     if (![view isKindOfClass:[RNTDeepAR class]]) {
       RCTLogError(
-          @"Invalid view returned from registry, expecting RCTWebView, got: %@",
+          @"Invalid view returned from registry, expecting RNTDeepAR, got: %@",
           view);
     } else {
         [view changeParameterString:gameObject component:component parameter:parameter stringValue:value];

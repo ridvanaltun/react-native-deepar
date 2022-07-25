@@ -13,7 +13,6 @@
 
 @implementation RNTDeepAR {
 CGRect _frame;
-ARView *_arview;
 }
 
 BOOL touchMode = false;
@@ -24,31 +23,31 @@ AVCaptureDevicePosition _cameraPosition;
 }
 
 - (void)setApiKey:(NSString *)apiKey {
-// Instantiate ARView and add it to view hierarchy.
-self.deepar = [[DeepAR alloc] init];
+  // Instantiate ARView and add it to view hierarchy.
+  self.deepar = [[DeepAR alloc] init];
 
-[self.deepar setLicenseKey:apiKey];
-[self.deepar initialize];
-self.deepar.delegate = self;
+  [self.deepar setLicenseKey:apiKey];
+  [self.deepar initialize];
+  self.deepar.delegate = self;
 
-_arview = (ARView *)[self.deepar
-    createARViewWithFrame:[UIScreen mainScreen].bounds];
-[self insertSubview:_arview atIndex:0];
-self.cameraController = [[CameraController alloc] init];
-self.cameraController.deepAR = self.deepar;
+  self.arview = (ARView *)[self.deepar
+      createARViewWithFrame:[UIScreen mainScreen].bounds];
+  [self insertSubview:self.arview atIndex:0];
+  self.cameraController = [[CameraController alloc] init];
+  self.cameraController.deepAR = self.deepar;
 
-[self.cameraController startCamera];
+  [self.cameraController startCamera];
 
-AVAudioSession *session = [AVAudioSession sharedInstance];
-[session setCategory:AVAudioSessionCategoryPlayAndRecord
-         withOptions:AVAudioSessionCategoryOptionMixWithOthers
-               error:nil];
+  AVAudioSession *session = [AVAudioSession sharedInstance];
+  [session setCategory:AVAudioSessionCategoryPlayAndRecord
+           withOptions:AVAudioSessionCategoryOptionMixWithOthers
+                 error:nil];
 
-[[NSNotificationCenter defaultCenter]
-    addObserver:self
-       selector:@selector(orientationChanged:)
-           name:UIDeviceOrientationDidChangeNotification
-         object:nil];
+  [[NSNotificationCenter defaultCenter]
+      addObserver:self
+         selector:@selector(orientationChanged:)
+             name:UIDeviceOrientationDidChangeNotification
+           object:nil];
 }
 
 - (void)setVideoWarmup:(NSString *)enabled {
@@ -64,7 +63,7 @@ AVAudioSession *session = [AVAudioSession sharedInstance];
                         ? AVCaptureDevicePositionBack
                         : AVCaptureDevicePositionFront;
 
-  if (_arview) {
+  if (self.arview) {
     self.cameraController.position = _cameraPosition;
 
     NSString *const AVCaptureDevicePosition_toString[] = {
@@ -216,7 +215,7 @@ if (self.flashOn &&
 
 // Retrieves and normalizes the location point of the given touch within the view
 - (CGPoint)getPoint:(UITouch *)touch {
-  CGPoint point = [touch locationInView:_arview];
+  CGPoint point = [touch locationInView:self.arview];
   CGRect frame = self.bounds;
   return CGPointMake(point.x / frame.size.width, point.y / frame.size.height);
 }
@@ -368,17 +367,15 @@ if (event.type == UIEventTypeTouches) {
 }
 
 - (void)setupDeepARViewFrame {
-if (_arview.initialized && !CGRectIsEmpty(_frame) &&
-    (_arview.frame.size.height != _frame.size.height ||
-     _arview.frame.size.width != _frame.size.width ||
-     _arview.frame.origin.x != _frame.origin.x ||
-     _arview.frame.origin.y != _frame.origin.y)) {
-  [_arview setFrame:_frame];
+  if (self.deepar.renderingInitialized && !CGRectIsEmpty(_frame) &&
+      (self.arview.frame.size.height != _frame.size.height ||
+       self.arview.frame.size.width != _frame.size.width ||
+       self.arview.frame.origin.x != _frame.origin.x ||
+       self.arview.frame.origin.y != _frame.origin.y)) {
+    [self.arview setFrame:_frame];
 
-  //[_arview switchEffectWithSlot:@"watermark" path:[[NSBundle mainBundle]
-  // pathForResource:@"watermark" ofType:@""]];
-  self.onEventSent(@{@"type" : @"initialized", @"value" : @""});
-}
+    self.onEventSent(@{@"type" : @"initialized", @"value" : @""});
+  }
 }
 
 // Called when the finished the preparing for video recording.
