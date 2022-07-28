@@ -137,10 +137,52 @@ if (captureDeviceClass != nil) {
     [self.deepar takeScreenshot];
 }
 
-- (void)startRecording:(CGFloat)width
-             withHeight:(CGFloat)height {
-    CGFloat _width = width == -1 ? self.frame.size.width : width;
-    CGFloat _height = height == -1 ? self.frame.size.height : height;
+- (void)startRecording:(NSDictionary *)options {
+    CGFloat _width = self.frame.size.width;
+    CGFloat _height = self.frame.size.height;
+
+    BOOL recordAudio = true;
+    NSMutableDictionary *videoCompressionProperties =  [[NSMutableDictionary alloc] init];
+    CGRect subframe = CGRectMake(0, 0, 1, 1); // select all view
+
+//    if (![options[@"resolution"] isEqual:[NSNull null]] && [options[@"resolution"] isEqual: @"custom"]) {
+//        if (![options[@"width"] isEqual:[NSNull null]]) {
+//            _width = [options[@"width"] floatValue];
+//        }
+//
+//        if (![options[@"height"] isEqual:[NSNull null]]) {
+//            _height = [options[@"height"] floatValue];
+//        }
+//    }
+    
+    if (![options[@"width"] isEqual:[NSNull null]]) {
+        _width = [options[@"width"] floatValue];
+    }
+
+    if (![options[@"height"] isEqual:[NSNull null]]) {
+        _height = [options[@"height"] floatValue];
+    }
+
+    if (![options[@"recordAudio"] isEqual:[NSNull null]]) {
+        recordAudio = [options[@"recordAudio"] boolValue];
+    }
+
+    if (![options[@"quality"] isEqual:[NSNull null]]) {
+        [videoCompressionProperties setObject:[NSNumber numberWithFloat:[options[@"quality"] floatValue]] forKey:AVVideoQualityKey];
+    }
+
+    if (![options[@"bitrate"] isEqual:[NSNull null]]) {
+        [videoCompressionProperties setObject:[NSNumber numberWithInt:[options[@"bitrate"] intValue]] forKey:AVVideoAverageBitRateKey];
+    }
+
+    if (![options[@"maxKeyFrameInterval"] isEqual:[NSNull null]]) {
+        [videoCompressionProperties setObject:[NSNumber numberWithInt:[options[@"maxKeyFrameInterval"] intValue]] forKey:AVVideoMaxKeyFrameIntervalKey];
+    }
+    
+    if (![options[@"maxKeyFrameIntervalDuration"] isEqual:[NSNull null]]) {
+        [videoCompressionProperties setObject:[NSNumber numberWithInt:[options[@"maxKeyFrameIntervalDuration"] intValue]] forKey:AVVideoMaxKeyFrameIntervalDurationKey];
+    }
+
 if (self.flashOn &&
     self.cameraController.position == AVCaptureDevicePositionBack) {
   Class captureDeviceClass = NSClassFromString(@"AVCaptureDevice");
@@ -154,23 +196,36 @@ if (self.flashOn &&
       [device setFlashMode:AVCaptureFlashModeOn];
       [device unlockForConfiguration];
 
-      dispatch_after(
-          dispatch_time(DISPATCH_TIME_NOW, 0.25 * NSEC_PER_SEC),
-          dispatch_get_main_queue(), ^{
-            if (self->_deepar) {
-              [self->_deepar
-                  startVideoRecordingWithOutputWidth:_width
-                                        outputHeight:_height];
-            }
-          });
+        if (self->_deepar) {
+dispatch_after(
+   dispatch_time(DISPATCH_TIME_NOW, 0.25 * NSEC_PER_SEC),
+   dispatch_get_main_queue(), ^{
+     [self->_deepar
+         startVideoRecordingWithOutputWidth:_width
+                               outputHeight:_height
+                                   subframe:subframe
+                 videoCompressionProperties:videoCompressionProperties
+                                recordAudio:recordAudio];
+   });
+}
     }
   }
 } else {
-  if (self.deepar) {
-    [self->_deepar
-        startVideoRecordingWithOutputWidth:_width
-                              outputHeight:_height];
-  }
+    if (self.deepar) {
+//        AVCaptureDevice *device =
+//            [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
+//
+//        if ([device lockForConfiguration:nil]) {
+//            int32_t desiredFPS = 30;
+//            device.activeVideoMinFrameDuration = CMTimeMake(1, (int32_t)desiredFPS);
+//            device.activeVideoMaxFrameDuration = CMTimeMake(1, (int32_t)desiredFPS);
+//            [device unlockForConfiguration];
+//        }
+       
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self->_deepar startVideoRecordingWithOutputWidth:_width outputHeight:_height subframe:subframe videoCompressionProperties:videoCompressionProperties recordAudio:recordAudio];
+        });
+    }
 }
 }
 
@@ -367,15 +422,17 @@ if (event.type == UIEventTypeTouches) {
 }
 
 - (void)setupDeepARViewFrame {
-  if (self.deepar.renderingInitialized && !CGRectIsEmpty(_frame) &&
-      (self.arview.frame.size.height != _frame.size.height ||
-       self.arview.frame.size.width != _frame.size.width ||
-       self.arview.frame.origin.x != _frame.origin.x ||
-       self.arview.frame.origin.y != _frame.origin.y)) {
-    [self.arview setFrame:_frame];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        if (self.deepar.renderingInitialized && !CGRectIsEmpty(self->_frame) &&
+            (self.arview.frame.size.height != self->_frame.size.height ||
+             self.arview.frame.size.width != self->_frame.size.width ||
+             self.arview.frame.origin.x != self->_frame.origin.x ||
+             self.arview.frame.origin.y != self->_frame.origin.y)) {
+            [self.arview setFrame:self->_frame];
 
-    self.onEventSent(@{@"type" : @"initialized", @"value" : @""});
-  }
+          self.onEventSent(@{@"type" : @"initialized", @"value" : @""});
+        }
+    });
 }
 
 // Called when the finished the preparing for video recording.
@@ -441,9 +498,6 @@ if (self.flashOn) {
       [device setFlashMode:AVCaptureFlashModeOff];
       [device unlockForConfiguration];
     }
-
-    // @todo
-    // self.onEventSent(@{ @"type": @"effectSwitched", @"value": slot});
   }
 }
 

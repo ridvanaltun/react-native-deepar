@@ -9,6 +9,7 @@ import android.content.Context;
 import android.content.ContextWrapper;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
+import android.graphics.Rect;
 import android.hardware.Camera;
 import android.hardware.camera2.CameraManager;
 import android.media.Image;
@@ -28,6 +29,7 @@ import androidx.annotation.Nullable;
 import androidx.lifecycle.LifecycleObserver;
 
 import com.facebook.react.bridge.ReactContext;
+import com.facebook.react.bridge.ReadableMap;
 import com.facebook.react.bridge.WritableMap;
 import com.facebook.react.bridge.WritableNativeMap;
 import com.facebook.react.uimanager.events.RCTEventEmitter;
@@ -274,7 +276,7 @@ public class RNTDeepAR extends FrameLayout implements AREventListener, SurfaceHo
       }, 100);
   }
 
-  public void startRecording(Integer width, Integer height) {
+  public void startRecording(ReadableMap settings) {
     if (deepAr == null) {
       return;
     }
@@ -294,11 +296,26 @@ public class RNTDeepAR extends FrameLayout implements AREventListener, SurfaceHo
       recordingWidth = (int) (recordingHeight * aspectRatio);
     }
 
-    int _width = width == -1 ? recordingWidth : width;
-    int _height = height == -1 ? recordingHeight : height;
+    int _width = recordingWidth;
+    int _height = recordingHeight;
+    boolean _recordAudio = true;
 
+    Rect subframe = new Rect(0, 0, deepAr.getRenderWidth(), deepAr.getRenderHeight());
     tempVideoPath = Environment.getExternalStorageDirectory().toString() + File.separator + "video.mp4";
-    deepAr.startVideoRecording(tempVideoPath, _width, _height);
+
+    if (settings.hasKey("width")) {
+      _width = settings.getInt("width");
+    }
+
+    if (settings.hasKey("height")) {
+      _height = settings.getInt("height");
+    }
+
+    if (settings.hasKey("recordAudio")) {
+      _recordAudio = settings.getBoolean("recordAudio");
+    }
+
+    deepAr.startVideoRecording(tempVideoPath, subframe, _width, _height, _recordAudio);
   }
 
   public void resumeRecording() {

@@ -64,8 +64,16 @@ const DeepARView = forwardRef<IDeepARHandle, IDeepARProps>(
       },
       startRecording(params) {
         nativeExecute('startRecording', [
-          params?.width || -1,
-          params?.height || -1,
+          {
+            width: params?.width || null,
+            height: params?.height || null,
+            bitrate: params?.bitrate || null,
+            quality: params?.quality || null,
+            recordAudio: params?.recordAudio === false ? false : true,
+            maxKeyFrameInterval: params?.maxKeyFrameInterval || null,
+            maxKeyFrameIntervalDuration:
+              params?.maxKeyFrameIntervalDuration || null,
+          },
         ]);
       },
       resumeRecording() {

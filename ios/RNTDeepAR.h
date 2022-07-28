@@ -20,13 +20,13 @@
 @property(nonatomic, assign) BOOL flashOn;
 @property(nonatomic, strong) CameraController *cameraController;
 @property(nonatomic, strong) DeepAR *deepar;
-@property(nonatomic, strong) UIView *arview;
+@property(nonatomic, strong) ARView *arview;
 @property(nonatomic, copy) RCTBubblingEventBlock onEventSent;
 @property(nonatomic, copy) NSString *apiKey;
 
 - (void)pause;
 - (void)resume;
-- (void)startRecording:(CGFloat)width withHeight:(CGFloat)height;
+- (void)startRecording:(NSDictionary *)options;
 - (void)resumeRecording;
 - (void)pauseRecording;
 - (void)finishRecording;

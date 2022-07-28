@@ -112,8 +112,13 @@ export interface IChangeParamaterString extends IChangeParamater {
 }
 
 export interface IStartRecording {
-  width: number;
-  height: number;
+  width?: number;
+  height?: number;
+  recordAudio?: boolean;
+  quality?: number; // 0.0 -> 1.0
+  bitrate?: number;
+  maxKeyFrameInterval?: number;
+  maxKeyFrameIntervalDuration?: number;
 }
 
 export interface IDeepARHandle {

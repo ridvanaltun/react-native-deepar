@@ -10,6 +10,7 @@ import androidx.camera.core.CameraSelector;
 import com.facebook.infer.annotation.Assertions;
 import com.facebook.react.bridge.ReactContext;
 import com.facebook.react.bridge.ReadableArray;
+import com.facebook.react.bridge.ReadableMap;
 import com.facebook.react.common.MapBuilder;
 import com.facebook.react.module.annotations.ReactModule;
 import com.facebook.react.uimanager.SimpleViewManager;
@@ -194,9 +195,8 @@ public class RNTDeepARViewManager extends SimpleViewManager<RNTDeepAR> {
         return;
       }
       case START_RECORDING: {
-        Integer width = args.getInt(0);
-        Integer height = args.getInt(1);
-        deepARView.startRecording(width, height);
+        ReadableMap settings = args.getMap(0);
+        deepARView.startRecording(settings);
         return;
       }
       case RESUME_RECORDING: {

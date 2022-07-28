@@ -33,6 +33,8 @@
     - [Change Parameters](#change-parameters)
     - [Core](#core)
   - [Camera Module](#camera-module)
+  - [Interfaces](#interfaces)
+    - [IStartRecording](#istartrecording)
 - [Background Segmentation](#background-segmentation)
 - [Face Painting](#face-painting)
 - [Example App](#example-app)
@@ -306,13 +308,13 @@ These are the various methods.
 
 #### Video Recording
 
-| Method          | Params                           | Description                                                                                                                                                                 |
-| --------------- | -------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| startRecording  | (<b>params</b>: IStartRecording) | Starts video recording of the camera preview.                                                                                                                               |
-| pauseRecording  | <div align="center">-</div>      | Pauses video recording.                                                                                                                                                     |
-| resumeRecording | <div align="center">-</div>      | Resumes video recording after it has been paused with `pauseRecording`.                                                                                                     |
-| finishRecording | <div align="center">-</div>      | Stops video recording and starts the process of saving the recorded video to the file system. When the file is saved, the method `onVideoRecordingFinished` will be called. |
-| setAudioMute    | (<b>enabled</b>: Boolean)        | Mutes/unmutes the audio while video recording.                                                                                                                              |
+| Method          | Params                                                | Description                                                                                                                                                                 |
+| --------------- | ----------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| startRecording  | (<b>params</b>?: [IStartRecording](#istartrecording)) | Starts video recording of the camera preview.                                                                                                                               |
+| pauseRecording  | <div align="center">-</div>                           | Pauses video recording.                                                                                                                                                     |
+| resumeRecording | <div align="center">-</div>                           | Resumes video recording after it has been paused with `pauseRecording`.                                                                                                     |
+| finishRecording | <div align="center">-</div>                           | Stops video recording and starts the process of saving the recorded video to the file system. When the file is saved, the method `onVideoRecordingFinished` will be called. |
+| setAudioMute    | (<b>enabled</b>: Boolean)                             | Mutes/unmutes the audio while video recording.                                                                                                                              |
 
 #### Change Parameters
 
@@ -349,6 +351,24 @@ import {Camera} from 'react-native-deepar';
 | requestMicrophonePermission   | <div align="center">-</div> | Promise<`CameraPermissionRequestResult`> | Shows a "request permission" alert to the user, and resolves with the new microphone permission status. If the user has previously blocked the app from using the microphone, the alert will not be shown and `"denied"` will be returned. |
 | getCameraPermissionStatus     | <div align="center">-</div> | Promise<`CameraPermissionStatus`>        | Gets the current Camera Permission Status. Check this before mounting the Camera to ensure the user has permitted the app to use the camera.                                                                                               |
 | getMicrophonePermissionStatus | <div align="center">-</div> | Promise<`CameraPermissionStatus`>        | Gets the current Microphone-Recording Permission Status. Check this before mounting the Camera to ensure the user has permitted the app to use the microphone.                                                                             |
+
+### Interfaces
+
+TypeScript interfaces.
+
+#### IStartRecording
+
+Check [Video Recording](#video-recording).
+
+| Key                         | Default Value                  | Required     | Description                                                                                | Android                     | iOS                         |
+| --------------------------- | ------------------------------ | ------------ | ------------------------------------------------------------------------------------------ | --------------------------- | --------------------------- |
+| width                       | <div align="center">-</div>    | <b>false</b> | Video width                                                                                | <div align="center">+</div> | <div align="center">+</div> |
+| height                      | <div align="center">-</div>    | <b>false</b> | Video height                                                                               | <div align="center">+</div> | <div align="center">+</div> |
+| recordAudio                 | <div align="center">true</div> | <b>false</b> | Record audio during video recording.                                                       | <div align="center">+</div> | <div align="center">+</div> |
+| quality                     | <div align="center">-</div>    | <b>false</b> | A key to set the JPEG compression quality of the video. The corresponding value is 0.0-1.0 | <div align="center">-</div> | <div align="center">+</div> |
+| bitrate                     | <div align="center">-</div>    | <b>false</b> | A key to access the average bit rate—as bits per second—used in compressing video.         | <div align="center">-</div> | <div align="center">+</div> |
+| maxKeyFrameInterval         | <div align="center">-</div>    | <b>false</b> | A key to access the maximum interval between keyframes.                                    | <div align="center">-</div> | <div align="center">+</div> |
+| maxKeyFrameIntervalDuration | <div align="center">-</div>    | <b>false</b> | A key to access the maximum interval duration between keyframes.                           | <div align="center">-</div> | <div align="center">+</div> |
 
 ## Background Segmentation
 

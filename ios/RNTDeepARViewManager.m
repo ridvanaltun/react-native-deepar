@@ -12,9 +12,13 @@ RCT_EXPORT_VIEW_PROPERTY(cameraPosition, NSString)
 RCT_EXPORT_VIEW_PROPERTY(videoWarmup, NSString)
 RCT_EXPORT_VIEW_PROPERTY(onEventSent, RCTBubblingEventBlock)
 
-//+ (BOOL)requiresMainQueueSetup {
-//  return YES;
-//}
++ (BOOL)requiresMainQueueSetup {
+  return YES;
+}
+
+- (dispatch_queue_t)methodQueue {
+  return dispatch_get_main_queue();
+}
 
 - (UIView *)view {
   return [RNTDeepAR new];
@@ -136,9 +140,8 @@ RCT_EXPORT_METHOD(takeScreenshot : (nonnull NSNumber *)reactTag) {
 }
 
 RCT_EXPORT_METHOD(startRecording
-                  : (nonnull NSNumber *)reactTag andWidth
-                  : (CGFloat)width andHeight
-                  : (CGFloat)height) {
+                  : (nonnull NSNumber *)reactTag withOptions
+                  : (NSDictionary *)options) {
   [self.bridge.uiManager addUIBlock:^(__unused RCTUIManager *uiManager,
                                       NSDictionary<NSNumber *, RNTDeepAR *>
                                           *viewRegistry) {
@@ -148,7 +151,7 @@ RCT_EXPORT_METHOD(startRecording
           @"Invalid view returned from registry, expecting RNTDeepAR, got: %@",
           view);
     } else {
-        [view startRecording:width withHeight:height];
+        [view startRecording:options];
     }
   }];
 }
