@@ -22,7 +22,7 @@ import ai.deepar.ar.DeepAR;
  * wrapped in SurfaceTexture.
  */
 public class ARSurfaceProvider implements Preview.SurfaceProvider {
-  private static final String tag = ARSurfaceProvider.class.getSimpleName();
+  private static final String TAG = ARSurfaceProvider.class.getSimpleName();
   private final DeepAR deepAR;
   private final Context context;
   private boolean isNotifyDeepAR = true;
@@ -32,24 +32,25 @@ public class ARSurfaceProvider implements Preview.SurfaceProvider {
   private SurfaceTexture surfaceTexture;
   private Surface surface;
   private int nativeGLTextureHandle = 0;
+
   ARSurfaceProvider(Context context, DeepAR deepAR) {
     this.context = context;
     this.deepAR = deepAR;
   }
 
   private void printEglState() {
-    Log.d(tag, "display: " + EGL14.eglGetCurrentDisplay().getNativeHandle() + ", context: " + EGL14.eglGetCurrentContext().getNativeHandle());
+    Log.d(TAG, "display: " + EGL14.eglGetCurrentDisplay().getNativeHandle() + ", context: " + EGL14.eglGetCurrentContext().getNativeHandle());
   }
 
   @Override
   public void onSurfaceRequested(@NonNull SurfaceRequest request) {
-    Log.d(tag, "Surface requested");
+    Log.d(TAG, "Surface requested");
     printEglState();
 
     // request the external gl texture from DeepAR
     if (nativeGLTextureHandle == 0) {
       nativeGLTextureHandle = deepAR.getExternalGlTexture();
-      Log.d(tag, "request new external GL texture");
+      Log.d(TAG, "request new external GL texture");
       printEglState();
     }
 
@@ -86,19 +87,19 @@ public class ARSurfaceProvider implements Preview.SurfaceProvider {
     request.provideSurface(surface, ContextCompat.getMainExecutor(context), result -> {
       switch (result.getResultCode()) {
         case SurfaceRequest.Result.RESULT_SURFACE_USED_SUCCESSFULLY:
-          Log.i(tag, "RESULT_SURFACE_USED_SUCCESSFULLY");
+          Log.i(TAG, "RESULT_SURFACE_USED_SUCCESSFULLY");
           break;
         case SurfaceRequest.Result.RESULT_INVALID_SURFACE:
-          Log.i(tag, "RESULT_INVALID_SURFACE");
+          Log.i(TAG, "RESULT_INVALID_SURFACE");
           break;
         case SurfaceRequest.Result.RESULT_REQUEST_CANCELLED:
-          Log.i(tag, "RESULT_REQUEST_CANCELLED");
+          Log.i(TAG, "RESULT_REQUEST_CANCELLED");
           break;
         case SurfaceRequest.Result.RESULT_SURFACE_ALREADY_PROVIDED:
-          Log.i(tag, "RESULT_SURFACE_ALREADY_PROVIDED");
+          Log.i(TAG, "RESULT_SURFACE_ALREADY_PROVIDED");
           break;
         case SurfaceRequest.Result.RESULT_WILL_NOT_PROVIDE_SURFACE:
-          Log.i(tag, "RESULT_WILL_NOT_PROVIDE_SURFACE");
+          Log.i(TAG, "RESULT_WILL_NOT_PROVIDE_SURFACE");
           break;
       }
     });

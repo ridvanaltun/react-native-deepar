@@ -46,8 +46,7 @@ import ai.deepar.ar.ARTouchType;
 import ai.deepar.ar.DeepAR;
 
 public class RNTDeepAR extends FrameLayout implements AREventListener, SurfaceHolder.Callback, LifecycleObserver {
-
-  private static final String TAG = "RNTDeepAR";
+  private static final String TAG = RNTDeepAR.class.getSimpleName();
   SurfaceView surface;
   String tempVideoPath;
   private DeepAR deepAr;
@@ -77,11 +76,6 @@ public class RNTDeepAR extends FrameLayout implements AREventListener, SurfaceHo
 
     deepAr.initialize(this.getContext(), this);
     setupDeepAR();
-  }
-
-  @Override
-  protected void onDetachedFromWindow() {
-    super.onDetachedFromWindow();
   }
 
   private void setupDeepAR() {
@@ -303,17 +297,35 @@ public class RNTDeepAR extends FrameLayout implements AREventListener, SurfaceHo
     Rect subframe = new Rect(0, 0, deepAr.getRenderWidth(), deepAr.getRenderHeight());
     tempVideoPath = Environment.getExternalStorageDirectory().toString() + File.separator + "video.mp4";
 
-    if (settings.hasKey("width")) {
+    if (settings.hasKey("width") && !settings.isNull("width")) {
       _width = settings.getInt("width");
     }
 
-    if (settings.hasKey("height")) {
+    if (settings.hasKey("height") && !settings.isNull("height")) {
       _height = settings.getInt("height");
     }
 
-    if (settings.hasKey("recordAudio")) {
+    if (settings.hasKey("recordAudio") && !settings.isNull("recordAudio")) {
       _recordAudio = settings.getBoolean("recordAudio");
     }
+
+    if (settings.hasKey("bitrate") && !settings.isNull("bitrate")) {
+      deepAr.setBitRate(settings.getInt("bitrate"));
+    } else {
+      deepAr.setBitRate(0); // default
+    }
+
+    if (settings.hasKey("maxKeyFrameInterval") && !settings.isNull("maxKeyFrameInterval")) {
+      deepAr.setIFrameInterval(settings.getInt("maxKeyFrameInterval"));
+    } else {
+      deepAr.setIFrameInterval(5); // default
+    }
+
+    // if (settings.hasKey("fps") && !settings.isNull("fps")) {
+    //   deepAr.setKeyFrameRate(settings.getInt("fps"));
+    // } else {
+    //   deepAr.setKeyFrameRate(25); // default
+    // }
 
     deepAr.startVideoRecording(tempVideoPath, subframe, _width, _height, _recordAudio);
   }
@@ -322,6 +334,7 @@ public class RNTDeepAR extends FrameLayout implements AREventListener, SurfaceHo
     if (deepAr == null) {
       return;
     }
+
     deepAr.resumeVideoRecording();
   }
 

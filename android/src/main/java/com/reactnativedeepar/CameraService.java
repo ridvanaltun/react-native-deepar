@@ -176,13 +176,6 @@ public class CameraService {
     }
   }
 
-  private String getFilterPath(String filterName) {
-    if (filterName.equals("none")) {
-      return null;
-    }
-    return "file:///android_asset/" + filterName;
-  }
-
   private int getScreenOrientation() {
     int rotation = context.getWindowManager().getDefaultDisplay().getRotation();
     DisplayMetrics dm = new DisplayMetrics();
