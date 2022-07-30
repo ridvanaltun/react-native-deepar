@@ -1,7 +1,10 @@
 package com.reactnativedeepar;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.pm.ActivityInfo;
+import android.hardware.camera2.CameraManager;
+import android.os.Build;
 import android.util.DisplayMetrics;
 import android.util.Size;
 import android.view.Surface;
@@ -72,47 +75,11 @@ public class CameraService {
   private int width = 0;
   private int height = 0;
   private DeepAR frameReceiver;
+  private CameraManager cameraManager;
 
   public CameraService(Activity mContext) {
     context = mContext;
-    setupCamera();
-  }
-
-  public void openCamera(DeepAR frameReceiver) {
-    this.frameReceiver = frameReceiver;
-    setupCamera();
-  }
-
-  public void closeCamera() {
-    ProcessCameraProvider cameraProvider = null;
-    try {
-      cameraProvider = cameraProviderFuture.get();
-      cameraProvider.unbindAll();
-    } catch (ExecutionException e) {
-      e.printStackTrace();
-    } catch (InterruptedException e) {
-      e.printStackTrace();
-    }
-    if (surfaceProvider != null) {
-      surfaceProvider.stop();
-      surfaceProvider = null;
-    }
-    frameReceiver.release();
-    frameReceiver = null;
-  }
-
-  public void switchCamera(int _lensFacing) {
-    lensFacing = _lensFacing == CameraSelector.LENS_FACING_FRONT ? CameraSelector.LENS_FACING_FRONT : CameraSelector.LENS_FACING_BACK;
-    //unbind immediately to avoid mirrored frame.
-    ProcessCameraProvider cameraProvider = null;
-    try {
-      cameraProvider = cameraProviderFuture.get();
-      cameraProvider.unbindAll();
-    } catch (ExecutionException e) {
-      e.printStackTrace();
-    } catch (InterruptedException e) {
-      e.printStackTrace();
-    }
+    cameraManager = (CameraManager) this.context.getSystemService(Context.CAMERA_SERVICE);
     setupCamera();
   }
 
@@ -129,6 +96,58 @@ public class CameraService {
         }
       }
     }, ContextCompat.getMainExecutor(this.context));
+  }
+
+  public void openCamera(DeepAR frameReceiver) {
+    this.frameReceiver = frameReceiver;
+    setupCamera();
+  }
+
+  public void closeCamera() {
+    ProcessCameraProvider cameraProvider = null;
+
+    try {
+      cameraProvider = cameraProviderFuture.get();
+      cameraProvider.unbindAll();
+    } catch (ExecutionException e) {
+      e.printStackTrace();
+    } catch (InterruptedException e) {
+      e.printStackTrace();
+    }
+
+    if (surfaceProvider != null) {
+      surfaceProvider.stop();
+      surfaceProvider = null;
+    }
+
+    frameReceiver.release();
+    frameReceiver = null;
+  }
+
+  public void setFlashOn(boolean enabled) {
+    try {
+      if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+        String mCameraId = cameraManager.getCameraIdList()[0];
+        cameraManager.setTorchMode(mCameraId, enabled);
+      }
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
+  }
+
+  public void switchCamera(int _lensFacing) {
+    lensFacing = _lensFacing == CameraSelector.LENS_FACING_FRONT ? CameraSelector.LENS_FACING_FRONT : CameraSelector.LENS_FACING_BACK;
+    //unbind immediately to avoid mirrored frame.
+    ProcessCameraProvider cameraProvider = null;
+    try {
+      cameraProvider = cameraProviderFuture.get();
+      cameraProvider.unbindAll();
+    } catch (ExecutionException e) {
+      e.printStackTrace();
+    } catch (InterruptedException e) {
+      e.printStackTrace();
+    }
+    setupCamera();
   }
 
   private void bindImageAnalysis(@NonNull ProcessCameraProvider cameraProvider) {

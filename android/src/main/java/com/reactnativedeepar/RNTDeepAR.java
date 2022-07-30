@@ -11,12 +11,9 @@ import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.Rect;
 import android.hardware.Camera;
-import android.hardware.camera2.CameraManager;
 import android.media.Image;
-import android.os.Build;
 import android.os.Environment;
 import android.text.format.DateFormat;
-import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
@@ -24,8 +21,6 @@ import android.view.SurfaceView;
 import android.view.View;
 import android.widget.FrameLayout;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.lifecycle.LifecycleObserver;
 
 import com.facebook.react.bridge.ReactContext;
@@ -51,34 +46,25 @@ public class RNTDeepAR extends FrameLayout implements AREventListener, SurfaceHo
   String tempVideoPath;
   private DeepAR deepAr;
   private CameraService cameraService;
-  private CameraManager mCameraManager;
   private boolean started;
 
-  public RNTDeepAR(Context context, DeepAR _deepAr) {
+  public RNTDeepAR(Context context) {
     super(context);
-    deepAr = _deepAr;
-    init();
+    deepAr = new DeepAR(context);
+    setupDeepAR();
   }
 
-  public RNTDeepAR(@NonNull Context context, @Nullable AttributeSet attrs) {
-    super(context, attrs);
-    init();
+  @Override
+  protected void onDetachedFromWindow() {
+    cameraService.closeCamera();
+    super.onDetachedFromWindow();
   }
 
-  public RNTDeepAR(Context context, AttributeSet attrs, int defStyle) {
-    super(context, attrs, defStyle);
-    init();
-  }
-
-  public void init() {
+  private void setupDeepAR() {
     View view = inflate(getContext(), R.layout.deeparview, null);
     addView(view);
 
     deepAr.initialize(this.getContext(), this);
-    setupDeepAR();
-  }
-
-  private void setupDeepAR() {
 
     if (started) {
       return;
@@ -92,18 +78,13 @@ public class RNTDeepAR extends FrameLayout implements AREventListener, SurfaceHo
     // Surface might already be initialized, so we force the call to onSurfaceChanged
     surface.setVisibility(View.GONE);
     surface.setVisibility(View.VISIBLE);
+  }
 
-    mCameraManager = (CameraManager) getContext().getSystemService(Context.CAMERA_SERVICE);
-    cameraService = new CameraService(getActivity());
-    if (cameraService != null) {
-      if ((checkSelfPermission(getContext(), Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) || (checkSelfPermission(getContext(), Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED)) {
-        Log.d(TAG, "No camera and storage permission");
-        requestPermissions(getActivity(), new String[]{Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE}, 50404);
-      }
-
-      cameraService.openCamera(deepAr);
+  private void requestCameraPermissions() {
+    if ((checkSelfPermission(getContext(), Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) || (checkSelfPermission(getContext(), Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED)) {
+      Log.d(TAG, "No camera and storage permission");
+      requestPermissions(getActivity(), new String[]{Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE}, 50404);
     }
-
   }
 
   private Activity getActivity() {
@@ -178,20 +159,29 @@ public class RNTDeepAR extends FrameLayout implements AREventListener, SurfaceHo
   // Methods
   //
 
-  public void switchCamera(int cameraDevice) {
-    if (cameraService != null) {
-
-      pause();
-
-      cameraService.switchCamera(cameraDevice);
-      cameraService.openCamera(deepAr);
-
-      String status = cameraDevice == Camera.CameraInfo.CAMERA_FACING_FRONT ? "front" : "back";
-
-      sendEvent("cameraSwitched", status, null);
-
-      resume();
+  public void setLicenseKey(String apiKey) {
+    if (deepAr == null) {
+      return;
     }
+
+    deepAr.setLicenseKey(apiKey);
+  }
+
+  public void switchCamera(int cameraDevice) {
+    if (cameraService == null) {
+      return ;
+    }
+
+    pause();
+
+    cameraService.switchCamera(cameraDevice);
+    cameraService.openCamera(deepAr);
+
+    String status = cameraDevice == Camera.CameraInfo.CAMERA_FACING_FRONT ? "front" : "back";
+
+    sendEvent("cameraSwitched", status, null);
+
+    resume();
   }
 
   public void switchEffect(String effectName, String slot) {
@@ -231,14 +221,11 @@ public class RNTDeepAR extends FrameLayout implements AREventListener, SurfaceHo
   }
 
   public void setFlashOn(boolean enabled) {
-    try {
-      if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-        String mCameraId = mCameraManager.getCameraIdList()[0];
-        mCameraManager.setTorchMode(mCameraId, enabled);
-      }
-    } catch (Exception e) {
-      e.printStackTrace();
+    if (cameraService == null) {
+      return;
     }
+
+    cameraService.setFlashOn(enabled);
   }
 
   public void pause() {
@@ -482,6 +469,11 @@ public class RNTDeepAR extends FrameLayout implements AREventListener, SurfaceHo
    * */
   @Override
   public void initialized() {
+    cameraService = new CameraService(getActivity());
+
+    requestCameraPermissions();
+    cameraService.openCamera(deepAr);
+
     sendEvent("initialized", null, null);
   }
 

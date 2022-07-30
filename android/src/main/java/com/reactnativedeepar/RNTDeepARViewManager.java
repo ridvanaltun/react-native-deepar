@@ -3,12 +3,10 @@ package com.reactnativedeepar;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.util.Base64;
-import android.widget.FrameLayout;
 
 import androidx.camera.core.CameraSelector;
 
 import com.facebook.infer.annotation.Assertions;
-import com.facebook.react.bridge.ReactContext;
 import com.facebook.react.bridge.ReadableArray;
 import com.facebook.react.bridge.ReadableMap;
 import com.facebook.react.common.MapBuilder;
@@ -21,16 +19,11 @@ import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 
-import ai.deepar.ar.DeepAR;
-
 import javax.annotation.Nullable;
 
 @ReactModule(name = RNTDeepARViewManager.REACT_CLASS)
 public class RNTDeepARViewManager extends SimpleViewManager<RNTDeepAR> {
-
   public static final String REACT_CLASS = "RNTDeepARView";
-  private DeepAR deepAr;
-  private ReactContext context;
 
   /**
    * General
@@ -82,10 +75,7 @@ public class RNTDeepARViewManager extends SimpleViewManager<RNTDeepAR> {
 
   @Override
   protected RNTDeepAR createViewInstance(ThemedReactContext reactContext) {
-    context = reactContext;
-    deepAr = new DeepAR(reactContext);
-
-    return new RNTDeepAR(reactContext, deepAr);
+    return new RNTDeepAR(reactContext);
   }
 
   @Override
@@ -123,12 +113,12 @@ public class RNTDeepARViewManager extends SimpleViewManager<RNTDeepAR> {
   }
 
   @ReactProp(name = "apiKey")
-  public void setApiKey(FrameLayout view, String apiKey) {
-    deepAr.setLicenseKey(apiKey);
+  public void setApiKey(RNTDeepAR deepARView, String apiKey) {
+    deepARView.setLicenseKey(apiKey);
   }
 
   @ReactProp(name = "videoWarmup")
-  public void setVideoWarmup(FrameLayout view, String enabled) {
+  public void setVideoWarmup(RNTDeepAR deepARView, String enabled) {
     // ..
   }
 
