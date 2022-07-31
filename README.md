@@ -33,8 +33,6 @@
     - [Change Parameters](#change-parameters)
     - [Core](#core)
   - [Camera Module](#camera-module)
-  - [Interfaces](#interfaces)
-    - [IStartRecording](#istartrecording)
 - [Background Segmentation](#background-segmentation)
 - [Face Painting](#face-painting)
 - [Watermark](#watermark)
@@ -45,10 +43,10 @@
 
 ## What is DeepAR?
 
-| Preview                                                          |
-| ---------------------------------------------------------------- |
-| <img src="./docs/preview.gif" alt="Preview Image" width="600" /> |
-| This GIF taken from DeepAR offical site.                         |
+| Preview                                                                 |
+| ----------------------------------------------------------------------- |
+| <img src="./docs/images/preview.gif" alt="Preview Image" width="600" /> |
+| This GIF taken from DeepAR offical site.                                |
 
 DeepAR is an infrastructure where you can make AR applications in ease. DeepAR is not free, but you can create applications that can be used by up to 10 people for testing purposes for free.
 
@@ -129,17 +127,17 @@ buildscript {
 
 2. Open your `ios/YourProject.xcworkspace` file in Xcode and update your iOS version to `11.0` minimum, like below:
 
-| Setting iOS Version from Xcode                                                           |
-| ---------------------------------------------------------------------------------------- |
-| <img src="./docs/setting-ios-version.png" alt="Xcode Setting iOS Version" width="800" /> |
-| Follow steps in the picture.                                                             |
+| Setting iOS Version from Xcode                                                                  |
+| ----------------------------------------------------------------------------------------------- |
+| <img src="./docs/images/setting-ios-version.png" alt="Xcode Setting iOS Version" width="800" /> |
+| Follow steps in the picture.                                                                    |
 
 3. Add `DeepAR.xcframework` to Build Phases:
 
-| Add DeepAR to Build Phases (1)                                                                       | Add DeepAR to Build Phases (2)                                                                       |
-| ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
-| <img src="./docs/setting-ios-library-1.png" alt="Add DeepAR to Build Phases in Xcode" width="400" /> | <img src="./docs/setting-ios-library-2.png" alt="Add DeepAR to Build Phases in Xcode" width="400" /> |
-| Follow steps in the picture.                                                                         | Follow steps in the picture.                                                                         |
+| Add DeepAR to Build Phases (1)                                                                              | Add DeepAR to Build Phases (2)                                                                              |
+| ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
+| <img src="./docs/images/setting-ios-library-1.png" alt="Add DeepAR to Build Phases in Xcode" width="400" /> | <img src="./docs/images/setting-ios-library-2.png" alt="Add DeepAR to Build Phases in Xcode" width="400" /> |
+| Follow steps in the picture.                                                                                | Follow steps in the picture.                                                                                |
 
 **Note:** Don't forget install Pods for iOS and rebuild your app.
 
@@ -264,11 +262,11 @@ The `<DeepAR>` component can take a number of inputs to customize it as needed. 
 
 ### Props
 
-| Prop        | Type           | Default              | Required     | Description                                                                                                                                                                                                                                                                                                                                                 |
-| ----------- | -------------- | -------------------- | ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| apiKey      | String         | undefined            | <b>true</b>  | Make registration to DeepAR and get an API key from [Developer Panel](https://developer.deepar.ai/).                                                                                                                                                                                                                                                        |
-| position    | CameraPosition | CameraPosition.FRONT | <b>false</b> | Camera position, back and front. You can change in real-time.                                                                                                                                                                                                                                                                                               |
-| videoWarmup | boolean        | false                | <b>false</b> | If set to true, changes how `startRecording` and `resumeRecording` methods work; `startRecording` method will no longer start the video recording immediately, instead it triggers `onVideoRecordingPrepared` event. You can start video recording with `resumeRecording` after `onVideoRecordingPrepared` event triggered. **Note:** Only available in iOS |
+| Prop        | Type            | Default               | Required     | Description                                                                                                                                                                                                                                                                                                                                                 |
+| ----------- | --------------- | --------------------- | ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| apiKey      | string          | undefined             | <b>true</b>  | Make registration to DeepAR and get an API key from [Developer Panel](https://developer.deepar.ai/).                                                                                                                                                                                                                                                        |
+| position    | CameraPositions | CameraPositions.FRONT | <b>false</b> | Camera position, back and front. You can change in real-time.                                                                                                                                                                                                                                                                                               |
+| videoWarmup | boolean         | false                 | <b>false</b> | If set to true, changes how `startRecording` and `resumeRecording` methods work; `startRecording` method will no longer start the video recording immediately, instead it triggers `onVideoRecordingPrepared` event. You can start video recording with `resumeRecording` after `onVideoRecordingPrepared` event triggered. **Note:** Only available in iOS |
 
 ### Events
 
@@ -277,15 +275,15 @@ These are various events that you can hook into and fire functions on in the com
 | Callback                 | Callback Params                                       | Description                                                                                                                     |
 | ------------------------ | ----------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
 | onInitialized            | <div align="center">-</div>                           | Called when the DeepAR is initialized. DeepAR methods should not be called before the initialization is completed.              |
-| onEffectSwitched         | (<b>slot</b>: String)                                 | Called when an effect has been switched.                                                                                        |
-| onScreenshotTaken        | (<b>path</b>: String)                                 | Called when the screen capture is finished.                                                                                     |
+| onEffectSwitched         | (<b>slot</b>: string)                                 | Called when an effect has been switched.                                                                                        |
+| onScreenshotTaken        | (<b>path</b>: string)                                 | Called when the screen capture is finished.                                                                                     |
 | onVideoRecordingPrepared | <div align="center">-</div>                           | Called when the video recording is prepared. Check `videoWarmup` option to learn more. **Note:** Only available in iOS          |
 | onVideoRecordingStarted  | <div align="center">-</div>                           | The start of the video recording process is not synchronous, so this method will be called when the video recording is started. |
-| onVideoRecordingFinished | (<b>path</b>: String)                                 | Called when the video recording is finished.                                                                                    |
-| onCameraSwitched         | (<b>facing</b>: CameraPosition)                       | Called when camera switched.                                                                                                    |
-| onFaceVisibilityChanged  | (<b>visible</b>: Boolean)                             | Called when the user's face becomes visible or invisible.                                                                       |
-| onImageVisibilityChanged | (<b>visible</b>: Boolean, <b>gameObject</b>?: String) | Called when a natural image is being tracked and the visibility has changed.                                                    |
-| onError                  | (<b>text</b>: String, <b>type</b>: ErrorTypes,)       | Called when an error occur, like the model path not found or the effect file failed to load.                                    |
+| onVideoRecordingFinished | (<b>path</b>: string)                                 | Called when the video recording is finished.                                                                                    |
+| onCameraSwitched         | (<b>facing</b>: CameraPositions)                      | Called when camera switched.                                                                                                    |
+| onFaceVisibilityChanged  | (<b>visible</b>: boolean)                             | Called when the user's face becomes visible or invisible.                                                                       |
+| onImageVisibilityChanged | (<b>visible</b>: boolean, <b>gameObject</b>?: string) | Called when a natural image is being tracked and the visibility has changed.                                                    |
+| onError                  | (<b>text</b>: string, <b>type</b>: ErrorTypes,)       | Called when an error occur, like the model path not found or the effect file failed to load.                                    |
 
 ### Methods
 
@@ -297,25 +295,25 @@ These are the various methods.
 | -------------------- | -------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | switchEffect         | (<b>params</b>: ISwitchEffect)         | The method used to switch any effect in the scene. Effects are places in slots. Every slot is identified by its unique name and can hold one effect at any given moment. Every subsequent call to this method removes the effect that was previously displayed in this slot. |
 | switchEffectWithPath | (<b>params</b>: ISwitchEffectWithPath) | Same as `switchEffect` but with path.                                                                                                                                                                                                                                        |
-| fireTrigger          | (<b>trigger</b>: String)               | This method allows the user to fire a custom animation trigger for model animations from code. To fire a custom trigger, the trigger string must match the custom trigger set in the Studio when creating the effect.                                                        |
+| fireTrigger          | (<b>trigger</b>: string)               | This method allows the user to fire a custom animation trigger for model animations from code. To fire a custom trigger, the trigger string must match the custom trigger set in the Studio when creating the effect.                                                        |
 | takeScreenshot       | <div align="center">-</div>            | Captures a screenshot of the current screen. When a screenshot is done `onScreenshotTaken` will be called with a resulting screenshot.                                                                                                                                       |
-| setTouchMode         | (<b>enabled</b>: Boolean)              | This method enable or disable the detection of touches over DeepAR view, it is necessary if your effect has ability to detect touches.                                                                                                                                       |
+| setTouchMode         | (<b>enabled</b>: boolean)              | This method enable or disable the detection of touches over DeepAR view, it is necessary if your effect has ability to detect touches.                                                                                                                                       |
 
 #### Camera Control
 
 | Method     | Params                    | Description   |
 | ---------- | ------------------------- | ------------- |
-| setFlashOn | (<b>enabled</b>: Boolean) | Toggle flash. |
+| setFlashOn | (<b>enabled</b>: boolean) | Toggle flash. |
 
 #### Video Recording
 
-| Method          | Params                                                | Description                                                                                                                                                                 |
-| --------------- | ----------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| startRecording  | (<b>params</b>?: [IStartRecording](#istartrecording)) | Starts video recording of the camera preview.                                                                                                                               |
-| pauseRecording  | <div align="center">-</div>                           | Pauses video recording.                                                                                                                                                     |
-| resumeRecording | <div align="center">-</div>                           | Resumes video recording after it has been paused with `pauseRecording`.                                                                                                     |
-| finishRecording | <div align="center">-</div>                           | Stops video recording and starts the process of saving the recorded video to the file system. When the file is saved, the method `onVideoRecordingFinished` will be called. |
-| setAudioMute    | (<b>enabled</b>: Boolean)                             | Mutes/unmutes the audio while video recording.                                                                                                                              |
+| Method          | Params                                                                    | Description                                                                                                                                                                 |
+| --------------- | ------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| startRecording  | (<b>params</b>?: [IStartRecording](./docs/interfaces.md#istartrecording)) | Starts video recording of the camera preview.                                                                                                                               |
+| pauseRecording  | <div align="center">-</div>                                               | Pauses video recording.                                                                                                                                                     |
+| resumeRecording | <div align="center">-</div>                                               | Resumes video recording after it has been paused with `pauseRecording`.                                                                                                     |
+| finishRecording | <div align="center">-</div>                                               | Stops video recording and starts the process of saving the recorded video to the file system. When the file is saved, the method `onVideoRecordingFinished` will be called. |
+| setAudioMute    | (<b>enabled</b>: boolean)                                                 | Mutes/unmutes the audio while video recording.                                                                                                                              |
 
 #### Change Parameters
 
@@ -336,9 +334,9 @@ For more details about changeParameter API read this article [here](https://help
 | --------------------------- | ---------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | pause                       | <div align="center">-</div>  | Pauses the rendering. This method will not release any resources and should be used only for temporary pause (e.g. user goes to the next screen).                                                                                                                                                                                                                                                                                                                                                                                                                |
 | resume                      | <div align="center">-</div>  | Resumes the rendering if it was previously paused, otherwise doesn't do anything.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| setLiveMode                 | (<b>enabled</b>: Boolean)    | This is an optimization method and it allows the user to indicate the DeepAR in which mode it should operate. If called with true value, DeepAR will expect a continuous flow of new frames and it will optimize its inner processes for such workload. An example of this is the typical use case of processing the frames from the camera stream. If called with false it will optimize for preserving resources and memory by pausing the rendering after each processed frame. A typical use case for this is when the user needs to process just one image. |
-| setFaceDetectionSensitivity | (<b>sensitivity</b>: Number) | This method allows the user to change face detection sensitivity. The sensitivity parameter can range from 0 to 3, where 0 is the fastest but might not recognize smaller (further away) faces, and 3 is the slowest but will find smaller faces. By default, this parameter is set to 1.                                                                                                                                                                                                                                                                        |
-| showStats                   | (<b>enabled</b>: Boolean)    | Display debugging stats on screen.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| setLiveMode                 | (<b>enabled</b>: boolean)    | This is an optimization method and it allows the user to indicate the DeepAR in which mode it should operate. If called with true value, DeepAR will expect a continuous flow of new frames and it will optimize its inner processes for such workload. An example of this is the typical use case of processing the frames from the camera stream. If called with false it will optimize for preserving resources and memory by pausing the rendering after each processed frame. A typical use case for this is when the user needs to process just one image. |
+| setFaceDetectionSensitivity | (<b>sensitivity</b>: number) | This method allows the user to change face detection sensitivity. The sensitivity parameter can range from 0 to 3, where 0 is the fastest but might not recognize smaller (further away) faces, and 3 is the slowest but will find smaller faces. By default, this parameter is set to 1.                                                                                                                                                                                                                                                                        |
+| showStats                   | (<b>enabled</b>: boolean)    | Display debugging stats on screen.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
 
 ### Camera Module
 
@@ -353,32 +351,14 @@ import {Camera} from 'react-native-deepar';
 | getCameraPermissionStatus     | <div align="center">-</div> | Promise<`CameraPermissionStatus`>        | Gets the current Camera Permission Status. Check this before mounting the Camera to ensure the user has permitted the app to use the camera.                                                                                               |
 | getMicrophonePermissionStatus | <div align="center">-</div> | Promise<`CameraPermissionStatus`>        | Gets the current Microphone-Recording Permission Status. Check this before mounting the Camera to ensure the user has permitted the app to use the microphone.                                                                             |
 
-### Interfaces
-
-TypeScript interfaces.
-
-#### IStartRecording
-
-Check [Video Recording](#video-recording).
-
-| Key                         | Default Value                  | Required     | Description                                                                                | Android                     | iOS                         |
-| --------------------------- | ------------------------------ | ------------ | ------------------------------------------------------------------------------------------ | --------------------------- | --------------------------- |
-| width                       | <div align="center">-</div>    | <b>false</b> | Video width                                                                                | <div align="center">+</div> | <div align="center">+</div> |
-| height                      | <div align="center">-</div>    | <b>false</b> | Video height                                                                               | <div align="center">+</div> | <div align="center">+</div> |
-| recordAudio                 | <div align="center">true</div> | <b>false</b> | Record audio during video recording.                                                       | <div align="center">+</div> | <div align="center">+</div> |
-| quality                     | <div align="center">-</div>    | <b>false</b> | A key to set the JPEG compression quality of the video. The corresponding value is 0.0-1.0 | <div align="center">-</div> | <div align="center">+</div> |
-| bitrate                     | <div align="center">-</div>    | <b>false</b> | A key to access the average bit rate—as bits per second—used in compressing video.         | <div align="center">+</div> | <div align="center">+</div> |
-| maxKeyFrameInterval         | <div align="center">-</div>    | <b>false</b> | A key to access the maximum interval between keyframes.                                    | <div align="center">+</div> | <div align="center">+</div> |
-| maxKeyFrameIntervalDuration | <div align="center">-</div>    | <b>false</b> | A key to access the maximum interval duration between keyframes.                           | <div align="center">-</div> | <div align="center">+</div> |
-
 ## Background Segmentation
 
 DeepAR has [Background Segmentation](https://www.deepar.ai/background-removal) feature, with this feature you can change your background in real-time.
 
-| Background Segmentation Preview                                                            |
-| ------------------------------------------------------------------------------------------ |
-| <img src="./docs/background-segmentation.png" alt="Background Segmentation" width="500" /> |
-| This image taken from DeepAR offical site.                                                 |
+| Background Segmentation Preview                                                                   |
+| ------------------------------------------------------------------------------------------------- |
+| <img src="./docs/images/background-segmentation.png" alt="Background Segmentation" width="500" /> |
+| This image taken from DeepAR offical site.                                                        |
 
 There is a filter called `Background` from [Free Filter Pack](https://help.deepar.ai/en/articles/3580432-free-filter-pack) and you can use this filter.
 
@@ -409,10 +389,10 @@ You can detect touches in your effects if the effect customized for detecting to
 
 For more details about face painting effect read this article [here](https://help.deepar.ai/en/articles/5608765-face-painting-effect-tutorial).
 
-| Face Painting Preview                                                   |
-| ----------------------------------------------------------------------- |
-| <img src="./docs/face-painting.jpeg" alt="Face Painting" width="500" /> |
-| This image taken from DeepAR offical site.                              |
+| Face Painting Preview                                                          |
+| ------------------------------------------------------------------------------ |
+| <img src="./docs/images/face-painting.jpeg" alt="Face Painting" width="500" /> |
+| This image taken from DeepAR offical site.                                     |
 
 If you want to be able to detect touches on the screen, you need to use the following code:
 
@@ -431,9 +411,9 @@ Would you like to add watermark to your filter? Follow this tutorial: [Placing a
 
 ## Example App
 
-| Ball Face                                                          | Background Segmentation                                                           |
-| ------------------------------------------------------------------ | --------------------------------------------------------------------------------- |
-| <img src="./docs/example-app-1.png" alt="Ball Face" width="300" /> | <img src="./docs/example-app-2.png" alt="Background Segmentation " width="300" /> |
+| Ball Face                                                                 | Background Segmentation                                                                  |
+| ------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| <img src="./docs/images/example-app-1.png" alt="Ball Face" width="300" /> | <img src="./docs/images/example-app-2.png" alt="Background Segmentation " width="300" /> |
 
 ```sh
 # clone the project

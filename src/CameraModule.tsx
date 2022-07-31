@@ -7,17 +7,29 @@ import type {
 
 const {RNTCameraModule} = NativeModules;
 
+type CameraPermission =
+  | CameraPermissionStatus
+  | CameraPermissionStatus.AUTHORIZED
+  | CameraPermissionStatus.DENIED
+  | CameraPermissionStatus.NOT_DETERMINED
+  | CameraPermissionStatus.RESTRICTED;
+
+type CameraPermissionRequest =
+  | CameraPermissionRequestResult
+  | CameraPermissionRequestResult.AUTHORIZED
+  | CameraPermissionRequestResult.DENIED;
+
 export default {
-  requestCameraPermission: (): Promise<CameraPermissionRequestResult> => {
+  requestCameraPermission: (): Promise<CameraPermissionRequest> => {
     return RNTCameraModule.requestCameraPermission();
   },
-  requestMicrophonePermission: (): Promise<CameraPermissionRequestResult> => {
+  requestMicrophonePermission: (): Promise<CameraPermissionRequest> => {
     return RNTCameraModule.requestMicrophonePermission();
   },
-  getCameraPermissionStatus: (): Promise<CameraPermissionStatus> => {
+  getCameraPermissionStatus: (): Promise<CameraPermission> => {
     return RNTCameraModule.getCameraPermissionStatus();
   },
-  getMicrophonePermissionStatus: (): Promise<CameraPermissionStatus> => {
+  getMicrophonePermissionStatus: (): Promise<CameraPermission> => {
     return RNTCameraModule.getMicrophonePermissionStatus();
   },
 };

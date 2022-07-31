@@ -6,7 +6,7 @@ import DeepARView, {
   CameraPermissionRequestResult,
   Camera,
   ErrorTypes,
-  CameraPosition,
+  CameraPositions,
 } from 'react-native-deepar';
 import RNFetchBlob from 'rn-fetch-blob';
 
@@ -25,7 +25,7 @@ const CameraScreen = ({navigation}: {navigation: any}) => {
   const [isVideoRecording, setIsVideoRecording] = useState(false);
   const [isVideoRecordingPaused, setIsVideoRecordingPaused] = useState(false);
   const [isFacePaintingStarted, setIsFacePaintingStarted] = useState(false);
-  const [cameraPosition, setCameraPosition] = useState(CameraPosition.FRONT);
+  const [cameraPosition, setCameraPosition] = useState(CameraPositions.FRONT);
 
   const isCurrEffectSupported = useMemo(
     () => Effects[currEffectIndex].platforms.includes(Platform.OS),
@@ -55,9 +55,9 @@ const CameraScreen = ({navigation}: {navigation: any}) => {
   const switchCamera = () => {
     if (deepARRef && switchCameraInProgress === false) {
       setCameraPosition(
-        cameraPosition === CameraPosition.FRONT
-          ? CameraPosition.BACK
-          : CameraPosition.FRONT
+        cameraPosition === CameraPositions.FRONT
+          ? CameraPositions.BACK
+          : CameraPositions.FRONT
       );
       setSwitchCameraInProgress(true);
     }

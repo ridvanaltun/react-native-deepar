@@ -1,5 +1,5 @@
 export default {
-  strToBool: (str: String | undefined) => {
+  strToBool: (str: string | undefined) => {
     return str === 'true';
   },
 };

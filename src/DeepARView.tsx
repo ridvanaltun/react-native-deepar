@@ -5,7 +5,7 @@ import {
   IDeepARHandle,
   IDeepARProps,
   IRNTDeepARView,
-  CameraPosition,
+  CameraPositions,
   ErrorTypes,
 } from './index';
 
@@ -145,7 +145,7 @@ const DeepARView = forwardRef<IDeepARHandle, IDeepARProps>(
       <RNTDeepARView
         ref={nativeRef}
         apiKey={apiKey}
-        cameraPosition={position || CameraPosition.FRONT}
+        cameraPosition={position || CameraPositions.FRONT}
         videoWarmup={videoWarmup ? 'true' : 'false'}
         onEventSent={({nativeEvent}) => {
           if (onEventSent) onEventSent(nativeEvent);
@@ -160,8 +160,8 @@ const DeepARView = forwardRef<IDeepARHandle, IDeepARProps>(
               if (onCameraSwitched)
                 onCameraSwitched(
                   nativeEvent.value === 'front'
-                    ? CameraPosition.FRONT
-                    : CameraPosition.BACK
+                    ? CameraPositions.FRONT
+                    : CameraPositions.BACK
                 );
               break;
             case 'screenshotTaken':
