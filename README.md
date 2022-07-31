@@ -37,6 +37,7 @@
     - [IStartRecording](#istartrecording)
 - [Background Segmentation](#background-segmentation)
 - [Face Painting](#face-painting)
+- [Watermark](#watermark)
 - [Example App](#example-app)
 - [Limitations](#limitations)
 - [Contributing](#contributing)
@@ -422,6 +423,11 @@ deepARRef?.current?.setTouchMode(true);
 // If you not use face painting effect, use below code to disable detecting touches over DeepAR view
 deepARRef?.current?.setTouchMode(false);
 ```
+
+## Watermark
+
+Would you like to add watermark to your filter? Follow this tutorial: [Placing an image as a part of your filter
+](https://docs.deepar.ai/guides-and-tutorials/placing-an-image-as-part-of-your-filter)
 
 ## Example App
 
