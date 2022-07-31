@@ -47,11 +47,28 @@ public class RNTDeepAR extends FrameLayout implements AREventListener, SurfaceHo
   private DeepAR deepAr;
   private CameraService cameraService;
   private boolean started;
+  private Context reactContext;
 
   public RNTDeepAR(Context context) {
     super(context);
+    reactContext = context;
     deepAr = new DeepAR(context);
     setupDeepAR();
+  }
+
+  @Override
+  protected void onAttachedToWindow() {
+    if (cameraService == null) {
+      cameraService = new CameraService(getActivity());
+    }
+
+    deepAr = new DeepAR(reactContext);
+    setupDeepAR();
+
+    requestCameraPermissions();
+    cameraService.openCamera(deepAr);
+
+    super.onAttachedToWindow();
   }
 
   @Override
@@ -469,11 +486,6 @@ public class RNTDeepAR extends FrameLayout implements AREventListener, SurfaceHo
    * */
   @Override
   public void initialized() {
-    cameraService = new CameraService(getActivity());
-
-    requestCameraPermissions();
-    cameraService.openCamera(deepAr);
-
     sendEvent("initialized", null, null);
   }
 
