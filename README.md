@@ -69,9 +69,10 @@ You can visit [DeepAR's offical site](https://www.deepar.ai/) to learn more.
 
 ## Compatibility
 
-| DeepAR SDK | lib version                      | Required React Native Version |
-| ---------- | -------------------------------- | ----------------------------- |
-| 3.4.2      | `react-native-deepar` `>= 0.1.0` | >= 0.64.2                     |
+| DeepAR SDK | lib version (`react-native-deepar`) | Required React Native Version | Android Min SDK | iOS Version |
+| ---------- | ----------------------------------- | ----------------------------- | --------------- | ----------- |
+| 3.4.2      | `>= 0.1.0` && `<= 0.10.2`           | `>= 0.64.2`                   | 21              | 11.0        |
+| 3.4.4      | `>= 0.10.3`                         | `>= 0.64.2`                   | 23              | 11.0        |
 
 ## Getting Started
 
@@ -96,7 +97,7 @@ yarn add react-native-deepar
 <uses-permission android:name="android.permission.RECORD_AUDIO" />
 ```
 
-2. Update your `minSdkVersion` version minimum `21`, `compileSdkVersion` and `targetSdkVersion` version minimum `31` from `android/build.gradle` file, like below:
+2. Update your `minSdkVersion` version minimum `23`, `compileSdkVersion` and `targetSdkVersion` version minimum `31` from `android/build.gradle` file, like below:
 
 ```diff
 buildscript {
@@ -105,7 +106,7 @@ buildscript {
 -        minSdkVersion = 20
 -        compileSdkVersion = 30
 -        targetSdkVersion = 30
-+        minSdkVersion = 21
++        minSdkVersion = 23
 +        compileSdkVersion = 31
 +        targetSdkVersion = 31
     }
