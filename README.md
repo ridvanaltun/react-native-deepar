@@ -16,6 +16,7 @@
 - [Getting Started](#getting-started)
   - [Other Required Steps](#other-required-steps)
     - [Android](#android)
+      - [Proguard](#proguard)
     - [iOS](#ios)
   - [Requesting Permissions](#requesting-permissions)
     - [Getting Permissions](#getting-permissions)
@@ -111,6 +112,16 @@ buildscript {
 +        targetSdkVersion = 31
     }
 }
+```
+
+##### Proguard
+
+If you're using Proguard, make sure to add rules below:
+
+```
+-keepclassmembers class ai.deepar.ar.DeepAR { *; }
+-keepclassmembers class ai.deepar.ar.core.videotexture.VideoTextureAndroidJava { *; }
+-keep class ai.deepar.ar.core.videotexture.VideoTextureAndroidJava
 ```
 
 #### iOS
