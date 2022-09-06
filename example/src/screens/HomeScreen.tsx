@@ -8,7 +8,7 @@ const HomeScreen = ({navigation}: {navigation: any}) => {
         onPress={() => {
           navigation.navigate('Camera');
         }}>
-        <Text>Go Camera Screen</Text>
+        <Text style={styles.text}>Go Camera Screen</Text>
       </TouchableOpacity>
     </View>
   );
@@ -19,6 +19,9 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+  },
+  text: {
+    color: '#000',
   },
 });
 

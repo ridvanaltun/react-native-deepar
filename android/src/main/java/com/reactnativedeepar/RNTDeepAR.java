@@ -32,6 +32,7 @@ import com.facebook.react.uimanager.events.RCTEventEmitter;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import ai.deepar.ar.ARErrorType;
@@ -43,7 +44,7 @@ import ai.deepar.ar.DeepAR;
 public class RNTDeepAR extends FrameLayout implements AREventListener, SurfaceHolder.Callback, LifecycleObserver {
   private static final String TAG = RNTDeepAR.class.getSimpleName();
   SurfaceView surface;
-  String tempVideoPath;
+  File videoFileName;
   private DeepAR deepAr;
   private CameraService cameraService;
   private boolean started;
@@ -299,7 +300,7 @@ public class RNTDeepAR extends FrameLayout implements AREventListener, SurfaceHo
     boolean _recordAudio = true;
 
     Rect subframe = new Rect(0, 0, deepAr.getRenderWidth(), deepAr.getRenderHeight());
-    tempVideoPath = Environment.getExternalStorageDirectory().toString() + File.separator + "video.mp4";
+    videoFileName = new File(reactContext.getExternalFilesDir(Environment.DIRECTORY_MOVIES), "video_" + new SimpleDateFormat("yyyy_MM_dd_HH_mm_ss").format(new Date()) + ".mp4");
 
     if (settings.hasKey("width") && !settings.isNull("width")) {
       _width = settings.getInt("width");
@@ -331,7 +332,7 @@ public class RNTDeepAR extends FrameLayout implements AREventListener, SurfaceHo
     //   deepAr.setKeyFrameRate(25); // default
     // }
 
-    deepAr.startVideoRecording(tempVideoPath, subframe, _width, _height, _recordAudio);
+    deepAr.startVideoRecording(videoFileName.toString(), subframe, _width, _height, _recordAudio);
   }
 
   public void resumeRecording() {
@@ -534,7 +535,7 @@ public class RNTDeepAR extends FrameLayout implements AREventListener, SurfaceHo
    * */
   @Override
   public void videoRecordingFinished() {
-    sendEvent("videoRecordingFinished", tempVideoPath, null);
+    sendEvent("videoRecordingFinished", videoFileName.toString(), null);
   }
 
   /**
