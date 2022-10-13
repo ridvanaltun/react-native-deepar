@@ -23,6 +23,7 @@ import ai.deepar.ar.DeepAR;
  */
 public class ARSurfaceProvider implements Preview.SurfaceProvider {
   private static final String TAG = ARSurfaceProvider.class.getSimpleName();
+
   private final DeepAR deepAR;
   private final Context context;
   private boolean isNotifyDeepAR = true;
@@ -126,7 +127,6 @@ public class ARSurfaceProvider implements Preview.SurfaceProvider {
     if (surfaceTexture == null || surface == null) {
       return;
     }
-
 
     // when camera changes from front to back, we don't know
     // when exactly it will happen so we pause feeding the frames

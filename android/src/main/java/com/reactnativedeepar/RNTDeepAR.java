@@ -43,10 +43,11 @@ import ai.deepar.ar.DeepAR;
 
 public class RNTDeepAR extends FrameLayout implements AREventListener, SurfaceHolder.Callback, LifecycleObserver {
   private static final String TAG = RNTDeepAR.class.getSimpleName();
+
   SurfaceView surface;
   File videoFileName;
   private DeepAR deepAr;
-  private CameraService cameraService;
+  private CameraXHandler cameraXHandler;
   private boolean started;
   private Context reactContext;
 
@@ -59,22 +60,22 @@ public class RNTDeepAR extends FrameLayout implements AREventListener, SurfaceHo
 
   @Override
   protected void onAttachedToWindow() {
-    if (cameraService == null) {
-      cameraService = new CameraService(getActivity());
+    if (cameraXHandler == null) {
+      cameraXHandler = new CameraXHandler(getActivity());
     }
 
     deepAr = new DeepAR(reactContext);
     setupDeepAR();
 
     requestCameraPermissions();
-    cameraService.openCamera(deepAr);
+    cameraXHandler.openCamera(deepAr);
 
     super.onAttachedToWindow();
   }
 
   @Override
   protected void onDetachedFromWindow() {
-    cameraService.closeCamera();
+    cameraXHandler.closeCamera();
     super.onDetachedFromWindow();
   }
 
@@ -186,14 +187,14 @@ public class RNTDeepAR extends FrameLayout implements AREventListener, SurfaceHo
   }
 
   public void switchCamera(int cameraDevice) {
-    if (cameraService == null) {
+    if (cameraXHandler == null) {
       return ;
     }
 
     pause();
 
-    cameraService.switchCamera(cameraDevice);
-    cameraService.openCamera(deepAr);
+    cameraXHandler.switchCamera(cameraDevice);
+    cameraXHandler.openCamera(deepAr);
 
     String status = cameraDevice == Camera.CameraInfo.CAMERA_FACING_FRONT ? "front" : "back";
 
@@ -239,11 +240,11 @@ public class RNTDeepAR extends FrameLayout implements AREventListener, SurfaceHo
   }
 
   public void setFlashOn(boolean enabled) {
-    if (cameraService == null) {
+    if (cameraXHandler == null) {
       return;
     }
 
-    cameraService.setFlashOn(enabled);
+    cameraXHandler.setFlashOn(enabled);
   }
 
   public void pause() {
