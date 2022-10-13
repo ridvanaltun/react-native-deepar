@@ -1,6 +1,6 @@
 {
   "name": "react-native-deepar",
-  "version": "0.10.4",
+  "version": "0.10.5",
   "description": "DeepAR wrapper for React-Native",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
