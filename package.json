@@ -52,6 +52,7 @@
     "react-native-copy-asset": "^3.0.2"
   },
   "devDependencies": {
+    "@babel/runtime": "^7.20.1",
     "@commitlint/config-conventional": "^11.0.0",
     "@react-native-community/eslint-config": "^2.0.0",
     "@release-it/conventional-changelog": "^2.0.0",
