@@ -54,7 +54,7 @@ DeepAR is an infrastructure where you can make AR applications in ease. DeepAR i
 - Check pricing from [Pricing Page](https://developer.deepar.ai/pricing).
 - In order to use DeepAR, you need to generate an API key. You can generate the API key from the [Developer Panel](https://developer.deepar.ai/).
 - With the [Asset Store](https://www.store.deepar.ai/), you can buy ready to use AR content.
-- If you're looking for free filters, here is some: [Free Filter Pack](https://help.deepar.ai/en/articles/3580432-free-filter-pack)
+- If you're looking for free filters, here is some: [Free Filter Pack](https://docs.deepar.ai/deep-ar-studio/free-filter-pack)
 - With the [DeepAR Studio](https://www.deepar.ai/creator-studio), you can create, edit and fine tune your own AR content.
 - To learn DeepAR Studio, visit [DeepAR Help Center](https://help.deepar.ai/en/).
 
@@ -372,7 +372,7 @@ DeepAR has [Background Segmentation](https://www.deepar.ai/background-removal) f
 | <img src="./docs/images/background-segmentation.png" alt="Background Segmentation" width="500" /> |
 | This image taken from DeepAR offical site.                                                        |
 
-There is a filter called `Background` from [Free Filter Pack](https://help.deepar.ai/en/articles/3580432-free-filter-pack) and you can use this filter.
+There is a filter called `Background` from [Free Filter Pack](https://docs.deepar.ai/deep-ar-studio/free-filter-pack) and you can use this filter.
 
 **How change background image?**
 
@@ -399,7 +399,7 @@ RNFetchBlob.config({})
 
 You can detect touches in your effects if the effect customized for detecting touches. For an example; DeepAR has a filter called Face Painting, with this effect you can paint your face in real-time with touches.
 
-For more details about face painting effect read this article [here](https://help.deepar.ai/en/articles/5608765-face-painting-effect-tutorial).
+For more details about face painting effect read this article [here](https://docs.deepar.ai/guides-and-tutorials/face-paint-texture-tutorial).
 
 | Face Painting Preview                                                          |
 | ------------------------------------------------------------------------------ |
@@ -458,7 +458,7 @@ npm run ios
 - Hair Segmantation filter not supported on Android and only works iPhone 7 and newer devices for iOS
 
 Learn more about limitations from [features by platform
-](https://help.deepar.ai/en/articles/5789913-features-by-platform) page.
+](https://docs.deepar.ai/deepar-sdk/features-by-platform) page.
 
 ## Contributing
 
