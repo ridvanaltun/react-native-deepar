@@ -1,6 +1,6 @@
 import React from 'react';
 import {View, Image, Alert, StyleSheet} from 'react-native';
-import CameraRoll from '@react-native-community/cameraroll';
+import {CameraRoll} from '@react-native-camera-roll/camera-roll';
 import Video from 'react-native-video';
 
 import {Button} from '../components';
