@@ -1,5 +1,5 @@
-import React, {useRef, useState, useMemo, useEffect} from 'react';
-import {View, Text, Image, Platform, Linking, StyleSheet} from 'react-native';
+import React, { useRef, useState, useMemo, useEffect } from 'react';
+import { View, Text, Image, Platform, Linking, StyleSheet } from 'react-native';
 import DeepARView, {
   IDeepARHandle,
   TextureSourceTypes,
@@ -10,11 +10,11 @@ import DeepARView, {
 } from 'react-native-deepar';
 import RNFetchBlob from 'rn-fetch-blob';
 
-import {Button} from '../components';
-import {Config, Images, Effects, Computed, Enums} from '../constants';
+import { Button } from '../components';
+import { Config, Images, Effects, Computed, Enums } from '../constants';
 import Utils from '../utils';
 
-const CameraScreen = ({navigation}: {navigation: any}) => {
+const CameraScreen = ({ navigation }: { navigation: any }) => {
   const deepARRef = useRef<IDeepARHandle>(null);
 
   const [permsGranted, setPermsGranted] = useState(false);

@@ -1,11 +1,11 @@
-import {NativeModules} from 'react-native';
+import { NativeModules } from 'react-native';
 
 import type {
   CameraPermissionRequestResult,
   CameraPermissionStatus,
 } from './index';
 
-const {RNTCameraModule} = NativeModules;
+const { RNTCameraModule } = NativeModules;
 
 type CameraPermission =
   | CameraPermissionStatus

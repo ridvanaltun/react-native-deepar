@@ -1,7 +1,7 @@
 import React from 'react';
-import {Text, TouchableOpacity, StyleSheet} from 'react-native';
+import { Text, TouchableOpacity, StyleSheet } from 'react-native';
 
-import type {ViewStyle} from 'react-native';
+import type { ViewStyle } from 'react-native';
 
 interface IButton {
   text?: String;
@@ -11,7 +11,7 @@ interface IButton {
   disabled?: boolean;
 }
 
-const Button = ({text, onPress, style, image, disabled}: IButton) => {
+const Button = ({ text, onPress, style, image, disabled }: IButton) => {
   const renderContent = () => {
     if (image) {
       return image();
@@ -25,7 +25,8 @@ const Button = ({text, onPress, style, image, disabled}: IButton) => {
     <TouchableOpacity
       style={[styles.container, style]}
       onPress={onPress}
-      disabled={disabled}>
+      disabled={disabled}
+    >
       {renderContent()}
     </TouchableOpacity>
   );

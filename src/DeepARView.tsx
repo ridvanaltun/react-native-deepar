@@ -1,5 +1,9 @@
-import React, {useRef, forwardRef, useImperativeHandle} from 'react';
-import {UIManager, requireNativeComponent, findNodeHandle} from 'react-native';
+import React, { useRef, forwardRef, useImperativeHandle } from 'react';
+import {
+  UIManager,
+  requireNativeComponent,
+  findNodeHandle,
+} from 'react-native';
 
 import {
   IDeepARHandle,
@@ -42,18 +46,18 @@ const DeepARView = forwardRef<IDeepARHandle, IDeepARProps>(
     const nativeExecute = (name: string, params?: Array<any>) => {
       return UIManager.dispatchViewManagerCommand(
         findNodeHandle(nativeRef.current),
-        UIManager.getViewManagerConfig(NATIVE_VIEW_KEY).Commands[name],
+        UIManager.getViewManagerConfig(NATIVE_VIEW_KEY).Commands[name] || '',
         params
       );
     };
 
     useImperativeHandle(ref, () => ({
       switchEffect(params) {
-        const {mask, slot} = params;
+        const { mask, slot } = params;
         nativeExecute('switchEffect', [mask, slot || 'effect']);
       },
       switchEffectWithPath(params) {
-        const {path, slot} = params;
+        const { path, slot } = params;
         nativeExecute('switchEffectWithPath', [path, slot || 'effect']);
       },
       fireTrigger(trigger) {
@@ -110,32 +114,32 @@ const DeepARView = forwardRef<IDeepARHandle, IDeepARProps>(
         nativeExecute('setTouchMode', [enabled]);
       },
       changeParameterFloat(params) {
-        const {gameObject, component, parameter, value} = params;
+        const { gameObject, component, parameter, value } = params;
         const nativeParams = [gameObject, component, parameter, value];
         nativeExecute('changeParameterFloat', nativeParams);
       },
       changeParameterVec3(params) {
-        const {gameObject, component, parameter, x, y, z} = params;
+        const { gameObject, component, parameter, x, y, z } = params;
         const nativeParams = [gameObject, component, parameter, x, y, z];
         nativeExecute('changeParameterVec3', nativeParams);
       },
       changeParameterVec4(params) {
-        const {gameObject, component, parameter, x, y, z, w} = params;
+        const { gameObject, component, parameter, x, y, z, w } = params;
         const nativeParams = [gameObject, component, parameter, x, y, z, w];
         nativeExecute('changeParameterVec4', nativeParams);
       },
       changeParameterBool(params) {
-        const {gameObject, component, parameter, value} = params;
+        const { gameObject, component, parameter, value } = params;
         const nativeParams = [gameObject, component, parameter, value];
         nativeExecute('changeParameterBool', nativeParams);
       },
       changeParameterTexture(params) {
-        const {gameObject, component, parameter, value, type} = params;
+        const { gameObject, component, parameter, value, type } = params;
         const nativeParams = [gameObject, component, parameter, value, type];
         nativeExecute('changeParameterTexture', nativeParams);
       },
       changeParameterString(params) {
-        const {gameObject, component, parameter, value} = params;
+        const { gameObject, component, parameter, value } = params;
         const nativeParams = [gameObject, component, parameter, value];
         nativeExecute('changeParameterString', nativeParams);
       },
@@ -147,7 +151,7 @@ const DeepARView = forwardRef<IDeepARHandle, IDeepARProps>(
         apiKey={apiKey}
         cameraPosition={position || CameraPositions.FRONT}
         videoWarmup={videoWarmup ? 'true' : 'false'}
-        onEventSent={({nativeEvent}) => {
+        onEventSent={({ nativeEvent }) => {
           if (onEventSent) onEventSent(nativeEvent);
           switch (nativeEvent.type) {
             case 'initialized':

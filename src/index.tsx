@@ -1,7 +1,7 @@
 import DeepARView from './DeepARView';
 import CameraModule from './CameraModule';
 
-import type {ViewProps} from 'react-native';
+import type { ViewProps } from 'react-native';
 
 export enum CameraPositions {
   FRONT = 'front',
@@ -48,7 +48,7 @@ export interface IRNTDeepARView {
   apiKey: string;
   cameraPosition?: CameraPosition;
   videoWarmup?: string;
-  onEventSent: ({nativeEvent}: {nativeEvent: IDeepAREvent}) => void;
+  onEventSent: ({ nativeEvent }: { nativeEvent: IDeepAREvent }) => void;
 }
 
 export enum ErrorTypes {

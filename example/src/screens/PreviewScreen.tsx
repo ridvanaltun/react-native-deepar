@@ -1,24 +1,24 @@
 import React from 'react';
-import {View, Image, Alert, StyleSheet} from 'react-native';
-import {CameraRoll} from '@react-native-camera-roll/camera-roll';
+import { View, Image, Alert, StyleSheet } from 'react-native';
+import { CameraRoll } from '@react-native-camera-roll/camera-roll';
 import Video from 'react-native-video';
 
-import {Button} from '../components';
-import {Enums, Computed} from '../constants';
+import { Button } from '../components';
+import { Enums, Computed } from '../constants';
 import Utils from '../utils';
 
-const PreviewScreen = ({navigation, route}: any) => {
-  const {path, type} = route.params;
+const PreviewScreen = ({ navigation, route }: any) => {
+  const { path, type } = route.params;
 
   const renderContent = () => {
     if (type === Enums.PREVIEW_TYPES.PHOTO) {
-      return <Image style={styles.image} source={{uri: path}} />;
+      return <Image style={styles.image} source={{ uri: path }} />;
     }
 
     return (
       <Video
         resizeMode="contain"
-        source={{uri: path}}
+        source={{ uri: path }}
         style={styles.video}
         controls
       />
@@ -32,7 +32,7 @@ const PreviewScreen = ({navigation, route}: any) => {
         <Button
           text="Save to Gallery"
           onPress={() => {
-            CameraRoll.save(path, {type})
+            CameraRoll.save(path, { type })
               .then(() => {
                 Alert.alert(
                   `${Utils.capitalize(type)} Saved`,
