@@ -61,3 +61,6 @@ lib/
 
 # custom
 .env
+
+# use yarn
+package-lock.json
