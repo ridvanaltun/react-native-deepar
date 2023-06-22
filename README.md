@@ -70,10 +70,11 @@ You can visit [DeepAR's offical site](https://www.deepar.ai/) to learn more.
 
 ## Compatibility
 
-| DeepAR SDK | lib version (`react-native-deepar`) | Required React Native Version | Android Min SDK | iOS Version |
-| ---------- | ----------------------------------- | ----------------------------- | --------------- | ----------- |
-| 3.4.2      | `>= 0.1.0` && `<= 0.10.2`           | `>= 0.64.2`                   | 21              | 11.0        |
-| 3.4.4      | `>= 0.10.3`                         | `>= 0.64.2`                   | 23              | 11.0        |
+| DeepAR SDK | lib version (`react-native-deepar`) | Required React Native Version | Android SDK (Min) | iOS Version (Min) |
+| ---------- | ----------------------------------- | ----------------------------- | ----------------- | ----------------- |
+| 3.4.2      | `>= 0.1.0` && `<= 0.10.2`           | `>= 0.64.2`                   | 21                | 11.0              |
+| 3.4.4      | `>= 0.10.3` && `<= 0.10.5`          | `>= 0.64.2`                   | 23                | 11.0              |
+| 5.2.0      | `>= 0.11.0`                         | `>= 0.64.2`                   | 23                | 11.0              |
 
 ## Getting Started
 
@@ -162,7 +163,7 @@ You need to ask necessary permissions before render the DeepAR component.
 Simply use the get functions to find out if a user has granted or denied permission before:
 
 ```jsx
-import {Camera} from 'react-native-deepar';
+import { Camera } from 'react-native-deepar';
 
 // ..
 
@@ -182,7 +183,7 @@ A permission status can have the following values:
 Use the request functions to prompt the user to give your app permission to use the Camera or Microphone.
 
 ```jsx
-import {Camera} from 'react-native-deepar';
+import { Camera } from 'react-native-deepar';
 
 // ..
 
@@ -249,8 +250,8 @@ RNFetchBlob.config({
 Make registration to DeepAR and get an API key from [Developer Panel](https://developer.deepar.ai/).
 
 ```tsx
-import React, {useRef} from 'react';
-import DeepAR, {IDeepARHandle} from 'react-native-deepar';
+import React, { useRef } from 'react';
+import DeepAR, { IDeepARHandle } from 'react-native-deepar';
 
 const App = () => {
   const deepARRef = useRef<IDeepARHandle>(null);
@@ -259,7 +260,7 @@ const App = () => {
     <DeepAR
       ref={deepARRef}
       apiKey="your-api-key"
-      style={{flex: 1}}
+      style={{ flex: 1 }}
       onInitialized={() => {
         // ..
       }}
@@ -353,7 +354,7 @@ For more details about changeParameter API read this article [here](https://help
 ### Camera Module
 
 ```tsx
-import {Camera} from 'react-native-deepar';
+import { Camera } from 'react-native-deepar';
 ```
 
 | Method                        | Params                      | Returns                                  | Description                                                                                                                                                                                                                                |
@@ -379,7 +380,7 @@ There is a filter called `Background` from [Free Filter Pack](https://docs.deepa
 Switch the `Background` effect and apply new background image like below:
 
 ```tsx
-import {TextureSourceTypes} from 'react-native-deepar';
+import { TextureSourceTypes } from 'react-native-deepar';
 import RNFetchBlob from 'rn-fetch-blob';
 
 RNFetchBlob.config({})

@@ -80,6 +80,13 @@
 - (void)startCamera;
 
 /**
+ * @brief Starts camera preview using <a href="https://developer.apple.com/documentation/avfoundation?language=objc">AVFoundation</a>. Allows to start microphone as well.
+ * @details Checks camera permissions and asks if none has been given. Additionally, checks for microphone permissions if specified. If DeepAR started in rendering mode, it will render camera frames to the @link ARView @endlink.
+ * @param BOOL audio If set to true, camera won't need to reinitialize when starting video recording.
+ */
+- (void)startCameraWithAudio:(BOOL)audio;
+
+/**
  * @brief Stops camera preview.
  */
 - (void)stopCamera;

@@ -210,6 +210,28 @@ typedef enum {
 } TouchType;
 
 /**
+ * @brief Possible variable types.
+ */
+typedef enum {
+    /**
+     * @brief Bool variable type.
+     */
+    BOOLEAN = 0,
+    /**
+     * @brief Integer variable type.
+     */
+    INT = 1,
+    /**
+     * @brief Double variable type.
+     */
+    DOUBLE = 2,
+    /**
+     * @brief String variable type.
+     */
+    STRING = 3
+} VarType;
+
+/**
  * @brief Contains information about the current location and status of the started touch.
  */
 typedef struct {
@@ -415,6 +437,12 @@ typedef struct {
  * @brief The audio compression settings.
  */
 @property (nonatomic, strong) NSDictionary* audioCompressionSettings;
+
+/**
+ * @brief The DeepAR SDK version number.
+ * @return DeepAR SDK version number string.
+ */
++ (NSString*) sdkVersion;
 
 /**
  * @brief Set the license key for your app.
@@ -837,6 +865,217 @@ typedef struct {
  * @param params @link FaceTrackingInitParameters @endlink
  */
 - (void)setFaceTrackingInitParameters:(FaceTrackingInitParameters)params;
+
+/**
+ * @brief Check if variable with the given name is already created in the specified effect.
+ * @param NSString* name The variable name.
+ * @param NSString* slot The slot of the effect in which to search the variable.
+ * @return true The variable is already created.
+ * @return false The variable is not created.
+ */
+- (bool)hasVar:(NSString*)name slot:(NSString*) slot;
+
+/**
+ * @brief Check if variable with the given name is already created in at least one effect.
+ * @param NSString* name The variable name.
+ * @return true The variable is already created.
+ * @return false The variable is not created.
+ */
+- (bool)hasVar:(NSString*)name;
+
+/**
+ * @brief Get the type of the variable with the given name in the specified effect.
+ * @param NSString* name The variable name.
+ * @param NSString* slot The slot of the effect in which to search the variable.
+ * @throw NSException Variable with the specified name does not exist.
+ * @return The variable type. Supported types are: boolean, int, double and string.
+ */
+- (VarType)getVarType:(NSString*)name slot:(NSString*) slot;
+
+/**
+ * @brief Get the type of the variable with the given name.
+ *      The variable is searched in all effects.
+ * @param NSString* name The variable name.
+ * @throw NSException Variable with the specified name does not exist.
+ * @return The variable type. Supported types are: boolean, int, double and string.
+ */
+- (VarType)getVarType:(NSString*)name;
+
+/**
+ * @brief Get boolean variable with the given name.
+ * @param NSString* name The variable name.
+ * @param NSString* slot The slot of the effect in which to search the variable.
+ * @throw NSException Variable with the specified name does not exist or is not a boolean.
+ * @return Value of the variable with the specified name.
+ */
+- (bool)getBoolVar:(NSString*)name slot:(NSString*) slot;
+
+/**
+ * @brieg Get boolean variable with the given name. The variable is searched in all effects.
+ * @param NSString* name The variable name.
+ * @throw NSException Variable with the specified name does not exist or is not a boolean.
+ * @return Value of the variable with the specified name.
+ */
+- (bool)getBoolVar:(NSString*)name;
+
+/**
+ * @brief Get integer variable with the given name.
+ * @param NSString* name The variable name.
+ * @param NSString* slot The slot of the effect in which to search the variable.
+ * @throw NSException Variable with the specified name does not exist or is not an int.
+ * @return Value of the variable with the specified name.
+ */
+- (int)getIntVar:(NSString*)name slot:(NSString*) slot;
+
+/**
+ * @brief Get integer variable with the given name. The variable is searched in all effects.
+ * @param NSString* name The variable name.
+ * @throw NSException Variable with the specified name does not exist or is not an int.
+ * @return Value of the variable with the specified name.
+ */
+- (int)getIntVar:(NSString*)name;
+
+/**
+ * @brief Get double variable with the given name.
+ * @param NSString* name The variable name.
+ * @param NSString* slot The slot of the effect in which to search the variable.
+ * @throw NSException Variable with the specified name does not exist or is not a double.
+ * @return Value of the variable with the specified name.
+ */
+- (double)getDoubleVar:(NSString*)name slot:(NSString*) slot;
+
+/**
+ * @brief Get double variable with the given name. The variable is searched in all effects.
+ * @param NSString* name The variable name.
+ * @throw NSException Variable with the specified name does not exist or is not a double.
+ * @return Value of the variable with the specified name.
+ */
+- (double)getDoubleVar:(NSString*)name;
+
+/**
+ * @brief Get string variable with the given name.
+ * @param NSString* name The variable name.
+ * @param NSString* slot The slot of the effect in which to search the variable.
+ * @throw NSException Variable with the specified name does not exist or is not a string.
+ * @return Value of the variable with the specified name.
+ */
+- (NSString*)getStringVar:(NSString*)name slot:(NSString*) slot;
+
+/**
+ * @brief Get string variable with the given name. The variable is searched in all effects.
+ * @param NSString* name The variable name.
+ * @throw NSException Variable with the specified name does not exist or is not a string.
+ * @return Value of the variable with the specified name.
+ */
+- (NSString*)getStringVar:(NSString*)name;
+
+/**
+ * @brief Set the boolean variable wih the given name.
+ * @param NSString* name The variable name.
+ * @param NSString* slot The slot of the effect in which to search the variable.
+ * @param bool value Value to be set.
+ * @return YES The variable is created.
+ * @return NO The variable with the given name already exists and the new value is set.
+ */
+- (bool)setBoolVar:(NSString*)name value:(bool)value slot:(NSString*) slot;
+
+/**
+ * @brief Set the boolean variable with the given name. The variable is set globally, for all effects.
+ * @param NSString* name The variable name.
+ * @param bool value Value to be set.
+ * @return YES The variable is created.
+ * @return NO The variable with the given name already exists and the new value is set.
+ */
+- (bool)setBoolVar:(NSString*)name value:(bool)value;
+
+/**
+ * @brief Set the int variable wih the given name.
+ * @param NSString* name The variable name.
+ * @param NSString* slot The slot of the effect in which to search the variable.
+ * @param int value Value to be set.
+ * @return YES The variable is created.
+ * @return NO The variable with the given name already exists and the new value is set.
+ */
+- (bool)setIntVar:(NSString*)name value:(int)value slot:(NSString*) slot;
+
+/**
+ * @brief Set the int variable with the given name. The variable is set globally, for all effects.
+ * @param NSString* name The variable name.
+ * @param int value Value to be set.
+ * @return YES The variable is created.
+ * @return NO The variable with the given name already exists and the new value is set.
+ */
+- (bool)setIntVar:(NSString*)name value:(int)value;
+
+/**
+ * @brief Set the double variable wih the given name.
+ * @param NSString* name The variable name.
+ * @param NSString* slot The slot of the effect in which to search the variable.
+ * @param double value Value to be set.
+ * @return YES The variable is created.
+ * @return NO The variable with the given name already exists and the new value is set.
+ */
+- (bool)setDoubleVar:(NSString*)name value:(double)value slot:(NSString*) slot;
+
+/**
+ * @brief Set the double variable with the given name. The variable is set globally, for all effects.
+ * @param NSString* name The variable name.
+ * @param double value Value to be set.
+ * @return YES The variable is created.
+ * @return NO The variable with the given name already exists and the new value is set.
+ */
+- (bool)setDoubleVar:(NSString*)name value:(double)value;
+
+/**
+ * @brief Set the string variable wih the given name.
+ * @param NSString* name The variable name.
+ * @param NSString* slot The slot of the effect in which to search the variable.
+ * @param NSString* value Value to be set.
+ * @return YES The variable is created.
+ * @return NO The variable with the given name already exists and the new value is set.
+ */
+- (bool)setStringVar:(NSString*)name value:(NSString*)value slot:(NSString*) slot;
+
+/**
+ * @brief Set the string variable with the given name. The variable is set globally, for all effects.
+ * @param NSString* name The variable name.
+ * @param NSString* value Value to be set.
+ * @return YES The variable is created.
+ * @return NO The variable with the given name already exists and the new value is set.
+ */
+- (bool)setStringVar:(NSString*)name value:(NSString*)value;
+
+/**
+ * @brief Delete the variable with the given name.
+ * @param NSString* name The variable name.
+ * @param NSString* slot The slot of the effect in which to search the variable.
+ * @return YES The variable is deleted.
+ * @return NO The variable is not deleted.
+ */
+- (bool)deleteVar:(NSString*)name slot:(NSString*) slot;
+
+/**
+ * @brief Delete the variable with the given name. The variable is searched in all effects.
+ * @param NSString* name The variable name.
+ * @return YES The variable is deleted.
+ * @return NO The variable is not deleted.
+ */
+- (bool)deleteVar:(NSString*)name;
+
+/**
+ * @brief Clear all variables or variables from the specified effect.
+ * @param NSString* slot The ID of the effect in which to search the variable.
+ * @return YES One of more variables are deleted.
+ * @return NO No variables are deleted
+ */
+- (bool)clearVars:(NSString*)slot;
+
+/**
+ * @brief Clear all variables.
+ * @return YES One of more variables are deleted.
+ * @return NO No variables are deleted
+ */
+- (bool)clearVars;
 
 @end
 
